@@ -1,5 +1,8 @@
 package one.service.impl;
 
-public class BoardServiceImpl {
+
+import one.service.face.BoardService;
+
+public class BoardServiceImpl implements BoardService {
 
 }

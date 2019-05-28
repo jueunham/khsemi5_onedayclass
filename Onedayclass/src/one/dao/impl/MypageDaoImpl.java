@@ -1,5 +1,8 @@
 package one.dao.impl;
 
-public class MypageDaoImpl {
+import one.dao.face.MypageDao;
+
+public class MypageDaoImpl implements MypageDao{
+
 
 }

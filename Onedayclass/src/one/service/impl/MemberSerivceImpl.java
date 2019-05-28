@@ -1,5 +1,8 @@
 package one.service.impl;
 
-public class MemberSerivceImpl {
+
+import one.service.face.MemberService;
+
+public class MemberSerivceImpl implements MemberService {
 
 }

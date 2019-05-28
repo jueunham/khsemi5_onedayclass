@@ -1,5 +1,9 @@
 package one.service.impl;
 
-public class ManagerServiceImpl {
+
+import one.service.face.ManagerService;
+
+public class ManagerServiceImpl implements ManagerService {
+
 
 }

@@ -1,5 +1,7 @@
 package one.service.impl;
 
-public class ClassServiceImpl {
+import one.service.face.ClassService;
+
+public class ClassServiceImpl implements ClassService {
 
 }

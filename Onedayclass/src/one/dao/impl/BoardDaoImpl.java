@@ -1,5 +1,5 @@
 package one.dao.impl;
 
-public class BoardDaoImpl {
+import one.dao.face.BoardDao;
 
-}
+public class BoardDaoImpl implements BoardDao {

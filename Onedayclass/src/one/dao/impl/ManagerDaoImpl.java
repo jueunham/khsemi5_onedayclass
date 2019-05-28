@@ -1,5 +1,8 @@
 package one.dao.impl;
 
-public class ManagerDaoImpl {
+import one.dao.face.ManagerDao;
+
+public class ManagerDaoImpl implements ManagerDao {
+
 
 }

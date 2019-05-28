@@ -1,5 +1,7 @@
 package one.dao.impl;
 
-public class MemberDaoImpl {
+import one.dao.face.MemberDao;
+
+public class MemberDaoImpl implements MemberDao {
 
 }

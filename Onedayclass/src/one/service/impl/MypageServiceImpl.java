@@ -1,5 +1,7 @@
 package one.service.impl;
 
-public class MypageServiceImpl {
+import one.service.face.MypageService;
+
+public class MypageServiceImpl implements MypageService {
 
 }
