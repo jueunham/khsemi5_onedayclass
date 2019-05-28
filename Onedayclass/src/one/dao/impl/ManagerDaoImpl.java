@@ -4,4 +4,5 @@ import one.dao.face.ManagerDao;
 
 public class ManagerDaoImpl implements ManagerDao {
 
+
 }
