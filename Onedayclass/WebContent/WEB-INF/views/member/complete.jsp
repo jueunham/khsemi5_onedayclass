@@ -15,4 +15,5 @@
 	메인으로
 	</button>
 	</div><br><br>
+
 <c:import url="/WEB-INF/views/layout/footer.jsp" />

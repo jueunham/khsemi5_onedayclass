@@ -96,4 +96,5 @@
 	</div>
 	
 </form>
+
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
