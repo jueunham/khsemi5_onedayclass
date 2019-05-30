@@ -36,8 +36,8 @@ margin: 0 auto;
 </div>
 <br>
 <div class="center">
-<button type="button" class="btn btn-outline-secondary" onclick="/WEB-INF/views/mypage/user/updateinfo.jsp">정보수정</button>
-<button type="button" class="btn btn-outline-secondary" onclick="/main">로그아웃</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/updateinfo'">정보수정</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">로그아웃</button>
 </div>
 </form>
 <ul class="nav flex-column">
@@ -53,7 +53,7 @@ margin: 0 auto;
 </ul>
 <div class="center">
 <br>
-<button type="button" class="btn btn-outline-secondary" onclick="/main">회원탈퇴</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">회원탈퇴</button>
 </div>
 </div>
 </div>

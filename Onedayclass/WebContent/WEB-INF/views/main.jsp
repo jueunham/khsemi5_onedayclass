@@ -6,7 +6,5 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
-
-<c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
-
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
+
