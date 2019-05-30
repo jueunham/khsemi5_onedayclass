@@ -60,9 +60,9 @@
 	</div>
 
 	<div style="text-align: center">
-		<a href="idSerch.jsp">아이디 찾기</a>&nbsp;&nbsp;&nbsp;
-		<a href="pwSerch1.jsp">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;
-		<a href="join.jsp">회원가입</a>
+		<a href="/member/idSerch">아이디 찾기</a>&nbsp;&nbsp;&nbsp;
+		<a href="/member/pwSerch1">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;
+		<a href="/member/join">회원가입</a>
 	</div>
 	<br>
 
