@@ -18,11 +18,6 @@
 			}
 		})
 
-		//로그인 버튼 클릭 시 form submit
-		$("#btnJoin").click(function() {
-			$(this).parents("form").submit();
-		})
-
 	});
 </script>
 
@@ -43,7 +38,7 @@
 	</div>
 
 	<div class="form-group">
-		<div style="text-align: center; margin-left: 85px;">
+		<div style="text-align: center; margin-left: 95px;">
 			<input type="text" id="username" name="username" placeholder=" Name" />
 			<button type="button" id="btnLogin" class="btn btn-secondary">실명인증</button>
 		</div>
@@ -71,18 +66,25 @@
 
 	<div class="form-group">
 		<div style="text-align: center">
-			<input type="text" id="phonenumber" name="phonenumber"
-				placeholder=" Phone Number" />
+			<select name="ph1">
+       <option value="010">010</option>
+       <option value="011">011</option>
+       <option value="016">016</option>
+       <option value="017">017</option>
+       <option value="019">019</option>
+     </select> -
+   <input type="text" size="4" maxlength="4" name="ph2"> -
+   <input type="text" size="4" maxlength="4" name="ph3">
 		</div>
 	</div>
 
 	<div style="text-align: center">
 	<input type = 'checkbox' value = 'termofservice' />
 	<span>
-	<a href="/info/termOfService.jsp">
+	<a href="/info/termOfService">
 	이용약관 </a></span>및 
 	<span>
-	<a href="/info/privacyPolicy.jsp">
+	<a href="/info/privacyPolicy">
 	개인정보 취급방침</a></span>
 	</div><br>
 	
@@ -96,5 +98,4 @@
 	</div>
 	
 </form>
-
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
