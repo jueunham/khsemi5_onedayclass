@@ -19,5 +19,5 @@ public class BannerManagementController extends HttpServlet {
 
 		//VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/manager/bannerManage.jsp").forward(req, resp);
-	}
+     	}
 }

@@ -23,7 +23,7 @@ public class ClassManagementController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		//클래스 목록조회
+	 	 //클래스 목록조회
 		List list = classService.getList();
 				
 		//MODEL로 조회 결과 넣기

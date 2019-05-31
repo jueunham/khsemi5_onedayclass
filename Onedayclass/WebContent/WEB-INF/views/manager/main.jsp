@@ -6,7 +6,7 @@
 
 <style type="text/css">
 
-div {
+ div {
         margin: 10px 0px;
         text-align: center;
 

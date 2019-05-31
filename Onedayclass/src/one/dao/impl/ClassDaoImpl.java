@@ -9,7 +9,7 @@ import java.util.List;
 
 import one.dao.face.ClassDao;
 import one.dbutil.DBConn;
-import one.dto.Dayclass;
+import one.dto.DayClass;
 
 
 public class ClassDaoImpl implements ClassDao {
@@ -34,7 +34,7 @@ public class ClassDaoImpl implements ClassDao {
 						rs = ps.executeQuery();
 						
 						while( rs.next() ) {
-							Dayclass dayclass = new Dayclass();
+							DayClass dayclass = new DayClass();
 							
 							dayclass.setClassnum( rs.getInt("classnum") );
 							dayclass.setClassname( rs.getString("classname") );

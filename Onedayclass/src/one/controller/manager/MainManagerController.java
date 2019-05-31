@@ -16,6 +16,6 @@ public class MainManagerController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/manager/main.jsp").forward(req, resp);	
+		 req.getRequestDispatcher("/WEB-INF/views/manager/main.jsp").forward(req, resp);	
 	}
 }

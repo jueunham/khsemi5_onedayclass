@@ -11,7 +11,7 @@ public class ClassServiceImpl implements ClassService {
 	//ClassDao 객체
 	private ClassDao classDao = new ClassDaoImpl();
 
-	@Override
+	 @Override
 	public List getList() {
 		return classDao.selectAll();
 	}

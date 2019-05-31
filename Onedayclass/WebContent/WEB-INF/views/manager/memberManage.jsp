@@ -6,7 +6,7 @@
 
 <style type="text/css">
        
-	th, td{
+	 th, td{
 		border:1px solid #bcbcbc;
 		}
 

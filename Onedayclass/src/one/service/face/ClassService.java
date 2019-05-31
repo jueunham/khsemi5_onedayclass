@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ClassService {
 
-	public List getList();
+ 	 public List getList();
 }

@@ -6,6 +6,5 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
-메인페이지
-
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
+

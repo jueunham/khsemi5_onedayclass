@@ -17,7 +17,7 @@ import one.service.impl.MemberSerivceImpl;
 public class MemberManagementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//memberService 객체
+	 //memberService 객체
 	private MemberService memberService = new MemberSerivceImpl();
 	
 	@Override

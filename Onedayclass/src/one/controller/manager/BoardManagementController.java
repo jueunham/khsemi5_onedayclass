@@ -20,5 +20,5 @@ public class BoardManagementController extends HttpServlet {
 	
 		//VIEW 지정
 		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage.jsp").forward(req, resp);
-	}
+	 }
 }
