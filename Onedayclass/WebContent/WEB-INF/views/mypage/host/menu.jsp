@@ -36,19 +36,19 @@ margin: 0 auto;
 </div>
 <br>
 <div class="center">
-<button type="button" class="btn btn-outline-secondary" onclick="location.href='/updateinfo'">정보수정</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/mypage/host/upinfo'">정보수정</button>
 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">로그아웃</button>
 </div>
 </form>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link active" href="/WEB-INF/views/mypage/user/myclass.jsp">클래스 등록</a>
+    <a class="nav-link active" href="/mypage/host/upload">클래스 등록</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/WEB-INF/views/mypage/user/wishclass.jsp">마이 클래스</a>
+    <a class="nav-link" href="/mypage/host/upclass">마이 클래스</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/WEB-INF/views/mypage/user/writtenlist.jsp">내가 작성한 글</a>
+    <a class="nav-link" href="/mypage/host/written">내가 작성한 글</a>
   </li>
 </ul>
 <div class="center">

@@ -69,7 +69,7 @@ i {
 <div class="container">
 
 <div class="row">
-<c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
+<c:import url="/WEB-INF/views/mypage/host/menu.jsp" />
 
 <div class="col order-1">
 
