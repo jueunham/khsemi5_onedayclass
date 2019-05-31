@@ -16,4 +16,7 @@ public class HostClassUploadController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/views/mypage/host/uploadclass.jsp").forward(req, resp);
 	}
+	
+	
+	
 }

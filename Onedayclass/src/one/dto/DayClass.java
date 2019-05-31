@@ -2,7 +2,7 @@ package one.dto;
 
 import java.sql.Date;
 
-public class Class {
+public class DayClass {
 
 	private int classNum;
 	private String className;
