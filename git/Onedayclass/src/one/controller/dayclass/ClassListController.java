@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ClassDetailController
+ * Servlet implementation class ClassListController
  */
-@WebServlet("/classdetail")
-public class ClassDetailController extends HttpServlet {
+@WebServlet("/classlist")
+public class ClassListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.getRequestDispatcher("/WEB-INF/views/class/detail.jsp").forward(req, resp);
-		
-		
-	}
-	
+			req.getRequestDispatcher("/WEB-INF/views/class/list.jsp").forward(req, resp);
+		}
 	
 	
 	
