@@ -14,7 +14,7 @@
 <div class="row">
 <c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
 
-<style>
+<style type="text/css">
 
 .list-group-item {
   user-select: none;
@@ -51,13 +51,13 @@ label {
 	max-width: 110px;	
 	text-align: left;
 }
-</style>
 
-<style type="text/css">
+
 i {
 	font-size:50px;
 }
 </style>
+
 
 <div class="col order-1">
 <div class="container">
