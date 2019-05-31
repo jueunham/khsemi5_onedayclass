@@ -2,65 +2,57 @@ package one.dto;
 
 public class Member {
 
-	private int userNum;
-	private String userName;
+	private int usernum;
+	private String username;
 	private String userid;
 	private String userpw;
-	private int userPhone;
-	private String userLevel;
+	private int userphone;
+	private String userlevel;
 	
+
 	@Override
 	public String toString() {
-		return "Member [userNum=" + userNum + ", userName=" + userName + ", userid=" + userid + ", userpw=" + userpw
-				+ ", userPhone=" + userPhone + ", userLevel=" + userLevel + "]";
+		return "Member [usernum=" + usernum + ", username=" + username + ", userid=" + userid + ", userpw=" + userpw
+				+ ", userphone=" + userphone + ", userlevel=" + userlevel + "]";
 	}
-
-	public int getUserNum() {
-		return userNum;
+	
+	
+	public int getUsernum() {
+		return usernum;
 	}
-
-	public void setUserNum(int userNum) {
-		this.userNum = userNum;
+	public void setUsernum(int usernum) {
+		this.usernum = usernum;
 	}
-
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
 	public String getUserid() {
 		return userid;
 	}
-
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-
 	public String getUserpw() {
 		return userpw;
 	}
-
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
-
-	public int getUserPhone() {
-		return userPhone;
+	public int getUserphone() {
+		return userphone;
 	}
-
-	public void setUserPhone(int userPhone) {
-		this.userPhone = userPhone;
+	public void setUserphone(int userphone) {
+		this.userphone = userphone;
 	}
-
-	public String getUserLevel() {
-		return userLevel;
+	public String getUserlevel() {
+		return userlevel;
 	}
-
-	public void setUserLevel(String userLevel) {
-		this.userLevel = userLevel;
+	public void setUserlevel(String userlevel) {
+		this.userlevel = userlevel;
 	}
 	
+
 }

@@ -1,5 +1,7 @@
 package one.service.impl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import one.dao.face.MemberDao;
@@ -40,12 +42,12 @@ public class MemberServiceImpl implements MemberService {
 	         userPhone = Integer.parseInt(param);
 	      }
 		
-		member.setUserNum(userNum);
-		member.setUserName(req.getParameter("userName"));
+		member.setUsernum(userNum);
+		member.setUsername(req.getParameter("userName"));
 		member.setUserid(req.getParameter("userid"));
 		member.setUserpw(req.getParameter("userpw"));
-		member.setUserPhone(userPhone);
-		member.setUserLevel(req.getParameter("userLevel"));
+		member.setUserphone(userPhone);
+		member.setUserlevel(req.getParameter("userLevel"));
 		
 		return member;
 	}
@@ -73,6 +75,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void join(Member member) {
 		memberDao.insert(member);
+	}
+
+	@Override
+	public List getList() {
+		return memberDao.selectAll();
 	}
 
 }

@@ -1,8 +1,14 @@
 package one.dao.face;
 
+
+import java.util.List;
+
 import one.dto.Member;
 
 public interface MemberDao {
+
+
+	public List selectAll();
 
 	/**
 	 * userid와 userpw가 일치하는 회원 수 조회
