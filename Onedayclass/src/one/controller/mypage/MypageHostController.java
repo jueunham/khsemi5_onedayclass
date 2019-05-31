@@ -19,4 +19,10 @@ public class MypageHostController extends HttpServlet {
 	
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//VIEW 지정
+		req.getRequestDispatcher("/WEB-INF/views/mypage/host/updateclass.jsp").forward(req, resp);
+				
+	}
 }

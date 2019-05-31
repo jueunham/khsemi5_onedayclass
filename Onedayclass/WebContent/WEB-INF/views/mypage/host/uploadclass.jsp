@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 <script type="text/javascript" src="code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -165,4 +166,5 @@ placeholder="상세한 클래스 소개로 수강생들에게 자신의 클래�
 <br>
 <br><br>
 <br>
+
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
