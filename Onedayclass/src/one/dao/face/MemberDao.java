@@ -1,5 +1,7 @@
 package one.dao.face;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import one.dto.Member;
 
 public interface MemberDao {
@@ -27,6 +29,6 @@ public interface MemberDao {
 	 */
 	public void insert(Member member);
 	
-	
+	public List selectAll();
 	
 }

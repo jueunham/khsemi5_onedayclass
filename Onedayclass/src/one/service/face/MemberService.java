@@ -1,10 +1,14 @@
 package one.service.face;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import one.dto.Member;
 
 public interface MemberService {
+
+	public List getList();
 
 	/**
 	 * 로그인 정보 파싱
@@ -44,5 +48,7 @@ public interface MemberService {
 	 * @param member - 회원가입 정보 객체
 	 */
 	public void join(Member member);
-	
+
+	List getList(Member member);
+
 }

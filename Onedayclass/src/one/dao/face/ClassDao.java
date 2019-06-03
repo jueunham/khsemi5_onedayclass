@@ -1,5 +1,7 @@
 package one.dao.face;
 
-public interface ClassDao {
+import java.util.List;
 
+public interface ClassDao {
+	public List selectAll();
 }

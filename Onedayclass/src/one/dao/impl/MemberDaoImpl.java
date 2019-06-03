@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import one.dao.face.MemberDao;
 import one.dbutil.DBConn;
 import one.dto.Member;
@@ -116,10 +117,10 @@ public class MemberDaoImpl implements MemberDao {
 		try {
 			//DB작업
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, member.getUserName());
+			ps.setString(1, member.getUsername());
 			ps.setString(2, member.getUserid());
 			ps.setString(3, member.getUserpw());
-			ps.setInt(4, member.getUserPhone());
+			ps.setInt(4, member.getUserphone());
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -135,5 +136,6 @@ public class MemberDaoImpl implements MemberDao {
 		}
 		
 	}
+
 
 }
