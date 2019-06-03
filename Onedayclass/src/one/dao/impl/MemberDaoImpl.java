@@ -110,18 +110,16 @@ public class MemberDaoImpl implements MemberDao {
 		
 		//쿼리작성
 		String sql = "";
-		sql += "INSERT INTO member ( userName, userid, userPw, userPhone)";
-		sql += " VALUES( ?, ?, ?, ? )";
+		sql += "INSERT INTO member ( userNum, userName, userid, userPw, userPhone, userLevel)";
+		sql += " VALUES( member_seq.nextval, ?, ?, ?, ?, '$type' )";
 		
 		try {
 			//DB작업
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, member.getUserNum());
-			ps.setString(2, member.getUserName());
-			ps.setString(3, member.getUserid());
-			ps.setString(4, member.getUserpw());
-			ps.setInt(5, member.getUserPhone());
-			ps.setString(6, member.getUserLevel());
+			ps.setString(1, member.getUserName());
+			ps.setString(2, member.getUserid());
+			ps.setString(3, member.getUserpw());
+			ps.setInt(4, member.getUserPhone());
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
