@@ -47,11 +47,12 @@
 			history.go(-1);
 		})
 		
-		var typeValue = $('input:radio[name="type"]:checked').val()
+		
+		
 	});
 </script>
 
-<form action="/member/join" method="post" class="form-horizontal">
+<form action="/member/join" method="post" class="form-horizontal" name="join">
 <div class = "show1">
 	<br> <br> <br>
 	<div style="text-align: center">
@@ -59,12 +60,6 @@
 		<span style="font-weight: bold"><h3>회원가입</h3></span><br>
 		<span style="color: red">회원가입</span><span style="font-weight: bold">을 하시면 Oneday class의</span><br> <span style="font-weight: bold">모든</span>
 		<span style="color: red">서비스</span><span style="font-weight: bold">를 이용하실 수 있습니다</span><br><br>
-
-
-		<div style="text-align: center">
-			<input type="radio" name="type" value="HOST" checked/> 호스트
-			<input type="radio" name="type" value="USER" /> 게스트 <br>
-		</div>
 		
 	</div>
 
@@ -108,6 +103,11 @@
    <input type="text" size="4" maxlength="4" name="ph3">
 		</div>
 	</div>
+
+		<div style="text-align: center">
+			<input type="radio" name="userlevel" value="HOST" checked/> 호스트
+			<input type="radio" name="userlevel" value="USER" /> 게스트 <br>
+		</div><br><br>
 
 	<div style="text-align: center">
 	<input type = 'checkbox' value = 'termofservice' />

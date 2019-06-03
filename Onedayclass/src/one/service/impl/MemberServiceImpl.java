@@ -1,5 +1,6 @@
 package one.service.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,12 +21,18 @@ public class MemberServiceImpl implements MemberService {
       
       member.setUserid(req.getParameter("userid"));
       member.setUserpw(req.getParameter("userpw"));
-      
+      member.setUserlevel(req.getParameter("userlevel"));
       return member;
    }
 
    @Override
    public Member getJoinMember(HttpServletRequest req) {
+	   try {
+		req.setCharacterEncoding("UTF-8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
       Member member = new Member();
       
          // 전달파라미터 boardno 파싱
@@ -34,20 +41,29 @@ public class MemberServiceImpl implements MemberService {
          if( param!=null && !"".equals(param) ) {
             userNum = Integer.parseInt(param);
          }
+
+         // 전달파라미터 boardno 파싱
+         String ph1 = req.getParameter("ph1");
+         String ph2 = req.getParameter("ph2");
+         String ph3 = req.getParameter("ph3");
+         String userphone = ph1+ph2+ph3;
+         member.setUserphone(userphone);
+
+         
          
          // 전달파라미터 boardno 파싱
-         param = req.getParameter("userPhone");
-         int userPhone = 0;
-         if( param!=null && !"".equals(param) ) {
-            userPhone = Integer.parseInt(param);
-         }
+//         param = req.getParameter("userPhone");
+//         int userPhone = 0;
+//         if( param!=null && !"".equals(param) ) {
+//            userPhone = Integer.parseInt(param);
+//         }
       
       member.setUsernum(userNum);
-      member.setUsername(req.getParameter("userName"));
+      member.setUsername(req.getParameter("username"));
       member.setUserid(req.getParameter("userid"));
       member.setUserpw(req.getParameter("userpw"));
-      member.setUserphone(userPhone);
-      member.setUserlevel(req.getParameter("userLevel"));
+  
+      member.setUserlevel(req.getParameter("userlevel"));
       
       return member;
    }
