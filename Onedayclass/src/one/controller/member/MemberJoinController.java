@@ -16,30 +16,32 @@ import one.service.impl.MemberServiceImpl;
 public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//MemberService 객체
+	// MemberService 객체
 	private MemberService memberService = new MemberServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(req, resp);		
-
+		
+		//view
+		req.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(req, resp);
+		
 	}
-	
+
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		System.out.println("join POST");
+		
 		// 요청파라미터 처리
 		Member param = memberService.getJoinMember(req);
-		
+
 		// 회원가입
 		memberService.join(param);
-		
+
 		// 메인으로 리다이렉션
 		resp.sendRedirect("/main");
-		
+
 	}
-	
+
 }

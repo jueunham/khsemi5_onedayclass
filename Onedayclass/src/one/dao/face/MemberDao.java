@@ -1,14 +1,10 @@
 package one.dao.face;
 
-
-import java.util.List;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import one.dto.Member;
 
 public interface MemberDao {
-
-
-	public List selectAll();
 
 	/**
 	 * userid와 userpw가 일치하는 회원 수 조회
@@ -33,6 +29,6 @@ public interface MemberDao {
 	 */
 	public void insert(Member member);
 	
-	
+	public List selectAll();
 	
 }

@@ -28,14 +28,14 @@ public class MemberServiceImpl implements MemberService {
 	public Member getJoinMember(HttpServletRequest req) {
 		Member member = new Member();
 		
-	      // 전달파라미터 boardno 파싱
+	      // 전달파라미터 userno 파싱
 	      String param = req.getParameter("userNum");
 	      int userNum = 0;
 	      if( param!=null && !"".equals(param) ) {
 	         userNum = Integer.parseInt(param);
 	      }
 	      
-	      // 전달파라미터 boardno 파싱
+	      // 전달파라미터 userphone 파싱
 	      param = req.getParameter("userPhone");
 	      int userPhone = 0;
 	      if( param!=null && !"".equals(param) ) {
@@ -75,11 +75,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void join(Member member) {
 		memberDao.insert(member);
-	}
-
-	@Override
-	public List getList() {
-		return memberDao.selectAll();
 	}
 
 }

@@ -49,4 +49,6 @@ public interface MemberService {
 	 */
 	public void join(Member member);
 
+	List getList(Member member);
+
 }
