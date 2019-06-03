@@ -16,7 +16,6 @@ public class Board {
 		return "Board [boardno=" + boardno + ", writedate=" + writedate + ", title=" + title + ", content=" + content
 				+ ", usernum=" + usernum + ", boardtypenum=" + boardtypenum + "]";
 	}
-	
 	public int getBoardno() {
 		return boardno;
 	}
@@ -53,12 +52,9 @@ public class Board {
 	public void setBoardtypenum(int boardtypenum) {
 		this.boardtypenum = boardtypenum;
 	}
-	
-	
+
 	
 }
-
-
 
 
 

@@ -29,6 +29,6 @@ public class BoardManagementController extends HttpServlet {
 		req.setAttribute("boardlist", list);
 	
 		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage/boardManage.jsp").forward(req, resp);
 	 }
 }
