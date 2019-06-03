@@ -46,7 +46,7 @@
 
 
 <br><br>
-<table class="float-center">
+<table class="float-center table table-bordered">
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
 			<th style="width:20%;">클래스 번호</th>

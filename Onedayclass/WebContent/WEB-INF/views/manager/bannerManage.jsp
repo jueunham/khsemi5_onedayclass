@@ -26,19 +26,19 @@
 </style>
 
 <div align="center">
-<h2>인기클래스배너관리</h2>
+<h2>인기클래스 배너관리</h2>
 <hr>
 </div>
 
 <div class="container">
 
-<table >
+<table class = "table table-bordered" >
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
-			<th style="width:20%;">클래스번호</th>
-			<th style="width:20%;">클래스명</th>
-			<th style="width:20%;">호스트</th>  <!-- 회원번호 불러오기 -->
-			<th style="width:10%;">선택</th>
+			<th style="width:10%;">클래스번호</th>
+			<th style="width:25%;">클래스명</th>
+			<th style="width:10%;">호스트</th>  <!-- 회원번호 불러오기 -->
+			<th style="width:5%;">선택</th>
 		</tr>
 	</thead>
 	
@@ -54,13 +54,13 @@
 	</tbody>
 </table>
 
-<table >
+<table class = "table table-bordered" >
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
-			<th style="width:20%;">클래스번호</th>
-			<th style="width:20%;">클래스명</th>
-			<th style="width:20%;">호스트</th>  <!-- 회원번호 불러오기 -->
-			<th style="width:10%;">선택</th>
+			<th style="width:10%;">클래스번호</th>
+			<th style="width:25%;">클래스명</th>
+			<th style="width:10%;">호스트</th>  <!-- 회원번호 불러오기 -->
+			<th style="width:5%;">선택</th>
 		</tr>
 	</thead>
 	
