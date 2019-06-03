@@ -36,6 +36,7 @@ public class MemberJoinController extends HttpServlet {
 		// 요청파라미터 처리
 		Member param = memberService.getJoinMember(req);
 
+		System.out.println(param);
 		// 회원가입
 		memberService.join(param);
 

@@ -22,7 +22,7 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int selectCntMemberByUseridAndUserpw(Member member) {
 
-		if( member.getUserid() == null || member.getUserpw() == null ) {
+		if( member.getUserid() == null || member.getUserpw() == null || member.getUserlevel() == null ) {
 			return -1;
 			
 		} 
@@ -33,13 +33,16 @@ public class MemberDaoImpl implements MemberDao {
 		sql += " WHERE 1=1";
 		sql += " AND userid = ?";
 		sql += " AND userpw = ?";
+		sql += " AND userlevel = ?";
 		
 		int cnt = -1;
+		
 		try {
 			//DB
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, member.getUserid());
 			ps.setString(2, member.getUserpw());
+			ps.setString(3, member.getUserlevel());
 			
 			rs = ps.executeQuery();
 			
@@ -113,7 +116,7 @@ public class MemberDaoImpl implements MemberDao {
 		//쿼리작성
 		String sql = "";
 		sql += "INSERT INTO member ( userNum, userName, userid, userPw, userPhone, userLevel)";
-		sql += " VALUES( member_seq.nextval, ?, ?, ?, ?, '$type' )";
+		sql += " VALUES( member_seq.nextval, ?, ?, ?, ?, ? )";
 		
 		try {
 			//DB작업
@@ -121,7 +124,8 @@ public class MemberDaoImpl implements MemberDao {
 			ps.setString(1, member.getUsername());
 			ps.setString(2, member.getUserid());
 			ps.setString(3, member.getUserpw());
-			ps.setInt(4, member.getUserphone());
+			ps.setString(4, member.getUserphone());
+			ps.setString(5, member.getUserlevel());
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -158,7 +162,7 @@ public class MemberDaoImpl implements MemberDao {
               member.setUsername( rs.getString("username") );
               member.setUserid( rs.getString("userid") );
               member.setUserpw( rs.getString("userpw") );
-              member.setUserphone( rs.getInt("userphone") );
+              member.setUserphone( rs.getString("userphone") );
               member.setUserlevel( rs.getString("userlevel") );
               
               list.add(member);
