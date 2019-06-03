@@ -10,14 +10,16 @@ public class DayClass {
 	private Date classday;
 	private String classtime;
 	private String classplace;
-	private int classrunningtime;
+	private String classprice;
+	private String classrunningtime;
 	private int usernum;
+	
 	
 	@Override
 	public String toString() {
-		return "Dayclass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
-				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace
-				+ ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
+		return "DayClass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
+				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace + ", classprice="
+				+ classprice + ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
 	}
 	
 	public int getClassnum() {
@@ -56,10 +58,16 @@ public class DayClass {
 	public void setClassplace(String classplace) {
 		this.classplace = classplace;
 	}
-	public int getClassrunningtime() {
+	public String getClassprice() {
+		return classprice;
+	}
+	public void setClassprice(String classprice) {
+		this.classprice = classprice;
+	}
+	public String getClassrunningtime() {
 		return classrunningtime;
 	}
-	public void setClassrunningtime(int classrunningtime) {
+	public void setClassrunningtime(String classrunningtime) {
 		this.classrunningtime = classrunningtime;
 	}
 	public int getUsernum() {
@@ -68,6 +76,7 @@ public class DayClass {
 	public void setUsernum(int usernum) {
 		this.usernum = usernum;
 	}
+	
 	
 
 }

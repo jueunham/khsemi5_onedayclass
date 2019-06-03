@@ -24,7 +24,7 @@ public class ClassDaoImpl implements ClassDao {
 		public List selectAll() {
 			//파일업로드 기록 조회쿼리
 					String sql = "";
-					sql+="SELECT classnum,classname,classcontent,classday,classtime,classplace,classrunningtime";
+					sql+="SELECT classnum,classname,classcontent,classday,classtime,classplace,classprice,classrunningtime,usernum";
 					sql+=" FROM dayclass";
 								
 					List list = new ArrayList();
@@ -42,8 +42,10 @@ public class ClassDaoImpl implements ClassDao {
 							dayclass.setClassday( rs.getDate("classday") );
 							dayclass.setClasstime(rs.getString("classtime"));
 							dayclass.setClassplace( rs.getString("classplace") );
-							dayclass.setClassrunningtime(rs.getInt("classrunningtime"));
+							dayclass.setClassprice(rs.getString("classprice"));
+							dayclass.setClassrunningtime(rs.getString("classrunningtime"));
 							dayclass.setUsernum(rs.getInt("usernum"));
+						
 							list.add(dayclass);
 						}
 
