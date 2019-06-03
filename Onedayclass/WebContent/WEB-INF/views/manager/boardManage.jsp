@@ -43,7 +43,7 @@
 </div>
 
 <br><br>
-<table >
+<table class = "table table-bordered">
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
 			<th style="width:20%;">게시판 분류</th>

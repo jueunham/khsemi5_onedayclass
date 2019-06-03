@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import one.service.face.MemberService;
-import one.service.impl.MemberSerivceImpl;
+import one.service.impl.MemberServiceImpl;
 
 
 @WebServlet("/admin/member")
@@ -18,7 +18,7 @@ public class MemberManagementController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	 //memberService 객체
-	private MemberService memberService = new MemberSerivceImpl();
+	private MemberService memberService = new MemberServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
