@@ -25,8 +25,7 @@ public class BoardDaoImpl implements BoardDao {
 		//파일업로드 기록 조회쿼리
 		String sql="";
 		sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum";
-		sql+="FROM board";
-		sql+="ORDER BY boardno DESC";
+		sql+=" FROM board";
 		
 		List list = new ArrayList();
 		try {
@@ -37,12 +36,12 @@ public class BoardDaoImpl implements BoardDao {
 			while( rs.next() ) {
 				Board board = new Board();
 				
-				board.setBoardno( rs.getInt("classnum") );
-				board.setWritedate( rs.getDate("classname") );
-				board.setTitle( rs.getString("classcontent") );
-				board.setContent( rs.getString("classday") );
-				board.setUsernum(rs.getInt("classtime"));
-				board.setBoardtypenum( rs.getInt("classplace") );
+				board.setBoardno( rs.getInt("boardno") );
+				board.setWritedate( rs.getDate("writedate") );
+				board.setTitle( rs.getString("title") );
+				board.setContent( rs.getString("content") );
+				board.setUsernum(rs.getInt("usernum"));
+				board.setBoardtypenum( rs.getInt("boardtypenum") );
 		
 				list.add(board);
 			}

@@ -1,9 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<script type="text/javascript">
+$(document).ready(function() {
+	// 공지사항 버튼 동작
+	$("#btnNotice").click(function() {
+		location.href="/WebContent/WEB-INF/views/manager/boardManage/noticeManage.jsp";
+	});
+	// 자유게시판 버튼 동작
+	$("#btnBulletin").click(function() {
+		location.href="/WebContent/WEB-INF/views/manager/boardManage/bulletinManage.jsp";
+	});
+	// 신고게시판 버튼 동작
+	$("#btnReport").click(function() {
+		location.href="/WebContent/WEB-INF/views/manager/boardManage/reportManage.jsp";
+	});
+	//글쓰기 버튼 누르면 이동
+	$("#btnWrite").click(function() {
+		location.href="/admin/boardManage/write";
+	});
+	
+	//수정버튼 동작
+	$("#btnUpdate").click(function() {
+		$(location).attr("href","/admin/boardManage/update?boardno=${viewBoard.boardno}")
+	});
+
+	//삭제버튼 동작
+	$("#btnDelete").click(function() {
+		$(location).attr("href","/admin/boardManage/delete?boardno=${viewBoard.boardno}")
+	});
+	
+});
+
+</script>
 <style type="text/css">
 
 	 th, td{
@@ -22,6 +54,8 @@
 	height: 20px; 
 	border: bold; 
 	}
+
+}
 	 
 </style>
 
@@ -34,7 +68,7 @@
 
 <div id="btnboard" class="float-left">
 	<button id="btnnotice" class="btn btn-info">공지사항</button>	
-	<button id="btnbulletim" class="btn btn-info">자유게시판</button>
+	<button id="btnbulletin" class="btn btn-info">자유게시판</button>
 	<button id="btnreport" class="btn btn-info">신고게시판</button>
 </div>
 <div id="serch" class="float-right">
@@ -43,6 +77,8 @@
 </div>
 
 <br><br>
+
+
 <table class = "table table-bordered">
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
@@ -55,11 +91,11 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach items="${classlist}" var="i">
+	<c:forEach items="${boardlist}" var="i">
 		<tr align="center">
-			<td>${i.classnum }</td>
-			<td>${i.usernum }</td>
-			<td>${i.classname }</td>
+			<td> 공지사항 </td>
+			<td>${i.boardtypenum ==1} ${i.boardno}</td>
+			<td><fmt:formatDate value="${i.writedate}" pattern="yyyy-MM-dd"/></td>
 			<td><input type="checkbox" id="ck"></td>
 		</tr>
 	</c:forEach>	
@@ -67,8 +103,8 @@
 </table>
 <br><br>
 <div id="btnBox" class="float-right">
-	<button id="btnAccept" class="btn btn-primary">수정</button>	
-
+	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
+	<button id="btnUpdate" class="btn btn-primary">수정</button>	
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>
 
