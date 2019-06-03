@@ -1,6 +1,6 @@
 package one.dao.face;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+import java.util.List;
 
 import one.dto.Member;
 
