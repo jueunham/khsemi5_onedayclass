@@ -13,7 +13,7 @@
 $(document).ready(function() {
 	$("#btnUpload").click(function() {
 	
-		location.href="/host/uploadclass.jsp";	
+		location.href="/mypage/host/upload";	
 
 	});
 });

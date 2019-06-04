@@ -1,23 +1,23 @@
 package one.dto;
 
-import java.util.Date;
-
 public class DayClass {
 
 	private int classnum;
 	private String classname;
 	private String classcontent;
-	private Date classday;
+	private String classday;
 	private String classtime;
 	private String classplace;
+	private int classprice;
 	private int classrunningtime;
 	private int usernum;
+
 	
 	@Override
 	public String toString() {
-		return "Dayclass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
-				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace
-				+ ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
+		return "DayClass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
+				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace + ", classPrice="
+				+ classprice + ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
 	}
 	
 	public int getClassnum() {
@@ -38,10 +38,10 @@ public class DayClass {
 	public void setClasscontent(String classcontent) {
 		this.classcontent = classcontent;
 	}
-	public Date getClassday() {
+	public String getClassday() {
 		return classday;
 	}
-	public void setClassday(Date classday) {
+	public void setClassday(String classday) {
 		this.classday = classday;
 	}
 	public String getClasstime() {
@@ -56,6 +56,15 @@ public class DayClass {
 	public void setClassplace(String classplace) {
 		this.classplace = classplace;
 	}
+	
+	public int getClassprice() {
+		return classprice;
+	}
+
+	public void setClassprice(int classprice) {
+		this.classprice = classprice;
+	}
+	
 	public int getClassrunningtime() {
 		return classrunningtime;
 	}
