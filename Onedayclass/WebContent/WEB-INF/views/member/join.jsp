@@ -46,11 +46,41 @@
 		$("#btnCancel").click(function() {
 			history.go(-1);
 		})
-		
-		
-		
 	});
 </script>
+
+<style type="text/css">
+
+.list-group-item {
+  user-select: none;
+}
+
+.list-group input[type="checkbox"] {
+  display: none;
+}
+
+.list-group input[type="checkbox"] + .list-group-item {
+  cursor: pointer;
+}
+
+.list-group input[type="checkbox"] + .list-group-item:before {
+  content: "\2713";
+  color: transparent;
+  font-weight: bold;
+  margin-right: 1em;
+
+}
+
+.list-group input[type="checkbox"]:checked + .list-group-item {
+  background-color: #0275D8;
+  color: #FFF;
+}
+
+.list-group input[type="checkbox"]:checked + .list-group-item:before {
+  color: inherit;
+}
+
+</style>
 
 <form action="/member/join" method="post" class="form-horizontal" name="join">
 <div class = "show1">
@@ -109,8 +139,8 @@
 			<input type="radio" name="userlevel" value="USER" /> 게스트 <br>
 		</div><br><br>
 
-	<div style="text-align: center">
-	<input type = 'checkbox' value = 'termofservice' />
+	<div style="text-align: center" id = "term">
+	<input type = 'checkbox' name = "term" value = 'termofservice' />
 	<span>
 	<a href="/info/termOfService">
 	이용약관 </a></span>및 
@@ -143,30 +173,84 @@
 	
 <div style = "text-align : left; margin-left: 420px;">
 관심 목록 선택></div><br>
+<div style = "text-align : center;">
+<table>
+<tr>
+<td style="positon: absolute; padding: 230px;"></td>
+<td>
 
-<div style="text-align: center">
+<div class="list-group" data-toggle="buttons">
+<input type="checkbox" name="CheckBoxInputName" value="Value1" id="CheckBox1" />
+  <label class="list-group-item" for="CheckBox1">Box1</label>
 
-	<input type = "checkbox" id="ch1" name="check" value="관심목록1" />관심목록1&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch2" name="check" value="관심목록2" />관심목록2&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch3" name="check" value="관심목록3" />관심목록3&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch4" name="check" value="관심목록4" />관심목록4&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch5" name="check" value="관심목록5" />관심목록5&nbsp;&nbsp;&nbsp;<br><br>
-	<input type = "checkbox" id="ch6" name="check" value="관심목록6" />관심목록6&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch7" name="check" value="관심목록7" />관심목록7&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch8" name="check" value="관심목록8" />관심목록8&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch9" name="check" value="관심목록9" />관심목록9&nbsp;&nbsp;&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록10" />관심목록10&nbsp;<br><br>
-	<input type = "checkbox" id="ch10" name="check" value="관심목록11" />관심목록11&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록12" />관심목록12&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록13" />관심목록13&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록14" />관심목록14&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록15" />관심목록15&nbsp;<br><br>
-	<input type = "checkbox" id="ch10" name="check" value="관심목록16" />관심목록16&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록17" />관심목록17&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록18" />관심목록18&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록19" />관심목록19&nbsp;
-	<input type = "checkbox" id="ch10" name="check" value="관심목록20" />관심목록20&nbsp;
+<input type="checkbox" name="CheckBoxInputName" value="Value2" id="CheckBox2" />
+  <label class="list-group-item" for="CheckBox2">Box2</label>
 
+<input type="checkbox" name="CheckBoxInputName" value="Value3" id="CheckBox3" />
+  <label class="list-group-item" for="CheckBox3">Box3</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value4" id="CheckBox4" />
+  <label class="list-group-item" for="CheckBox4">Box4</label>
+  
+</div>
+</td>
+
+<td>
+
+<div class="list-group" data-toggle="buttons">
+<input type="checkbox" name="CheckBoxInputName" value="Value1" id="CheckBox5" />
+  <label class="list-group-item" for="CheckBox5">Box5</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value2" id="CheckBox6" />
+  <label class="list-group-item" for="CheckBox6">Box6</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value3" id="CheckBox7" />
+  <label class="list-group-item" for="CheckBox7">Box7</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value4" id="CheckBox8" />
+  <label class="list-group-item" for="CheckBox8">Box8</label>
+
+</div>
+</td>
+
+<td>
+
+<div class="list-group" data-toggle="buttons">
+<input type="checkbox" name="CheckBoxInputName" value="Value1" id="CheckBox9" />
+  <label class="list-group-item" for="CheckBox9">Box9</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value2" id="CheckBox10" />
+  <label class="list-group-item" for="CheckBox10">Box10</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value3" id="CheckBox11" />
+  <label class="list-group-item" for="CheckBox11">Box11</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value4" id="CheckBox12" />
+  <label class="list-group-item" for="CheckBox12">Box12</label>
+
+</div>
+
+</td>
+<td>
+
+<div class="list-group" data-toggle="buttons">
+<input type="checkbox" name="CheckBoxInputName" value="Value1" id="CheckBox13" />
+  <label class="list-group-item" for="CheckBox13">Box13</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value2" id="CheckBox14" />
+  <label class="list-group-item" for="CheckBox14">Box14</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value3" id="CheckBox15" />
+  <label class="list-group-item" for="CheckBox15">Box15</label>
+
+<input type="checkbox" name="CheckBoxInputName" value="Value4" id="CheckBox16" />
+  <label class="list-group-item" for="CheckBox16">Box16</label>
+
+</div>
+
+</td>
+</tr>
+</table>
 </div>
 <div class = "next2">
 

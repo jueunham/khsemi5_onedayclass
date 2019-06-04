@@ -32,7 +32,7 @@ margin: 0 auto;
 <div class="center">
 <br>
 <img src="/resources/images/Koala.jpg" style="width:50px; height:50px;">
-호스트 ${userid }님
+호스트 ${username }님
 </div>
 <br>
 <div class="center">

@@ -37,7 +37,7 @@ margin: 0 auto;
 <br>
 <div class="center">
 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/mypage/user/upinfo'">정보수정</button>
-<button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">로그아웃</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/member/logout'">로그아웃</button>
 </div>
 </form>
 <ul class="nav flex-column">
