@@ -11,17 +11,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js">
-
 <script type="text/javascript">
 
-$('.starRev span').click(function(){
+$(document).ready(function() {
+	
+	
+$(".starRev span").click(function(){
 	  $(this).parent().children('span').removeClass('on');
 	  $(this).addClass('on').prevAll('span').addClass('on');
 	  return false;
 	});
+}
+
 
 </script>
+
 <style type="text/css">
 
 .starR1{
@@ -47,19 +51,34 @@ $('.starRev span').click(function(){
 .starR2.on{background-position:-15px 0;}
 
 
+
+
+
+
+
 #review{
 
 	float: left; 
  	margin-left: 500px; 
 }
 
+#hr{
+
+	border: 0;
+    height: 3px;
+    background: #ccc;
+  
+}
+
+
+
 </style>
 </head>
 <body>
 	
-	<h3 style="text-align: center;"> 후기 & 별점 </h3><br>
+	<h3 style="text-align: center; width: 1900px;"> 후기 & 별점 </h3><br>
 	
-
+<div style="width: 1900px;">
 	<div class="starRev" style="margin-left: 875px;">
   		<span class="starR1 on">별1_왼쪽</span>
   		<span class="starR2">별1_오른쪽</span>
@@ -72,7 +91,7 @@ $('.starRev span').click(function(){
   		<span class="starR1">별5_왼쪽</span>
   		<span class="starR2">별5_오른쪽</span>
 	</div><div style="clear: both;"></div><br><br><br>
-
+</div>
 
 
 
@@ -83,22 +102,54 @@ $('.starRev span').click(function(){
 	<textarea rows="8" cols="100" style="float: left; margin-left: 100px;"></textarea>
 </div><div style="clear: both;"></div><br><br>
 
-<button style="float: right; margin-right: 580px; background-color: #4169e1; color: white; border-radius: 5px;" >
+<div style="width: 1600px;">
+<button style="float: right; margin-right: 280px; background-color: #4169e1; color: white; border-radius: 5px;" >
 
-작성완료</button><div style="clear: both;"></div>
+작성완료</button><div style="clear: both;"></div><br>
+</div>
+<hr><br>
 
 
 
+<div id="person1" style="margin-left: 500px;">
+	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
-<hr>
-	ㅁㅁㅁ:222
-<hr>
-	ㅁㅁㅁ:222	
-<hr>
-	ㅁㅁㅁ:222	
+	<div style="float: left; margin-left: 100px;">
+	리뷰내용:ㄴㄴㄴㄴㄴ<br>
+	ssa sdf<br>
+	dsfsdfsdfsdfsdf
+	
+	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
+</div>
+
+
+<div id="person1" style="margin-left: 500px;">
+	<img id="q1" src="/picture/profile.png" style="float: left;"> 
+	
+	<div style="float: left; margin-left: 100px;">
+	리뷰내용:ㄴㄴㄴㄴㄴ<br>
+	ssa sdf<br>
+	dsfsdfsdfsdfsdf
+	
+	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
+</div>	
+
+
+<div id="person1" style="margin-left: 500px;">
+	<img id="q1" src="/picture/profile.png" style="float: left;"> 
+	
+	<div style="float: left; margin-left: 100px;">
+	리뷰내용:ㄴㄴㄴㄴㄴ<br>
+	ssa sdf<br>
+	dsfsdfsdfsdfsdf
+	
+	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
+</div>	
 	
 <div style="clear: both;"></div>
 <br><br>
+
+<hr id="hr"><br>
 	
 <c:import url="/WEB-INF/views/class/question.jsp" />
 

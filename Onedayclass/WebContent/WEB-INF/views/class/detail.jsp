@@ -25,6 +25,14 @@
 	margin-left: 130px;
 }
 
+#hr{
+
+	border: 0;
+    height: 3px;
+    background: #ccc;
+  
+}
+
 </style>
 </head>
 <body>
@@ -84,6 +92,6 @@
 		
 </div>
 </div><div style="clear: both;"></div><br><br>
-<hr><br>
+<hr id="hr"><br>
 
 <c:import url="/WEB-INF/views/class/reivew.jsp" />

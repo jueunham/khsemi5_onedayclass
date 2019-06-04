@@ -117,83 +117,83 @@
 
 	<div id="menulist">
 		<ul>
-			<li><a href="#">디자인</a>
+			<li><a href="/design">디자인</a>
 				<ul>
-					<li><a href="#">포토샵</a></li>
-					<li><a href="#">일러스트레이터</a></li>
-					<li><a href="#">건축</a></li>
-					<li><a href="#">제품디자인</a></li>
-					<li><a href="#">편집디자인</a></li>
+					<li><a href="/photoshop">포토샵</a></li>
+					<li><a href="/illustrator">일러스트레이터</a></li>
+					<li><a href="/architecture">건축</a></li>
+					<li><a href="/productdesign">제품디자인</a></li>
+					<li><a href="/editorialdesign">편집디자인</a></li>
 				</ul>
 			</li>
 
 		
-			<li><a href="#">실무역량</a>
+			<li><a href="/capability">실무역량</a>
 				<ul>
-					<li><a href="#">엑셀</a></li>
-					<li><a href="#">파워포인트</a></li>
-					<li><a href="#">마케팅</a></li>
-					<li><a href="#">브랜딩</a></li>
-					<li><a href="#">재무회계</a></li>
+					<li><a href="/excel">엑셀</a></li>
+					<li><a href="/WEB-INF/views/classCategory/02_capability/PowerPoint.jsp">파워포인트</a></li>
+					<li><a href="/WEB-INF/views/classCategory/02_capability/Marketing.jsp">마케팅</a></li>
+					<li><a href="/WEB-INF/views/classCategory/02_capability/Branding.jsp">브랜딩</a></li>
+					<li><a href="/WEB-INF/views/classCategory/02_capability/FinancialAccounting.jsp">재무회계</a></li>
 				</ul>
 			</li>			
 		
-			<li><a href="#">뷰티</a>
+			<li><a href="/WEB-INF/views/classCategory/03_beauty/main.jsp">뷰티</a>
 				<ul>
-					<li><a href="#">메이크업</a></li>
-					<li><a href="#">퍼스널컬러</a></li>
-					<li><a href="#">헤어</a></li>
-					<li><a href="#">패션</a></li>
-					<li><a href="#">네일</a></li>
+					<li><a href="/WEB-INF/views/classCategory/03_beauty/Makeup.jsp">메이크업</a></li>
+					<li><a href="/WEB-INF/views/classCategory/03_beauty/PersonalColor.jsp">퍼스널컬러</a></li>
+					<li><a href="/WEB-INF/views/classCategory/03_beauty/Hair.jsp">헤어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/03_beauty/Fashion.jsp">패션</a></li>
+					<li><a href="/WEB-INF/views/classCategory/03_beauty/Nail.jsp">네일</a></li>
 				</ul>
 			</li>		
 		
-			<li><a href="#">영상</a>
+			<li><a href="/WEB-INF/views/classCategory/04_image/main.jsp">영상</a>
 				<ul>
-					<li><a href="#">프리미어</a></li>
-					<li><a href="#">에프터이펙트</a></li>
-					<li><a href="#">영상기획/촬영</a></li>
-					<li><a href="#">파이널컷</a></li>
-					<li><a href="#">시포디</a></li>
+					<li><a href="/WEB-INF/views/classCategory/04_image/Premier.jsp">프리미어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/04_image/AfterEffect.jsp">에프터이펙트</a></li>
+					<li><a href="/WEB-INF/views/classCategory/04_image/Filming.jsp">영상기획/촬영</a></li>
+					<li><a href="/WEB-INF/views/classCategory/04_image/FinalCut.jsp">파이널컷</a></li>
+					<li><a href="/WEB-INF/views/classCategory/04_image/Cinema4D.jsp">시포디</a></li>
 				</ul>
 			</li>		
 		
-			<li><a href="#">외국어</a>
+			<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/main.jsp">외국어</a>
 				<ul>
-					<li><a href="#">영어회화</a></li>
-					<li><a href="#">중국어</a></li>
-					<li><a href="#">토익/토플</a></li>
-					<li><a href="#">일본어</a></li>
-					<li><a href="#">프랑스어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/EnglishConversation.jsp">영어회화</a></li>
+					<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/Chinese.jsp">중국어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/TOEIC_TOEFL.jsp">토익/토플</a></li>
+					<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/Japanese.jsp">일본어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/05_foreignLanguage/French.jsp">프랑스어</a></li>
 				</ul>
 			</li>			
 		
-			<li><a href="#">음악</a>
+			<li><a href="/WEB-INF/views/classCategory/06_music/main.jsp">음악</a>
 				<ul>
-					<li><a href="#">보컬</a></li>
-					<li><a href="#">피아노</a></li>
-					<li><a href="#">드럼</a></li>
-					<li><a href="#">미디작곡</a></li>
-					<li><a href="#">기타연주</a></li>
+					<li><a href="/WEB-INF/views/classCategory/06_music/Vocal.jsp">보컬</a></li>
+					<li><a href="/WEB-INF/views/classCategory/06_music/Piano.jsp">피아노</a></li>
+					<li><a href="/WEB-INF/views/classCategory/06_music/Drum.jsp">드럼</a></li>
+					<li><a href="/WEB-INF/views/classCategory/06_music/Composition.jsp">미디작곡</a></li>
+					<li><a href="/WEB-INF/views/classCategory/06_music/Guitar.jsp">기타연주</a></li>
 				</ul>
 			</li>	
 
-			<li><a href="#">라이프스타일</a>
+			<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/main.jsp">라이프스타일</a>
 				<ul>
-					<li><a href="#">핸드메이드</a></li>
-					<li><a href="#">사진</a></li>
-					<li><a href="#">도예/물레</a></li>
-					<li><a href="#">요리/베이킹</a></li>
-					<li><a href="#">여행/투어</a></li>
+					<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/HandMade.jsp">핸드메이드</a></li>
+					<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/Picture.jsp">사진</a></li>
+					<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/Pottery.jsp">도예/물레</a></li>
+					<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/Cooking.jsp">요리/베이킹</a></li>
+					<li><a href="/WEB-INF/views/classCategory/07_lifeStyle/Trip.jsp">여행/투어</a></li>
 				</ul>
 			</li>	
 
-			<li><a href="#">재테크</a>
+			<li><a href="/WEB-INF/views/classCategory/08_investmentTechniques/main.jsp">재테크</a>
 				<ul>
-					<li><a href="#">투잡</a></li>
-					<li><a href="#">주식투자</a></li>
-					<li><a href="#">가상화폐</a></li>
-					<li><a href="#">기타 재테크</a></li>
+					<li><a href="/WEB-INF/views/classCategory/08_investmentTechniques/TwoJob.jsp">투잡</a></li>
+					<li><a href="/WEB-INF/views/classCategory/08_investmentTechniques/InvestmentInStocks.jsp">주식투자</a></li>
+					<li><a href="/WEB-INF/views/classCategory/08_investmentTechniques/VirtualMoney.jsp">가상화폐</a></li>
+					<li><a href="/WEB-INF/views/classCategory/08_investmentTechniques/etcTech.jsp">기타 재테크</a></li>
 				</ul>
 			</li>	
 
@@ -207,7 +207,7 @@
 <div id="content01">
 
 <div id="img01">
-	<label style="font-size: 30px;"><a href="#"> 여행  </a></label>
+	<label style="font-size: 30px;"><a href="/WEB-INF/views/classCategory/07_lifeStyle/main.jsp"> 여행  </a></label>
 	<a href="#">
 	<img src="/picture/img01.png" width="400" height="300" style= "display:block;"  ></a>
 
@@ -232,7 +232,7 @@
 
 
 <div id="img02">
-	<label style="font-size: 30px;"><a href="#"> 뷰티 </a></label>
+	<label style="font-size: 30px;"><a href="/WEB-INF/views/classCategory/03_beauty/main.jsp"> 뷰티 </a></label>
 	<a href="#">
 	<img src="/picture/img02.png" width="400" height="300" style= "display:block;"  ></a>
 <br>
@@ -257,7 +257,7 @@
 <div id="content02">
 
 <div id="img03">
-	<label style="font-size: 30px;"><a href="#"> 엑셀 </a></label>
+	<label style="font-size: 30px;"><a href="/WEB-INF/views/classCategory/02_capability/main.jsp"> 엑셀 </a></label>
 	<a href="#">
 	<img src="/picture/img03.png" width="400" height="300" style= "display:block;"  ></a>
 
@@ -281,7 +281,7 @@
 
 
 <div id="img04">
-	<label style="font-size: 30px;"><a href="#"> 작곡  </a></label>
+	<label style="font-size: 30px;"><a href="/WEB-INF/views/classCategory/06_music/main.jsp"> 작곡  </a></label>
 	<a href="#">
 	<img src="/picture/img04.png" width="400" height="300" style= "display:block;"  ></a>
 <br>
