@@ -8,29 +8,23 @@
 $(document).ready(function() {
 	// 공지사항 버튼 동작
 	$("#btnNotice").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/noticeManage.jsp";
+		location.href="/admin/board/notice/list";
 	});
 	// 자유게시판 버튼 동작
 	$("#btnBulletin").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/bulletinManage.jsp";
+		location.href="/admin/board/bulletin/list";
 	});
 	// 신고게시판 버튼 동작
 	$("#btnReport").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/reportManage.jsp";
+		location.href="/admin/board/report/list";
 	});
-	//글쓰기 버튼 누르면 이동
-	$("#btnWrite").click(function() {
-		location.href="/admin/boardManage/write";
+	//검색 버튼 동작
+	$("#btnSearch").click(function() {
+		location.href="/board/list?search="+$("#search").val();
 	});
-	
-	//수정버튼 동작
-	$("#btnUpdate").click(function() {
-		$(location).attr("href","/admin/boardManage/update?boardno=${viewBoard.boardno}")
-	});
-
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
-		$(location).attr("href","/admin/boardManage/delete?boardno=${viewBoard.boardno}")
+	
 	});
 	
 });
@@ -72,7 +66,7 @@ $(document).ready(function() {
 	<button id="btnreport" class="btn btn-info">신고게시판</button>
 </div>
 <div id="serch" class="float-right">
-	<input type="text" i placeholder="게시글 검색">
+	<input type="text"  placeholder="게시글 검색">
 	<button>검색</button>
 </div>
 
@@ -106,7 +100,11 @@ $(document).ready(function() {
 				</c:choose>
 			</td>
 			<td>${i.boardno}</td>
-			<td>${i.usernum}</td>
+			<td><c:choose> 
+					<c:when test = "${i.usernum == 0 }">관리자</c:when>    
+					<c:otherwise>${i.usernum}</c:otherwise>
+				</c:choose>
+			</td>
 			<td><fmt:formatDate value="${i.writedate}" pattern="yyyy-MM-dd"/></td>
 			<td><input type="checkbox" id="ck"></td>
 		</tr>
@@ -115,8 +113,6 @@ $(document).ready(function() {
 </table>
 <br><br>
 <div id="btnBox" class="float-right">
-	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
-	<button id="btnUpdate" class="btn btn-primary">수정</button>	
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>
 
