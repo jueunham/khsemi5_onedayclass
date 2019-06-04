@@ -36,17 +36,17 @@ public class MemberServiceImpl implements MemberService {
 	      }
 	      
 	      // 전달파라미터 boardno 파싱
-	      param = req.getParameter("userPhone");
-	      int userPhone = 0;
-	      if( param!=null && !"".equals(param) ) {
-	         userPhone = Integer.parseInt(param);
-	      }
+//	      param = req.getParameter("userPhone");
+//	      int userPhone = 0;
+//	      if( param!=null && !"".equals(param) ) {
+//	         userPhone = Integer.parseInt(param);
+//	      }
 		
 		member.setUsernum(userNum);
 		member.setUsername(req.getParameter("userName"));
 		member.setUserid(req.getParameter("userid"));
 		member.setUserpw(req.getParameter("userpw"));
-		member.setUserphone(userPhone);
+		member.setUserphone(req.getParameter("userphone"));
 		member.setUserlevel(req.getParameter("userLevel"));
 		
 		return member;

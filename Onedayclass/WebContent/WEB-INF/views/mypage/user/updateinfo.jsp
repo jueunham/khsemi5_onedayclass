@@ -2,17 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-
-<c:import url="/WEB-INF/views/layout/header.jsp" />
-
-<div class="container">
-
-<div class="row">
-<c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
 
 <style type="text/css">
 
@@ -59,6 +50,71 @@ i {
 </style>
 
 
+<c:import url="/WEB-INF/views/layout/header.jsp" />
+
+<!-- header에 jQuery를 선언해 놓음 -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	$("#btnUpdate").click(function() {
+		
+		var checkedVal = $('input[name="CheckBoxInputName"]').is(':checked');
+		console.log(checkedVal);
+		
+		$("form").submit();
+	});
+	
+	$("#btnCancel").click(function() {
+		history.go(-1);
+	});
+	
+	function selectChecked() {
+		var chk = document.getElementByName("CheckBoxInputName");
+		var len = chk.length;
+		var checked = '';
+		var checkCnt = 0;
+		var checkLast = '';
+		var checkid = '';
+		var cnt = 0;
+		
+		for(var i=0; i<len; i++){
+			if(chk[i].checked == true){
+				checkCnt++;
+				checkLast = i;
+			}
+		}
+		
+		for(var i=0; i<len; i++){}
+		if(chk[i].checked == true){
+			checked = chk[i].value;
+		}
+		
+		if(checkCnt == 1){
+			checkid += "'" + checked + "'";
+		} else {
+			if( i == checkLast){
+				checkid += "'" + checked + "'";
+			} else {
+				checkid += "'" + checked + "', ";
+			}
+		}
+		
+		cnt++;
+		checked = '';
+	}
+	
+	console.log(checkid);
+	
+});
+
+</script>
+
+<div class="container">
+
+<div class="row">
+<c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
+
 <div class="col order-1">
 <div class="container">
 <div style="border: solid 1px; padding: 10px; text-align:center;">
@@ -66,19 +122,26 @@ i {
 </div>  
 </div>
 <br>
+
+<form action="/mypage/user/upinfo" method="post">
+
 <div class="container" style="border: solid 1px; padding: 10px; text-align:center;">
 <table>
 <tr>
-<td style="positon: absolute; padding-left: 50px;">프로필사진 </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><i class="fas fa-child"></i></td>
+<td style="positon: absolute; padding-left: 50px;">프로필사진 </td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><i class="fas fa-child"></i></td>
 </tr>
 <tr>
 
 <td style="positon: absolute; padding-left: 50px;">휴대폰번호</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" value="${userPhone }" /></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><input type="text" class="form-control" value="${member.userphone }" /></td>
 </tr>
 </table>
 <br>
-<table >
+
+<table>
 <tr>
 <td style="positon: absolute; padding: 50px;">관심목록</td>
 <td>
@@ -152,19 +215,26 @@ i {
 
 </div>
 
+
 </td>
 </tr>
 </table>
+</div>
 <br>
+
+</form>
+
+<div class="text-center">
 <button type="button" id="btnUpdate" class="btn btn-dark">수정</button>
 <button type="button" id="btnCancel" class="btn btn-dark">취소</button>
+</div>
 <br>
+
 </div>
 </div>
 
 </div>
 
-</div>
 <br>
 <br>
 <br>

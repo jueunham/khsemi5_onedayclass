@@ -6,7 +6,7 @@ public class Member {
 	private String username;
 	private String userid;
 	private String userpw;
-	private int userphone;
+	private String userphone;
 	private String userlevel;
 	
 
@@ -41,10 +41,10 @@ public class Member {
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
-	public int getUserphone() {
+	public String getUserphone() {
 		return userphone;
 	}
-	public void setUserphone(int userphone) {
+	public void setUserphone(String userphone) {
 		this.userphone = userphone;
 	}
 	public String getUserlevel() {

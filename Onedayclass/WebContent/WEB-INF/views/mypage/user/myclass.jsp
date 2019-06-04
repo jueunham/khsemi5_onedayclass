@@ -24,15 +24,14 @@
 </td>
 </tr>
 <!-- 수강 클래스 리스트 목록을 불러서 스크롤바로 처리할 예정 -->
-<c:forEach items="${list}" var="i">
+<%-- <c:forEach items="${list }" var="i"> --%>
 	<tr>
 		<!-- 임의지정 -->
 		<td><img src="/resources/images/Tulips.jpg" style="width:250px; height:200px; padding:10px;" ></td>
 		<td>클래스 명 :  ${i.className }</td>
-		<td>신청일자 : ${i.payDate }</td>
+		<td>신청일자 : <fmt:formatDate value="${i.paymentDate }" pattern="yyyy-MM-dd"/></td>
 	</tr>
-</c:forEach>
-
+<%-- </c:forEach> --%>
 
 </tbody>
 </table>

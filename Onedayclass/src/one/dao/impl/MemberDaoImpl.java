@@ -41,7 +41,7 @@ public class MemberDaoImpl implements MemberDao {
 						member.setUsername( rs.getString("username") );
 						member.setUserid( rs.getString("userid") );
 						member.setUserpw( rs.getString("userpw") );
-						member.setUserphone( rs.getInt("userphone") );
+						member.setUserphone( rs.getString("userphone") );
 						member.setUserlevel( rs.getString("userlevel") );
 						
 						list.add(member);
@@ -159,7 +159,7 @@ public class MemberDaoImpl implements MemberDao {
 			ps.setString(2, member.getUsername());
 			ps.setString(3, member.getUserid());
 			ps.setString(4, member.getUserpw());
-			ps.setInt(5, member.getUserphone());
+			ps.setString(5, member.getUserphone());
 			ps.setString(6, member.getUserlevel());
 			ps.executeUpdate();
 			
