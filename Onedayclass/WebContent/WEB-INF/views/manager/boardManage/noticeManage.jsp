@@ -8,29 +8,31 @@
 $(document).ready(function() {
 	// 공지사항 버튼 동작
 	$("#btnNotice").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/noticeManage.jsp";
+		location.href="/admin/board/notice/list";
 	});
 	// 자유게시판 버튼 동작
 	$("#btnBulletin").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/bulletinManage.jsp";
+		location.href="/admin/board/bulletin/list";
 	});
 	// 신고게시판 버튼 동작
 	$("#btnReport").click(function() {
-		location.href="/WebContent/WEB-INF/views/manager/boardManage/reportManage.jsp";
+		location.href="/admin/board/report/list";
+	});
+	//검색 버튼 동작
+	$("#btnSearch").click(function() {
+		location.href="/admin/board/notice/list?search="+$("#search").val();
 	});
 	//글쓰기 버튼 누르면 이동
 	$("#btnWrite").click(function() {
-		location.href="/admin/boardManage/write";
+		location.href="/admin/board/notice/write";
 	});
-	
 	//수정버튼 동작
 	$("#btnUpdate").click(function() {
-		$(location).attr("href","/admin/boardManage/update?boardno=${viewBoard.boardno}")
-	});
-
+		
+	})
 	//삭제버튼 동작
 	$("#btnDelete").click(function() {
-		$(location).attr("href","/admin/boardManage/delete?boardno=${viewBoard.boardno}")
+	
 	});
 	
 });
@@ -72,8 +74,8 @@ $(document).ready(function() {
 	<button id="btnreport" class="btn btn-info">신고게시판</button>
 </div>
 <div id="serch" class="float-right">
-	<input type="text" i placeholder="게시글 검색">
-	<button>검색</button>
+	<input class="form-control" type="text" placeholder="게시글 검색">
+	<button id="btnSearch" class="btn">검색</button>
 </div>
 
 <br><br>
@@ -84,17 +86,16 @@ $(document).ready(function() {
 		<tr bgcolor = #bcbcbc align="center">
 			<th style="width:20%;">게시판 분류</th>
 			<th style="width:20%;">글 번호</th>
-			<th style="width:20%;">작성자 회원번호</th>
 			<th style="width:30%;">작성일자</th>		
 			<th style="width:10%;">선택</th>
 		</tr>
 	</thead>
 	
 	<tbody>
-	<c:forEach items="${boardlist}" var="i">
+	<c:forEach items="${noticelist}" var="i">
 		<tr align="center">
 			<td> 공지사항 </td>
-			<td>${i.boardtypenum ==1} ${i.boardno}</td>
+			<td>${i.boardno}</td>
 			<td><fmt:formatDate value="${i.writedate}" pattern="yyyy-MM-dd"/></td>
 			<td><input type="checkbox" id="ck"></td>
 		</tr>
