@@ -20,6 +20,6 @@ public class ForeignLanguage extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/05_foreignLanguage/main.jsp").forward(req, resp);
 		
 	}
-	
+	 
 
 }

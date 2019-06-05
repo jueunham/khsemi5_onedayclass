@@ -18,5 +18,5 @@ public class Beauty extends HttpServlet {
     	req.getRequestDispatcher("/WEB-INF/views/classCategory/03_beauty/main.jsp").forward(req, resp);
     	
     }
-
+ 
 }

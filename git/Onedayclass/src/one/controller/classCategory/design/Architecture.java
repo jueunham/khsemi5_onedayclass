@@ -17,3 +17,4 @@ public class Architecture extends HttpServlet {
     	req.getRequestDispatcher("/WEB-INF/views/classCategory/01_design/Architecture.jsp").forward(req, resp);
     }
 }
+ 

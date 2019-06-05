@@ -21,5 +21,5 @@ public class Branding extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/02_capability/Branding.jsp").forward(req, resp);
 		
 	}
-	
+	 
 }

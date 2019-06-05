@@ -21,6 +21,6 @@ public class ClassListController extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/views/class/list.jsp").forward(req, resp);
 		}
 	
-	
+	 
 	
 }
