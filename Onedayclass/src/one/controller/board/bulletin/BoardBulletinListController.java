@@ -30,13 +30,13 @@ public class BoardBulletinListController extends HttpServlet {
 		req.setAttribute("paging", paging);
 		
 		//게시판 목록 조회
-		List list = boardService.getList(paging);
+		List list = boardService.getbulletinList();
 		
 		//MODEL로 조회 결과 넣기
-		req.setAttribute("list", list);
+		req.setAttribute("bulletinlist", list);
 		
 		//VIEW지정
-		req.getRequestDispatcher("/WEB-INF/views/board/list.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/board/bulletin/list.jsp").forward(req, resp);
 		
 	}
 	

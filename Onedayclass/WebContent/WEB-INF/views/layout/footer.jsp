@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <style type="text/css">
 
 #background{
 	
 	background-color: #d3d3d3;
-	width: 1903px;
+	width: 1679px;
 	
-	margin-left:0px;
+	margin-left:120px;
 	margin-right:0px;
 }
 
@@ -28,7 +32,7 @@
 
 #footer3 {
 	font-weight:bold;
-	margin-right: 600px; 
+	margin-right: 450px; 
 	float: right; 
 
 }
@@ -36,7 +40,7 @@
 #text {
 	font-size: 12px;
 	float: right; 
-	margin-right: 617px; 
+	margin-right: 470px; 
 
 }
 
@@ -50,7 +54,7 @@
 
 	font-size: 12px;
 	float: right;
-	margin-right: 533px;
+	margin-right: 385px;
 }
 
 #text3{
@@ -63,24 +67,26 @@
 
 	font-size: 12px;
 	float: right; 
-	margin-right: 422px; 
+	margin-right: 289px; 
 }
 
 
 
 
 </style>
+</head>
+<body>
 
 
 
-<div id="background">
+<div id="background" style="text-align: center;">
 	<div id="footer1">
-		<a href="">이용약관</a>
+		<a href="/termofservice">이용약관</a>
 	</div>
 	
 	
 	<div id="footer2">
-		<a href="">개인정보 취급방침</a>
+		<a href="/privacypolicy">개인정보 취급방침</a>
 	</div>
 	
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -11,7 +11,7 @@ $(document).ready(function() {
 	
 	//글쓰기 버튼 누르면 이동
 	$("#btnWrite").click(function() {
-		location.href="/board/write";
+		location.href="/board/bulletin/write";
 	});
 	
 });
@@ -36,8 +36,11 @@ table, th {
 }
 
 </style>
-
-<h1>자유 게시판</h1>
+<div><h1>자유게시판</h1></div>
+<button type="button" id="btnnotice" class="btn btn-secondary" onclick = "location = '/board/notice/list'">공지사항</button>
+<button type="button" id="btnbulletin" class="btn btn-secondary" onclick = "location = '/board/bulletin/list'">자유게시판</button>
+<button type="button" id="btnreport" class="btn btn-secondary" onclick = "location = '/board/report/list'">신고게시판</button><br>
+<div style="text-align : right; margin-right: 50px;"><strong>홈 > 게시판 > 자유게시판</strong></div>
 <hr>
 
 <table class="table table-striped table-hover table-condensed">
@@ -48,18 +51,16 @@ table, th {
 		<th style="width: 45%;">제목</th>
 		<th style="width: 15%;">작성자</th>
 		<th style="width: 10%;">조회수</th>
-		<th style="width: 20%;">작성일</th>
 	</tr>
 </thead>
 
 <tbody>
-<c:forEach items="${list}" var="i">
+<c:forEach items="${bulletinlist}" var="i">
 	<tr>
 		<td>${i.boardno }</td>
-		<td><a href="/board/view?boardno=${i.boardno }">${i.title }</a></td>
-		<td>${i.writer }</td>
+		<td><a href="/board/bulletin/view?boardno=${i.boardno }">${i.title }</a></td>
+		<td>${i.usernum }</td>
 		<td>${i.hit }</td>
-		<td><fmt:formatDate value="${i.writtendate }" pattern="yyyy-MM-dd" /></td>
 	</tr>
 </c:forEach>
 </tbody>
@@ -67,10 +68,10 @@ table, th {
 </table>
 
 <div id="pagingBox">
-<c:import url="/WEB-INF/views/layout/paging.jsp" />
+<c:import url="/WEB-INF/views/layout/bulletinPaging.jsp" />
 
 <div id="btnBox">
-	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
+	<button id="btnWrite" class="btn btn-primary" style="text-align : right; margin-right: 50px;">글쓰기</button>
 </div>
 </div>
 

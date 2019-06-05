@@ -5,7 +5,7 @@ import java.util.List;
 import one.dto.Board;
 
 public interface BoardDao {
-	
+
 	/**
 	 * 상세보기 게시글 조회
 	 * 
@@ -15,27 +15,26 @@ public interface BoardDao {
 	public Board selectBoardByBoardno(Board viewBoard);
 
 	/**
-	 * 다음 게시글 번호 반환
-	 * 	게시글 테이블과 첨부파일 테이블에 들어갈 게시글 번호를 미리 추출
+	 * 다음 게시글 번호 반환 게시글 테이블과 첨부파일 테이블에 들어갈 게시글 번호를 미리 추출
 	 * 
 	 * @return int
 	 */
 	public int selectBoardno();
-	
+
 	/**
 	 * 게시글 입력
 	 * 
 	 * @param board - 삽입될 게시글 내용
 	 */
 	public void insert(Board board);
-	
+
 	/**
-	 * 게시글 수정 
+	 * 게시글 수정
 	 * 
 	 * @param board - 수정할 내용을 담은 객체
 	 */
 	public void update(Board board);
-	
+
 	/**
 	 * 게시글 삭제
 	 * 
@@ -43,7 +42,7 @@ public interface BoardDao {
 	 */
 	public void delete(Board board);
 
-	List selectAll();
+	public List selectAll();
 
 	/**
 	 * 테이블 전체 COUNT 조회
@@ -51,21 +50,10 @@ public interface BoardDao {
 	 * @return 테이블 전체 행 수 조회 결과
 	 */
 	public int selectCntAll();
-	
+
+	public List selectbulletinAll();
+
+	public List selectreportAll();
+
+	public List selectnoticeAll();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

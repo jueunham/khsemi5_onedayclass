@@ -142,10 +142,10 @@
 	<div style="text-align: center" id = "term">
 	<input type = 'checkbox' name = "term" value = 'termofservice' />
 	<span>
-	<a href="/info/termOfService">
+	<a href="/termofservice">
 	이용약관 </a></span>및 
 	<span>
-	<a href="/info/privacyPolicy">
+	<a href="/privacypolicy">
 	개인정보 취급방침</a></span>
 	</div><br>
 

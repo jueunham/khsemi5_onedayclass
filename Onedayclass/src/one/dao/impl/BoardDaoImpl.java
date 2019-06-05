@@ -24,12 +24,12 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List selectAll() {
 
-		// 파일업로드 기록 조회쿼리
+		// 기록 조회쿼리
 		String sql = "";
-		sql += "SELECT boardno,writedate,title,content,usernum,boardtypenum";
+		sql += "SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 		sql += "FROM board";
 		sql += "ORDER BY boardno DESC";
-
+		
 		List list = new ArrayList();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -38,14 +38,15 @@ public class BoardDaoImpl implements BoardDao {
 
 			while (rs.next()) {
 				Board board = new Board();
-
-				board.setBoardno(rs.getInt("classnum"));
-				board.setWritedate(rs.getDate("classname"));
-				board.setTitle(rs.getString("classcontent"));
-				board.setContent(rs.getString("classday"));
-				board.setUsernum(rs.getInt("classtime"));
-				board.setBoardtypenum(rs.getInt("classplace"));
-
+	
+				board.setBoardno( rs.getInt("boardno") );
+				board.setWritedate( rs.getDate("writedate") );
+				board.setTitle( rs.getString("title") );
+				board.setContent( rs.getString("content") );
+				board.setUsernum(rs.getInt("usernum"));
+				board.setBoardtypenum( rs.getInt("boardtypenum") );
+				board.setHit(rs.getInt("hit"));
+				
 				list.add(board);
 			}
 
@@ -272,5 +273,116 @@ public class BoardDaoImpl implements BoardDao {
 
 		return totalCount;
 	}
+
+	@Override
+	public List selectnoticeAll() {
+		//게시글 전체 조회 쿼리
+				String sql="";
+				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+				sql+=" FROM board";
+				sql+=" WHERE boardtypenum=1";
+				
+				List list = new ArrayList();
+				
+				try {
+					ps = conn.prepareStatement(sql);
+					
+					rs = ps.executeQuery();
+					
+					while( rs.next() ) {
+						Board board = new Board();
+						
+						board.setBoardno( rs.getInt("boardno") );
+						board.setWritedate( rs.getDate("writedate") );
+						board.setTitle( rs.getString("title") );
+						board.setContent( rs.getString("content") );
+						board.setUsernum(rs.getInt("usernum"));
+						board.setBoardtypenum( rs.getInt("boardtypenum") );
+						board.setHit(rs.getInt("hit"));
+				
+						list.add(board);
+					}
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+						
+				return list;
+				
+			}
+
+	@Override
+	public List selectbulletinAll() {
+		//게시글 전체 조회 쿼리
+				String sql="";
+				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+				sql+=" FROM board";
+				sql+=" WHERE boardtypenum=2";
+				
+				List list = new ArrayList();
+				
+				try {
+					ps = conn.prepareStatement(sql);
+					
+					rs = ps.executeQuery();
+					
+					while( rs.next() ) {
+						Board board = new Board();
+						
+						board.setBoardno( rs.getInt("boardno") );
+						board.setWritedate( rs.getDate("writedate") );
+						board.setTitle( rs.getString("title") );
+						board.setContent( rs.getString("content") );
+						board.setUsernum(rs.getInt("usernum"));
+						board.setBoardtypenum( rs.getInt("boardtypenum") );
+						board.setHit(rs.getInt("hit"));
+				
+						list.add(board);
+					}
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+						
+				return list;
+				
+			}
+	
+	@Override
+	public List selectreportAll() {
+		//게시글 전체 조회 쿼리
+				String sql="";
+				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+				sql+=" FROM board";
+				sql+=" WHERE boardtypenum=3";
+				
+				List list = new ArrayList();
+				
+				try {
+					ps = conn.prepareStatement(sql);
+					
+					rs = ps.executeQuery();
+					
+					while( rs.next() ) {
+						Board board = new Board();
+						
+						board.setBoardno( rs.getInt("boardno") );
+						board.setWritedate( rs.getDate("writedate") );
+						board.setTitle( rs.getString("title") );
+						board.setContent( rs.getString("content") );
+						board.setUsernum(rs.getInt("usernum"));
+						board.setBoardtypenum( rs.getInt("boardtypenum") );
+						board.setHit(rs.getInt("hit"));
+				
+						list.add(board);
+					}
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+						
+				return list;
+				
+			}
 
 }
