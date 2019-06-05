@@ -18,5 +18,5 @@ public class Marketing extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/02_capability/Marketing.jsp").forward(req, resp);
 		
 	}
-	
+	 
 }

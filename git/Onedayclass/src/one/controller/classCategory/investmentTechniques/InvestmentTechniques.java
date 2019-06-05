@@ -20,4 +20,4 @@ public class InvestmentTechniques extends HttpServlet {
 	}
 	
 
-}
+} 

@@ -18,7 +18,7 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	float: left;
-	margin-left: 400px;	
+	margin-left: 400px;	 
 }
 
 #tr,td{

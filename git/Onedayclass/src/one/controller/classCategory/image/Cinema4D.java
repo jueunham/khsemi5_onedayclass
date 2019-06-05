@@ -21,5 +21,5 @@ public class Cinema4D extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/04_image/Cinema4D.jsp").forward(req, resp);
 		
 	}
-
+ 
 }

@@ -20,6 +20,6 @@ public class TOEIC_TOEFL extends HttpServlet {
     	req.getRequestDispatcher("/WEB-INF/views/classCategory/05_foreignLanguage/TOEIC_TOEFL.jsp").forward(req, resp);
     	
     }
-    
+     
 
 }

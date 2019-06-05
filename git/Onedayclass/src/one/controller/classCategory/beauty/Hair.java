@@ -18,5 +18,5 @@ public class Hair extends HttpServlet {
 	   req.getRequestDispatcher("/WEB-INF/views/classCategory/03_beauty/Hair.jsp").forward(req, resp);
 	   
    }
-
+ 
 }

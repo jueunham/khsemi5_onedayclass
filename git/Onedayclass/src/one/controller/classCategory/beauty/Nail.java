@@ -20,5 +20,5 @@ public class Nail extends HttpServlet {
     	req.getRequestDispatcher("/WEB-INF/views/classCategory/03_beauty/Nail.jsp").forward(req, resp);
     	
     }
-
+ 
 }
