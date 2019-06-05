@@ -11,25 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
-
+import one.util.Paging;
 
 @WebServlet("/admin/board/report/list")
 public class BoardReportListManageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	//BoardService 객체
+
+	// BoardService 객체
 	private BoardService boardService = new BoardServiceImpl();
 
 	@Override
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		//게시판 목록조회
-		List list  = boardService.getList();
-			
-		//MODEL로 조회 결과 넣기
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		// 요청파라미터에서 curPage 얻어오기
+		Paging paging = boardService.getCurPage(req);
+
+		// MODEL로 Paging 객체 넣기
+		req.setAttribute("paging", paging);
+
+		// 게시판 목록조회
+		List list = boardService.getList(paging);
+
+		// MODEL로 조회 결과 넣기
 		req.setAttribute("reportlist", list);
-		//view 지정
-		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage/reportManage.jsp")
-		.forward(req, resp);
-		}
+		// view 지정
+		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage/reportManage.jsp").forward(req, resp);
+	}
 }

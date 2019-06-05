@@ -64,12 +64,12 @@
       <!-- 로그인 한 후에는 마이페이지 창 표시 -->
      <c:if test="${userid ne null }">
      	<!-- 유저가 일반회원이면 회원마이페이지로 연결, 호스트이면 호스트마이페이지로 연결 -->
-     	<c:if test="${userLevel eq user }">
+     	<c:if test="${userlevel eq USER }">
 	     	<li class="nav-item">
 	        <a class="nav-link" href="/mypage/member">마이페이지</a>
 	        </li>
      	</c:if>
-     	<c:if test="${userLevel eq host }">
+     	<c:if test="${userlevel ne USER }">
      		<li class="nav-item">
 	        <a class="nav-link" href="/mypage/host">마이페이지</a>
 	        </li>
