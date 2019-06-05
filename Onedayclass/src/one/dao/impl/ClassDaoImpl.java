@@ -25,7 +25,7 @@ public class ClassDaoImpl implements ClassDao {
 		public List selectAll() {
 			//파일업로드 기록 조회쿼리
 					String sql = "";
-					sql+="SELECT classnum,classname,classcontent,classday,classtime,classplace,classrunningtime";
+					sql+="SELECT classnum,classname,classcontent,classday,classtime,classplace,classprice,classrunningtime,usernum";
 					sql+=" FROM dayclass";
 								
 					List list = new ArrayList();
@@ -40,11 +40,13 @@ public class ClassDaoImpl implements ClassDao {
 							dayclass.setClassnum( rs.getInt("classnum") );
 							dayclass.setClassname( rs.getString("classname") );
 							dayclass.setClasscontent( rs.getString("classcontent") );
-							dayclass.setClassday( rs.getString("classday") );
+							dayclass.setClassday( rs.getDate("classday") );
 							dayclass.setClasstime(rs.getString("classtime"));
 							dayclass.setClassplace( rs.getString("classplace") );
+							dayclass.setClassprice(rs.getInt("classprice"));
 							dayclass.setClassrunningtime(rs.getInt("classrunningtime"));
 							dayclass.setUsernum(rs.getInt("usernum"));
+						
 							list.add(dayclass);
 						}
 
@@ -98,7 +100,7 @@ public class ClassDaoImpl implements ClassDao {
 			//다음 게시글 번호 조회 쿼리
 			String sql = "";
 			sql += "INSERT INTO dayclass(classnum,classname,classcontent,classday,classtime, classplace, classprice, classrunningtime, usernum) ";
-			sql += " VALUES (?, ?, ?, ?, ?, ?, 15000, 30, 100 )";
+			sql += " VALUES (?, ?, ?, ?, ?, ?, ? , ?, 100 )";
 			
 			try {
 				//DB작업
@@ -106,11 +108,11 @@ public class ClassDaoImpl implements ClassDao {
 				ps.setInt(1, dayClass.getClassnum());
 				ps.setString(2, dayClass.getClassname());
 				ps.setString(3, dayClass.getClasscontent());
-				ps.setString(4, dayClass.getClassday());
+				ps.setDate(4, dayClass.getClassday());
 				ps.setString(5, dayClass.getClasstime());
 				ps.setString(6, dayClass.getClassplace());
-//				ps.setInt(7, dayClass.getClassprice());
-//				ps.setInt(8, dayClass.getClassrunningtime());
+				ps.setInt(7, dayClass.getClassprice());
+				ps.setInt(8, dayClass.getClassrunningtime());
 //				ps.setInt(9, dayClass.getUsernum());
 				
 				ps.executeUpdate();

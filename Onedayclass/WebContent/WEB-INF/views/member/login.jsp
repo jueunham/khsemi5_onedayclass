@@ -37,10 +37,10 @@
 		<br>
 	</div>
 
-	<div style="text-align: center">
-		<input type="radio" name="type" value="호스트" /> 호스트 <input
-			type="radio" name="type" value="게스트" checked /> 게스트 <br>
-	</div>
+		<div style="text-align: center">
+			<input type="radio" name="userlevel" value="HOST" checked/> 호스트
+			<input type="radio" name="userlevel" value="USER" /> 게스트 <br>
+		</div><br><br>
 
 	<div class="form-group">
 		<div style="text-align: center">

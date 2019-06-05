@@ -2,6 +2,10 @@ package one.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -32,6 +36,8 @@ public class ClassServiceImpl implements ClassService {
 	@Override
 	public void uploadClass(HttpServletRequest req) {
 		
+		DateFormat sdFormat = new SimpleDateFormat("mmddyyyy");
+
 		DayClass dayClass = null;
 		ClassFile classFile = null;
 		
@@ -93,7 +99,13 @@ public class ClassServiceImpl implements ClassService {
 						}
 						//강의 요일
 						if("classDay".equals(item.getFieldName())) {
-							dayClass.setClassday(item.getString("utf-8"));							
+							Date classDate = null;
+							try {
+								classDate = (Date) sdFormat.parse(item.getString("utf-8"));
+							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+							dayClass.setClassday(classDate);
 						}
 						//강의시간
 						if("classTime".equals(item.getFieldName())) {
@@ -104,15 +116,21 @@ public class ClassServiceImpl implements ClassService {
 							dayClass.setClassplace(item.getString("utf-8"));							
 						}
 						//강의료
-//						if("".equals(item.getFieldName())) {
-//							dayClass.setClassprice(item.getString("utf-8"));							
-//						}
+						if("classPrice".equals(item.getFieldName())) {
+							dayClass.setClassprice(Integer.parseInt(item.getString("utf-8")));
+						}
+						
+						//강의진행시간
+						if("classRunningTime".equals(item.getFieldName())) {
+							dayClass.setClassrunningtime(Integer.parseInt(item.getString("utf-8")));
+						}
+						
 						
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
 					
-					// 등록 호스트 처리
+//					 등록 호스트 처리
 //					dayClass.setUsernum((int) req.getSession().getAttribute("userNum"));
 					
 				} else {

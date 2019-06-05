@@ -5,70 +5,56 @@ import java.sql.Date;
 public class Board {
 
 	private int boardno;
-	private Date writeDate;
+	private Date writedate;
 	private String title;
 	private String content;
-	private int userNum;
-	private int boardtypeNum;
+	private int usernum;
+	private int boardtypenum;
 	
 	@Override
 	public String toString() {
-		return "Board [boardno=" + boardno + ", writeDate=" + writeDate + ", title=" + title + ", content=" + content
-				+ ", userNum=" + userNum + ", boardtypeNum=" + boardtypeNum + "]";
+		return "Board [boardno=" + boardno + ", writedate=" + writedate + ", title=" + title + ", content=" + content
+				+ ", usernum=" + usernum + ", boardtypenum=" + boardtypenum + "]";
 	}
-
 	public int getBoardno() {
 		return boardno;
 	}
-
 	public void setBoardno(int boardno) {
 		this.boardno = boardno;
 	}
-
-	public Date getWriteDate() {
-		return writeDate;
+	public Date getWritedate() {
+		return writedate;
 	}
-
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
+	public void setWritedate(Date writedate) {
+		this.writedate = writedate;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public int getUserNum() {
-		return userNum;
+	public int getUsernum() {
+		return usernum;
+	}
+	public void setUsernum(int usernum) {
+		this.usernum = usernum;
+	}
+	public int getBoardtypenum() {
+		return boardtypenum;
+	}
+	public void setBoardtypenum(int boardtypenum) {
+		this.boardtypenum = boardtypenum;
 	}
 
-	public void setUserNum(int userNum) {
-		this.userNum = userNum;
-	}
-
-	public int getBoardtypeNum() {
-		return boardtypeNum;
-	}
-
-	public void setBoardtypeNum(int boardtypeNum) {
-		this.boardtypeNum = boardtypeNum;
-	}
-	
 	
 }
-
-
 
 
 

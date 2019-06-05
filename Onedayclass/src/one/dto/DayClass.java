@@ -1,11 +1,13 @@
 package one.dto;
 
+import java.sql.Date;
+
 public class DayClass {
 
 	private int classnum;
 	private String classname;
 	private String classcontent;
-	private String classday;
+	private Date classday;
 	private String classtime;
 	private String classplace;
 	private int classprice;
@@ -13,10 +15,11 @@ public class DayClass {
 	private int usernum;
 
 	
+	
 	@Override
 	public String toString() {
 		return "DayClass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
-				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace + ", classPrice="
+				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace + ", classprice="
 				+ classprice + ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
 	}
 	
@@ -38,10 +41,10 @@ public class DayClass {
 	public void setClasscontent(String classcontent) {
 		this.classcontent = classcontent;
 	}
-	public String getClassday() {
+	public Date getClassday() {
 		return classday;
 	}
-	public void setClassday(String classday) {
+	public void setClassday(Date classday) {
 		this.classday = classday;
 	}
 	public String getClasstime() {
@@ -56,15 +59,13 @@ public class DayClass {
 	public void setClassplace(String classplace) {
 		this.classplace = classplace;
 	}
-	
+
 	public int getClassprice() {
 		return classprice;
 	}
-
 	public void setClassprice(int classprice) {
 		this.classprice = classprice;
 	}
-	
 	public int getClassrunningtime() {
 		return classrunningtime;
 	}
@@ -77,6 +78,7 @@ public class DayClass {
 	public void setUsernum(int usernum) {
 		this.usernum = usernum;
 	}
+	
 	
 
 }

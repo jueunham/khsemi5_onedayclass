@@ -32,10 +32,10 @@ public class MemberLoginController extends HttpServlet {
 		
 		//로그인 정보 얻어오기
 		Member member = memberService.getLoginMember(req);
-		
+		System.out.println(member);
 		//로그인 인증
 		boolean login = memberService.login(member);
-		
+		System.out.println(login);
 		if(login) {
 
 			//로그인 사용자 정보 얻어오기
@@ -44,7 +44,6 @@ public class MemberLoginController extends HttpServlet {
 			//세션정보 저장
 			req.getSession().setAttribute("login", login);
 			req.getSession().setAttribute("userid", member.getUserid());
-			
 		}
 		
 		resp.sendRedirect("/main");
