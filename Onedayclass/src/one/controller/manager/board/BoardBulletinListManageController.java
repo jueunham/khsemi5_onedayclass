@@ -22,7 +22,7 @@ public class BoardBulletinListManageController extends HttpServlet {
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//게시판 목록조회
-		List list  = boardService.getList();
+		List list  = boardService.getbulletinList();
 			
 		//MODEL로 조회 결과 넣기
 		req.setAttribute("bulletinlist", list);

@@ -73,26 +73,26 @@
 	
 </style>
 
-
-<div id= "member-management">
-	<br><br><br>
-	<a href="/admin/member"> <h3>회원 관리</h3> </a>
+<div class="row">
+	<div id= "member-management">
+		<br><br><br>
+		<a href="/admin/member"> <h3>회원 관리</h3> </a>
+	</div>
+	<div id= "class-management">
+		<br><br><br>
+		<a href="/admin/class"><h3> 클래스 관리</h3></a>
+	</div>
 </div>
-<div id= "class-management">
-	<br><br><br>
-	<a href="/admin/class"><h3> 클래스 관리</h3></a>
-</div>
-<div id= "banner-management">
-	<br><br><br>
-	<a href="/admin/banner"><h3> 배너 관리</h3></a>
-</div>
-<div id= "board-management">
-	<br><br><br>
-	<a href="/admin/board"><h3> 게시판 관리</h3></a>
+<div class="row">
+	<div id= "banner-management">
+		<br><br><br>
+		<a href="/admin/banner"><h3> 배너 관리</h3></a>
+	</div>
+	<div id= "board-management">
+		<br><br><br>
+		<a href="/admin/board"><h3> 게시판 관리</h3></a>
+	</div>
 </div>
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br>
-
+<br><br><br><br><br><br>
 <c:import url="/WEB-INF/views/layout/footer.jsp" />

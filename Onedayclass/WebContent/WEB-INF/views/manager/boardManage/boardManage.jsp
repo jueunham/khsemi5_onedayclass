@@ -54,16 +54,16 @@ $(document).ready(function() {
 </style>
 
 <div align="center">
-<h2>게시판관리</h2>
+<a href ="/admin/board"><h2>게시판관리</h2> </a>
 <hr>
 </div>
 
 <div class="container">
 
 <div id="btnboard" class="float-left">
-	<button id="btnnotice" class="btn btn-info">공지사항</button>	
-	<button id="btnbulletin" class="btn btn-info">자유게시판</button>
-	<button id="btnreport" class="btn btn-info">신고게시판</button>
+	<button id="btnNotice" class="btn btn-info">공지사항</button>	
+	<button id="btnBulletin" class="btn btn-info">자유게시판</button>
+	<button id="btnReport" class="btn btn-info">신고게시판</button>
 </div>
 <div id="serch" class="float-right">
 	<input type="text"  placeholder="게시글 검색">

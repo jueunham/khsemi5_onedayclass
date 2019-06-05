@@ -28,7 +28,7 @@
 </style>
 
 <div align="center">
-<h2>회원관리</h2>
+<a href="/admin/member"><h2>회원관리</h2></a>
 <hr>
 </div>
 
