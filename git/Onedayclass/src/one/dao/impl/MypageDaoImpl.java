@@ -168,9 +168,32 @@ public class MypageDaoImpl implements MypageDao{
 	public List<Map<String, Object>> selectWishList() {
 
 		String sql = "";
-		sql += "SELECT ";
+		sql += "SELECT w.wishNum, w.userNum, c.className, c.classprice";
+		sql += " FROM wishlist w, dayclass c";
+		sql += " WHERE w.userNum = c.userNum";
 		
-		return null;
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("wishNum", rs.getInt("w.wishNum"));
+				map.put("userNum", rs.getDate("w.userNum"));
+				map.put("className", rs.getString("c.className"));
+				map.put("classprice", rs.getInt("c.classprice"));
+				
+				list.add(map);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 }

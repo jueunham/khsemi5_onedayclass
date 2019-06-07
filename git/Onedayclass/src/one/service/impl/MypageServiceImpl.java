@@ -1,6 +1,5 @@
 package one.service.impl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class MypageServiceImpl implements MypageService {
 	private MypageDao mypageDao = new MypageDaoImpl();
 
 	@Override
-	public List getList() {
+	public List<Map<String, Object>> getList() {
 		return mypageDao.selectClass();
 	}
 	
@@ -70,9 +69,6 @@ public class MypageServiceImpl implements MypageService {
 	
 	@Override
 	public List<Map<String, Object>> getWishList() {
-
-		
-		
-		return null;
+		return mypageDao.selectWishList();
 	}
 }

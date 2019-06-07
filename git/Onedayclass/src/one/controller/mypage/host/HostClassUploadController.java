@@ -26,7 +26,7 @@ public class HostClassUploadController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//클래스 삽입
-		classService.uploadClass(req);
+//		classService.uploadClass(req);
 		
 		//목록으로 리다이렉션
 		resp.sendRedirect("/mypage/host");
