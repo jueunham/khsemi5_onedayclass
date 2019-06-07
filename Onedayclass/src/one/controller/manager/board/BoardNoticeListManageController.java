@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
-
+import one.util.Paging;
 
 @WebServlet("/admin/board/notice/list")
 public class BoardNoticeListManageController extends HttpServlet {

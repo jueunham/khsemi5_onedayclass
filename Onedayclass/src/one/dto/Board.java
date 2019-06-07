@@ -9,12 +9,12 @@ public class Board {
 	private String title;
 	private String content;
 	private int usernum;
+	private int hit;
 	private int boardtypenum;
-	
 	@Override
 	public String toString() {
 		return "Board [boardno=" + boardno + ", writedate=" + writedate + ", title=" + title + ", content=" + content
-				+ ", usernum=" + usernum + ", boardtypenum=" + boardtypenum + "]";
+				+ ", usernum=" + usernum + ", hit=" + hit + ", boardtypenum=" + boardtypenum + "]";
 	}
 	public int getBoardno() {
 		return boardno;
@@ -46,14 +46,20 @@ public class Board {
 	public void setUsernum(int usernum) {
 		this.usernum = usernum;
 	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public int getBoardtypenum() {
 		return boardtypenum;
 	}
 	public void setBoardtypenum(int boardtypenum) {
 		this.boardtypenum = boardtypenum;
 	}
-
 	
+
 }
 
 

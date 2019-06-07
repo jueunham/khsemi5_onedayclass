@@ -1,6 +1,6 @@
 package one.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class DayClass {
 
@@ -10,9 +10,10 @@ public class DayClass {
 	private Date classday;
 	private String classtime;
 	private String classplace;
-	private String classprice;
-	private String classrunningtime;
+	private int classprice;
+	private int classrunningtime;
 	private int usernum;
+
 	
 	
 	@Override
@@ -58,16 +59,17 @@ public class DayClass {
 	public void setClassplace(String classplace) {
 		this.classplace = classplace;
 	}
-	public String getClassprice() {
+
+	public int getClassprice() {
 		return classprice;
 	}
-	public void setClassprice(String classprice) {
+	public void setClassprice(int classprice) {
 		this.classprice = classprice;
 	}
-	public String getClassrunningtime() {
+	public int getClassrunningtime() {
 		return classrunningtime;
 	}
-	public void setClassrunningtime(String classrunningtime) {
+	public void setClassrunningtime(int classrunningtime) {
 		this.classrunningtime = classrunningtime;
 	}
 	public int getUsernum() {
