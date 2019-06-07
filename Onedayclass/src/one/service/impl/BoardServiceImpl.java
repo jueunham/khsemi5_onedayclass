@@ -47,31 +47,7 @@ public class BoardServiceImpl implements BoardService {
 		// 게시글 조회 반환
 		return boardDao.selectBoardByBoardno(viewBoard);
 	}
-
-	@Override
-	public void update(HttpServletRequest req) {
-		Board board = null;
-
-		board = new Board();
-
-		board.setTitle(req.getParameter("title"));
-		board.setContent(req.getParameter("content"));
-
-//		System.out.println(board);
-//		System.out.println(boardFile);
-
-		if (board != null) {
-			boardDao.update(board);
-		}
-	}
-
-	@Override
-	public void delete(Board board) {
-
-		boardDao.delete(board);
-
-	}
-
+	
 	@Override
 	public boolean checkWriter(HttpServletRequest req) {
 
@@ -91,10 +67,27 @@ public class BoardServiceImpl implements BoardService {
 
 		return true;
 	}
+	@Override
+	public void update(HttpServletRequest req) {
+		Board board = null;
+
+		board = new Board();
+
+		board.setTitle(req.getParameter("title"));
+		board.setContent(req.getParameter("content"));
+
+//		System.out.println(board);
+//		System.out.println(boardFile);
+
+		if (board != null) {
+			boardDao.update(board);
+		}
+	}
 
 	@Override
-	public List getList(Paging paging) {
-		return boardDao.selectAll();
+	public void delete(Board board) {
+		boardDao.delete(board);
+
 	}
 
 	@Override
@@ -117,23 +110,26 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public List getList() {
+		return boardDao.selectAll();
+	}
+	
+	@Override
 	public List getnoticeList() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectnoticeAll();
 	}
 
 	@Override
 	public List getbulletinList() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectbulletinAll();
 	}
 
 	@Override
 	public List getreportList() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectreportAll();
 	}
-
+	
+	
 	@Override
 	public void write(HttpServletRequest req) {
 
@@ -259,5 +255,12 @@ public class BoardServiceImpl implements BoardService {
 			boardDao.insert(board);
 		}
 
+	}
+
+	@Override
+	public void boardListDelete(String names) {
+		boardDao.deleteBoardFileList(names);
+		boardDao.deleteBoardList(names);
+		
 	}
 }

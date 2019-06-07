@@ -20,14 +20,56 @@ $(document).ready(function() {
 	});
 	//검색 버튼 동작
 	$("#btnSearch").click(function() {
-		location.href="/board/list?search="+$("#search").val();
+		location.href="/admin/board/notice/list?search="+$("#search").val();
 	});
-	//삭제버튼 동작
+	// 선택체크 삭제
 	$("#btnDelete").click(function() {
+		// 선택된 체크박스
+		var $checkboxes = $("input:checkbox[name='checkRow']:checked");
+		
+		// 체크된 대상들을 map으로 만들고 map을 문자열로 만들기
+		var map = $checkboxes.map(function() {
+			return $(this).val();
+		});
+		var names = map.get().join(",");
+	
+		// 전송 폼
+		var $form = $("<form>")
+			.attr("action", "/board/listDelete")
+			.attr("method", "post")
+			.append(
+				$("<input>")
+					.attr("type", "hidden")
+					.attr("name", "names")
+					.attr("value", names)
+			);
+		$(document.body).append($form);
+		$form.submit();
 	
 	});
 	
 });
+
+//전체 체크/해제
+function checkAll() {
+	// checkbox들
+	var $checkboxes=$("input:checkbox[name='checkRow']");
+
+	// checkAll 체크상태 (true:전체선택, false:전체해제)
+	var check_status = $("#checkAll").is(":checked");
+	
+	if( check_status ) {
+		// 전체 체크박스를 checked로 바꾸기
+		$checkboxes.each(function() {
+			this.checked = true;	
+		});
+	} else {
+		// 전체 체크박스를 checked 해제하기
+		$checkboxes.each(function() {
+			this.checked = false;	
+		});
+	}
+}
 
 </script>
 <style type="text/css">
@@ -42,19 +84,12 @@ $(document).ready(function() {
 	width: 1000px;
 	height: 100px;
 	}
-	
-	#ck{ 
-	width : 20px; 
-	height: 20px; 
-	border: bold; 
-	}
-
 }
 	 
 </style>
 
 <div align="center">
-<a href ="/admin/board"><h2>게시판관리</h2> </a>
+<h2><a href ="/admin/board">게시판관리</a></h2>
 <hr>
 </div>
 
@@ -65,13 +100,12 @@ $(document).ready(function() {
 	<button id="btnBulletin" class="btn btn-info">자유게시판</button>
 	<button id="btnReport" class="btn btn-info">신고게시판</button>
 </div>
-<div id="serch" class="float-right">
-	<input type="text"  placeholder="게시글 검색">
-	<button>검색</button>
+<div id="search" class="float-right">
+	<input class="form-control" type="text" placeholder="게시글 검색">
+	<button id="btnSearch" class="btn">검색</button>
 </div>
 
 <br><br>
-
 
 <table class = "table table-bordered">
 	<thead>
@@ -80,7 +114,9 @@ $(document).ready(function() {
 			<th style="width:20%;">글 번호</th>
 			<th style="width:20%;">작성자 회원번호</th>
 			<th style="width:30%;">작성일자</th>		
-			<th style="width:10%;">선택</th>
+			<th style="width:10%;">
+				<input type="checkbox" id="checkAll" onclick="checkAll();" />
+			</th>
 		</tr>
 	</thead>
 	
@@ -106,7 +142,7 @@ $(document).ready(function() {
 				</c:choose>
 			</td>
 			<td><fmt:formatDate value="${i.writedate}" pattern="yyyy-MM-dd"/></td>
-			<td><input type="checkbox" id="ck"></td>
+			<td><input type="checkbox" name="checkRow" value="${i.boardno }" /></td>
 		</tr>
 	</c:forEach>	
 	</tbody>
@@ -114,6 +150,11 @@ $(document).ready(function() {
 <br><br>
 <div id="btnBox" class="float-right">
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
+
+</div>
+
+<div class="float-left">
+<h3><a href ="/admin/main">관리 메인으로</a></h3>
 </div>
 
 </div>
