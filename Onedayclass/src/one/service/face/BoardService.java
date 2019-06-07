@@ -8,15 +8,6 @@ import one.dto.Board;
 import one.util.Paging;
 
 public interface BoardService {
-
-	/**
-	 * 게시글 리스트 조회
-	 * 
-	 * @param paging - 조회대상 페이징 객체
-	 * @return 게시글을 조회한 결과
-	 */
-	public List getList();
-
 	/**
 	 * 요청파라미터에서 boardno를 파싱한다
 	 * 
@@ -63,6 +54,14 @@ public interface BoardService {
 	 */
 	public Paging getCurPage(HttpServletRequest req);
 
+	/**
+	 * 게시글 리스트 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 게시글을 조회한 결과
+	 */
+	public List getList();
+	
 	public List getnoticeList();
 
 	public List getbulletinList();
@@ -78,4 +77,6 @@ public interface BoardService {
 	 * 
 	 */
 	public void write(HttpServletRequest req);
+
+	public void boardListDelete(String names);
 }

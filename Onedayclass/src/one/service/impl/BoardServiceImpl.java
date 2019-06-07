@@ -47,7 +47,26 @@ public class BoardServiceImpl implements BoardService {
 		// 게시글 조회 반환
 		return boardDao.selectBoardByBoardno(viewBoard);
 	}
+	
+	@Override
+	public boolean checkWriter(HttpServletRequest req) {
 
+		// 로그인한 세션 ID 얻기
+		String loginId = (String) req.getSession().getAttribute("userid");
+
+		// 작성한 게시글 번호 얻기
+		Board board = getBoardno(req);
+
+		// 게시글 얻어오기
+		board = boardDao.selectBoardByBoardno(board);
+
+		// 게시글의 작성자와 로그인 아이디 비교
+		if (!loginId.equals(board.getUsernum())) {
+			return false;
+		}
+
+		return true;
+	}
 	@Override
 	public void update(HttpServletRequest req) {
 		Board board = null;
@@ -67,29 +86,27 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void delete(Board board) {
-
 		boardDao.delete(board);
 
 	}
 
 	@Override
-	public boolean checkWriter(HttpServletRequest req) {
-
-		// 로그인한 세션 ID 얻기
-		String loginId = (String) req.getSession().getAttribute("userid");
-
-		// 작성한 게시글 번호 얻기
-		Board board = getBoardno(req);
-
-		// 게시글 얻어오기
-		board = boardDao.selectBoardByBoardno(board);
-
-		// 게시글의 작성자와 로그인 아이디 비교
-		if (!loginId.equals(board.getUsernum())) {
-			return false;
+	public Paging getCurPage(HttpServletRequest req) {
+		// 전달파라미터 curPage 파싱
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if (param != null && !"".equals(param)) {
+			curPage = Integer.parseInt(param);
 		}
 
-		return true;
+		// 전체 게시글 수
+		int totalCount = boardDao.selectCntAll();
+
+		// 페이징 객체 생성
+		Paging paging = new Paging(totalCount, curPage);
+//				System.out.println(paging); //TEST
+
+		return paging;
 	}
 
 	@Override
@@ -113,26 +130,6 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	
-	@Override
-	public Paging getCurPage(HttpServletRequest req) {
-		// 전달파라미터 curPage 파싱
-		String param = req.getParameter("curPage");
-		int curPage = 0;
-		if (param != null && !"".equals(param)) {
-			curPage = Integer.parseInt(param);
-		}
-
-		// 전체 게시글 수
-		int totalCount = boardDao.selectCntAll();
-
-		// 페이징 객체 생성
-		Paging paging = new Paging(totalCount, curPage);
-//				System.out.println(paging); //TEST
-
-		return paging;
-	}
-
-
 	@Override
 	public void write(HttpServletRequest req) {
 
@@ -258,5 +255,12 @@ public class BoardServiceImpl implements BoardService {
 			boardDao.insert(board);
 		}
 
+	}
+
+	@Override
+	public void boardListDelete(String names) {
+		boardDao.deleteBoardFileList(names);
+		boardDao.deleteBoardList(names);
+		
 	}
 }

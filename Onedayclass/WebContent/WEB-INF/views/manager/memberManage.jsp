@@ -66,6 +66,10 @@
 <div id="btnBox" class=float-right>
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>
+
+<div class="float-left">
+<h3><a href ="/admin/main">관리 메인으로</a></h3>
+</div>
 </div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
