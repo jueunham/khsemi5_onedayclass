@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import one.dto.Comment;
 import one.dto.Question;
 import one.service.face.QuestionService;
 import one.service.impl.QuestionServiceImpl;

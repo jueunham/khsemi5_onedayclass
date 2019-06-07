@@ -115,6 +115,9 @@ $(".starRev span").click(function(){
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
 	<div style="float: left; margin-left: 100px;">
+	<div>
+		sadkajdsk
+	</div>
 	리뷰내용:ㄴㄴㄴㄴㄴ<br>
 	ssa sdf<br>
 	dsfsdfsdfsdfsdf
