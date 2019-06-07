@@ -20,7 +20,7 @@ public class HostClassUpdateDetailController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	
 		//클래스 번호 파싱
 		DayClass viewDayclass = classService.getClassnum(req);
 		

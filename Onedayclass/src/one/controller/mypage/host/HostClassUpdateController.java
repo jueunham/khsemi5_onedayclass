@@ -22,6 +22,7 @@ public class HostClassUpdateController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
 		//curpage얻어오기
 		Paging paging = classService.getCurPage(req);
 		
