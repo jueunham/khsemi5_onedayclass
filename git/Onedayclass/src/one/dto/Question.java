@@ -3,6 +3,7 @@ package one.dto;
 import java.util.Date;
 
 public class Question {
+	private int rnum;
 	private int quesNum;
 	private String content;
 	private Date quesDate;
@@ -10,13 +11,18 @@ public class Question {
 	private int userNum;
 	
 	
-	
 	@Override
 	public String toString() {
-		return "Question [quesNum=" + quesNum + ", content=" + content + ", quesDate=" + quesDate + ", classNum="
-				+ classNum + ", userNum=" + userNum + "]";
+		return "Question [rnum=" + rnum + ", quesNum=" + quesNum + ", content=" + content + ", quesDate=" + quesDate
+				+ ", classNum=" + classNum + ", userNum=" + userNum + "]";
 	}
 	
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public int getQuesNum() {
 		return quesNum;
 	}
@@ -47,6 +53,10 @@ public class Question {
 	public void setUserNum(int userNum) {
 		this.userNum = userNum;
 	}
+	
+	
+	
+	
 	
 	
 	
