@@ -24,7 +24,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public List selectAll() {
 
-		// 기록 조회쿼리
+		// 게시판 전체 기록 조회쿼리
 		String sql = "";
 		sql += "SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 		sql += "FROM board";

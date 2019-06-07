@@ -93,10 +93,26 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List getList(Paging paging) {
+	public List getList() {
 		return boardDao.selectAll();
 	}
+	
+	@Override
+	public List getnoticeList() {
+		return boardDao.selectnoticeAll();
+	}
 
+	@Override
+	public List getbulletinList() {
+		return boardDao.selectbulletinAll();
+	}
+
+	@Override
+	public List getreportList() {
+		return boardDao.selectreportAll();
+	}
+	
+	
 	@Override
 	public Paging getCurPage(HttpServletRequest req) {
 		// 전달파라미터 curPage 파싱
@@ -116,23 +132,6 @@ public class BoardServiceImpl implements BoardService {
 		return paging;
 	}
 
-	@Override
-	public List getnoticeList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List getbulletinList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List getreportList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void write(HttpServletRequest req) {

@@ -104,8 +104,6 @@ $(document).ready(function() {
 </table>
 <br><br>
 <div id="btnBox" class="float-right">
-	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
-	<button id="btnUpdate" class="btn btn-primary">수정</button>	
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>
 

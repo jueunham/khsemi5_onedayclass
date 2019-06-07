@@ -42,7 +42,7 @@ public interface BoardDao {
 	 */
 	public void delete(Board board);
 
-	public List selectAll();
+
 
 	/**
 	 * 테이블 전체 COUNT 조회
@@ -51,6 +51,9 @@ public interface BoardDao {
 	 */
 	public int selectCntAll();
 
+	
+	public List selectAll();
+	
 	public List selectbulletinAll();
 
 	public List selectreportAll();
