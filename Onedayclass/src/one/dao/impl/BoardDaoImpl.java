@@ -276,7 +276,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List selectnoticeAll() {
-		//게시글 전체 조회 쿼리
+		//공지사항 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";
@@ -313,7 +313,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List selectbulletinAll() {
-		//게시글 전체 조회 쿼리
+		//자유게시판 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";
@@ -350,7 +350,7 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public List selectreportAll() {
-		//게시글 전체 조회 쿼리
+		//신고게시판 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";

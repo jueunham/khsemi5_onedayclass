@@ -22,19 +22,15 @@ public class BoardReportListManageController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		// 요청파라미터에서 curPage 얻어오기
-		Paging paging = boardService.getCurPage(req);
-
-		// MODEL로 Paging 객체 넣기
-		req.setAttribute("paging", paging);
-
-		// 게시판 목록조회
-		List list = boardService.getList(paging);
-
-		// MODEL로 조회 결과 넣기
-		req.setAttribute("reportlist", list);
-		// view 지정
-		req.getRequestDispatcher("/WEB-INF/views/manager/boardManage/reportManage.jsp").forward(req, resp);
+	
+	//게시판 목록조회
+	List list  = boardService.getreportList();
+			
+	// MODEL로 조회 결과 넣기
+	req.setAttribute("reportlist", list);
+	
+	// view 지정
+	req.getRequestDispatcher("/WEB-INF/views/manager/boardManage/reportManage.jsp").forward(req, resp);
+	
 	}
 }
