@@ -42,7 +42,7 @@ public interface BoardDao {
 	 */
 	public void delete(Board board);
 
-	public List selectAll();
+
 
 	/**
 	 * 테이블 전체 COUNT 조회
@@ -51,9 +51,27 @@ public interface BoardDao {
 	 */
 	public int selectCntAll();
 
-	public List selectbulletinAll();
-
-	public List selectreportAll();
+	
+	public List selectAll();
 
 	public List selectnoticeAll();
+	
+	public List selectbulletinAll();
+	
+	public List selectreportAll();
+
+	/**
+	 * 리스트에서 게시글의 첨부파일 삭제하기
+	 * 
+	 * @param names - 삭제한 게시글 번호 목록들 문자열
+	 */
+	public void deleteBoardFileList(String names);
+	
+	/**
+	 * 리스트에서 게시글 삭제하기
+	 * 
+	 * @param names - 삭제한 게시글 번호 목록들 문자열
+	 */
+	public void deleteBoardList(String names);
+
 }

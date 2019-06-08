@@ -1,24 +1,33 @@
 package one.dto;
 
 public class Comment {
-
-	private int commentNum;
+	
+	private int rnum;
+	private int commNum;
 	private String content;
 	private int classNum;
 	private int userNum;
 	
 	
+	
 	@Override
 	public String toString() {
-		return "Comment [commentNum=" + commentNum + ", content=" + content + ", classNum=" + classNum + ", userNum="
-				+ userNum + "]";
+		return "Comment [rnum=" + rnum + ", commNum=" + commNum + ", content=" + content + ", classNum=" + classNum
+				+ ", userNum=" + userNum + "]";
 	}
 	
-	public int getCommentNum() {
-		return commentNum;
+	
+	public int getRnum() {
+		return rnum;
 	}
-	public void setCommentNum(int commentNum) {
-		this.commentNum = commentNum;
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
+	public int getCommNum() {
+		return commNum;
+	}
+	public void setCommNum(int commNum) {
+		this.commNum = commNum;
 	}
 	public String getContent() {
 		return content;
@@ -39,5 +48,7 @@ public class Comment {
 		this.userNum = userNum;
 	}
 	
+	
+
 	
 }

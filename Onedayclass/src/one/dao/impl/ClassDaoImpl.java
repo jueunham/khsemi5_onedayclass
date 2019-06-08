@@ -23,7 +23,7 @@ public class ClassDaoImpl implements ClassDao {
 
 		@Override
 		public List selectAll() {
-			//파일업로드 기록 조회쿼리
+			//클래스 목록 조회쿼리
 					String sql = "";
 					sql+="SELECT classnum,classname,classcontent,classday,classtime,classplace,classprice,classrunningtime,usernum";
 					sql+=" FROM dayclass";
