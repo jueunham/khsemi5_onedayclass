@@ -26,28 +26,32 @@
 <td style="background:lightgray;">클래스 후기</td>
 </tr>
 <!-- 작성글 목록을 불러서 스크롤바로 처리할 예정 -->
-<%-- <c:forEach items="${list}" var="i"> --%>
+<c:forEach items="${list }" var="i">
 	<tr>
 		<!-- 임의지정 -->
 		<td><img src="/resources/images/Tulips.jpg" style="width:250px; height:200px; padding:10px;" ></td>
-		<td>클래스 명 :  ${i.className }</td>
-		<td>작성일자 : ${i.classPrice }</td>
+		<td>
+			클래스 명 :  ${i.className }<br>
+			작성일자 : <fmt:formatDate value="${i.reviewDate }" pattern="yyyy-MM-dd"/>
+		</td>
 	</tr>
-<%-- </c:forEach> --%>
+</c:forEach>
 
 <tr>
 
 <td style="background:lightgray;">클래스 질문</td>
 </tr>
 <!-- 질문글 목록을 불러서 스크롤바로 처리할 예정 -->
-<%-- <c:forEach items="${list}" var="i"> --%>
+<c:forEach items="${list }" var="i">
 	<tr>
 		<!-- 임의지정 -->
 		<td><img src="/resources/images/Tulips.jpg" style="width:250px; height:200px; padding:10px;" ></td>
-		<td>클래스 명 :  ${i.className }</td>
-		<td>작성일자 : ${i.classPrice }</td>
+		<td>
+			클래스 명 :  ${i.className }<br>
+			작성일자 : <fmt:formatDate value="${i.quesDate }" pattern="yyyy-MM-dd"/>
+		</td>
 	</tr>
-<%-- </c:forEach> --%>
+</c:forEach>
 </tbody>
 </table>
 <hr>
@@ -64,14 +68,14 @@
 </thead>
 
 <tbody>
-<%-- <c:forEach items="${list}" var="i"> --%>
+<c:forEach items="${list }" var="i">
 	<tr>
 		<td>${i.boardno }</td>
 		<td>${i.boardtypeNum }</td>
 		<td><a href="/board/view?boardno=${i.boardno }">${i.title }</a></td>
 		<td><fmt:formatDate value="${i.writtendate }" pattern="yyyy-MM-dd" /></td>
 	</tr>
-<%-- </c:forEach> --%>
+</c:forEach>
 </tbody>
 
 </table>

@@ -71,4 +71,9 @@ public class MypageServiceImpl implements MypageService {
 	public List<Map<String, Object>> getWishList() {
 		return mypageDao.selectWishList();
 	}
+	
+	@Override
+	public List<Map<String, Object>> getRevQue() {
+		return mypageDao.selectRevQue();
+	}
 }
