@@ -93,7 +93,6 @@ function checkAll() {
 	}
 	
 }
-	 
 </style>
 
 <div align="center">

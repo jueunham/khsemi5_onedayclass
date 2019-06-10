@@ -69,7 +69,7 @@
 	        <a class="nav-link" href="/mypage/member">마이페이지</a>
 	        </li>
      	</c:if>
-     	<c:if test="${userlevel ne USER }">
+     	<c:if test="${userlevel eq HOST }">
      		<li class="nav-item">
 	        <a class="nav-link" href="/mypage/host">마이페이지</a>
 	        </li>
