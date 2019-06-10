@@ -17,5 +17,7 @@ public interface MypageDao {
 	public void updateInfoInter(UserInterList userinter);
 	
 	public List<Map<String, Object>> selectWishList();
+
+	public List<Map<String, Object>> selectRevQue();
 	
 }

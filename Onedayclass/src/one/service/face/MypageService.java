@@ -19,5 +19,7 @@ public interface MypageService {
 	public void updateInfo(HttpServletRequest req);
 	
 	public List<Map<String, Object>> getWishList();
+
+	List<Map<String, Object>> getRevQue();
 	
 }
