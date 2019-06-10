@@ -20,6 +20,8 @@ public interface MypageService {
 	
 	public List<Map<String, Object>> getWishList();
 
+	public List<Map<String, Object>> getRevQue();
+
 	List<Map<String, Object>> getRevQue();
 	
 }
