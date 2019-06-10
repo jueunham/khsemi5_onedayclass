@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="/WEB-INF/views/layout/header.jsp" />
-<script type="text/javascript">
 
+<script type="text/javascript">
 $(document).ready(function() {
 	//배너로 추가 버튼 동작
 	$("#btnAdd").click(function() {
@@ -74,12 +74,6 @@ function checkAll() {
 	height: 100px;
 	}
 	
-	#ck{ 
-	width : 20px; 
-	height: 20px; 
-	border: bold; 
-	}
-	 
 </style>
 
 <div align="center">
@@ -89,11 +83,12 @@ function checkAll() {
 
 <div class="container">
 
-<div id="serch" class="float-right">
+<div class="float-right">
 	<input type="text" placeholder="클래스명 검색">
 	<button id="btnSearch" class="btn">검색</button>
 </div>
 
+<br><br>
 <table class = "table table-bordered" >
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
@@ -112,7 +107,8 @@ function checkAll() {
 			<td>${i.classnum }</td>
 			<td>${i.classname }</td>
 			<td>${i.usernum }</td>
-			<td><input type="checkbox" name="checkRow" value="${i.classnum}" /></td>		</tr>
+			<td><input type="checkbox" name="checkRow" value="${i.classnum}" /></td>		
+		</tr>
 	</c:forEach>	
 	</tbody>
 </table>

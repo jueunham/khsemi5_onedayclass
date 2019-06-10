@@ -61,10 +61,6 @@ function checkAll() {
 
 <style type="text/css">
 
-	 div {
-        text-align: center;
-      }    
-        
 	th, td{
 		border:1px solid #bcbcbc;
 		}

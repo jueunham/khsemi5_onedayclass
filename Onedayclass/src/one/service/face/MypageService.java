@@ -22,6 +22,7 @@ public interface MypageService {
 
 	public List<Map<String, Object>> getRevQue();
 
-	List<Map<String, Object>> getRevQue();
+
+
 	
 }

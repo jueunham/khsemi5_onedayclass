@@ -18,8 +18,6 @@ public interface MypageDao {
 	
 	public List<Map<String, Object>> selectWishList();
 
-	List<Map<String, Object>> selectRevQue();
-
 	public List<Map<String, Object>> selectRevQue();
 
 	

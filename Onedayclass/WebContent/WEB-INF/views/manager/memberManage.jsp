@@ -90,8 +90,9 @@ function checkAll() {
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
 			<th style="width:20%;">회원 번호</th>
+			<th style="width:20%;">회원 타입</th>
 			<th style="width:20%;">회원ID</th>
-			<th style="width:50%;">회원이름</th>		
+			<th style="width:30%;">회원이름</th>		
 			<th style="width:10%;">
 				<input type="checkbox" id="checkAll" onclick="checkAll();" />
 			</th>
@@ -102,6 +103,7 @@ function checkAll() {
 	<c:forEach items="${memlist }" var="i">
 		<tr align="center">
 			<td>${i.usernum }</td>
+			<td>${i.userlevel }</td>
 			<td>${i.userid }</td>
 			<td>${i.username }</td>
 			<td><input type="checkbox" name="checkRow" value="${i.usernum}" /></td>
