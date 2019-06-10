@@ -44,6 +44,7 @@ public class MemberLoginController extends HttpServlet {
 			//세션정보 저장
 			req.getSession().setAttribute("login", login);
 			req.getSession().setAttribute("userid", member.getUserid());
+			req.getSession().setAttribute("usernum", member.getUsernum());
 		}
 		
 		resp.sendRedirect("/main");

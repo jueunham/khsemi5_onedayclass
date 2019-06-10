@@ -1,7 +1,6 @@
-package one.controller.manager;
+package one.controller.mypage.host;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,23 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import one.service.face.ClassService;
 import one.service.impl.ClassServiceImpl;
 
-@WebServlet("/admin/banner")
-public class BannerManagementController extends HttpServlet {
+@WebServlet("/mypage/host/upload")
+public class HostClassUploadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	//ClassService 객체
+
 	private ClassService classService = new ClassServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/WEB-INF/views/mypage/host/uploadclass.jsp").forward(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//  목록조회
-		List list = classService.getNotPagingList();
-
-		// MODEL로 조회 결과 넣기
-		req.setAttribute("classlist", list);
-
-		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/manager/bannerManage.jsp").forward(req, resp);
-     	}
+		//클래스 삽입
+		classService.uploadClass(req);
+		
+		//목록으로 리다이렉션
+		resp.sendRedirect("/mypage/host");
+		
+	}
+	
 }
