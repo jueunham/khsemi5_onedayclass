@@ -23,6 +23,6 @@ public class TermofserviceController extends HttpServlet {
 	
 	
 	
-	
+	 
 
 }

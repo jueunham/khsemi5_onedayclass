@@ -13,7 +13,7 @@
 	margin-left: 100px;
 	margin-right: 300px;
 	width: 1500px;
-	
+	 
 }
 
 #wrap {

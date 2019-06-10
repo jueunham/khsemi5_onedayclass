@@ -19,5 +19,5 @@ public class FinancialAccounting extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/02_capability/FinancialAccounting.jsp").forward(req, resp);
 	}
-	
+	 
 }

@@ -32,6 +32,11 @@ public class ClassServiceImpl implements ClassService {
 		return classDao.selectAll(paging);
 	}
 
+	 @Override
+	public List getNotPagingList() {
+	      return classDao.selectNotPagingAll();
+	}
+
 	@Override
 	public void uploadClass(HttpServletRequest req) {
 		
@@ -365,4 +370,5 @@ public class ClassServiceImpl implements ClassService {
 		return classDao.selectFile(viewDayclass);
 	}
 
+	
 }

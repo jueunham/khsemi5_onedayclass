@@ -12,6 +12,8 @@ public interface ClassService {
 
  	 public List getList(Paging paging);
  	 
+ 	 public List getNotPagingList();
+ 	 
  	 public Paging getCurPage(HttpServletRequest req);
  	 
  	 public void uploadClass(HttpServletRequest req);

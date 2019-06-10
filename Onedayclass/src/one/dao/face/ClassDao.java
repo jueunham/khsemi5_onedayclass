@@ -10,6 +10,10 @@ public interface ClassDao {
 	
 	public List selectAll(Paging paging);
 
+	
+	public List selectNotPagingAll();
+	
+	
 	/**
 	 * 클래스 번호 반환
 	 * 	새 클래스의 번호를 추출

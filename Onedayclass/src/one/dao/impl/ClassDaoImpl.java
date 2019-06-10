@@ -34,6 +34,7 @@ public class ClassDaoImpl implements ClassDao {
 			sql += " 	ORDER BY rnum";
 			sql += " ) DAYCLASS";
 			sql += " WHERE rnum BETWEEN ? AND ?";
+
 								
 			List list = new ArrayList();
 			try {
@@ -67,6 +68,42 @@ public class ClassDaoImpl implements ClassDao {
 					return list;
 					
 				}
+		
+		
+		@Override
+		public List selectNotPagingAll() {
+			 String sql = "";
+		      sql += "SELECT *";
+		      sql += " FROM dayclass";
+		   
+		      
+		      List list = new ArrayList();
+		      
+		      try {
+		        ps = conn.prepareStatement(sql);
+		        rs = ps.executeQuery();
+		         
+		        DayClass dayclass = new DayClass();
+					
+				dayclass.setClassnum( rs.getInt("classnum") );
+				dayclass.setClassname( rs.getString("classname") );
+				dayclass.setClasscontent( rs.getString("classcontent") );
+				dayclass.setClassday( rs.getDate("classday") );
+				dayclass.setClasstime(rs.getString("classtime"));
+				dayclass.setClassplace( rs.getString("classplace") );
+				dayclass.setClassprice(rs.getInt("classprice"));
+				dayclass.setClassrunningtime(rs.getInt("classrunningtime"));
+				dayclass.setUsernum(rs.getInt("usernum"));
+						
+				list.add(dayclass);
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      }
+		            
+		      return list;
+
+		}
 
 		@Override
 		public int selectClassnum() {
@@ -330,5 +367,6 @@ public class ClassDaoImpl implements ClassDao {
 			
 			return classFile;
 		}
+
 				
 }

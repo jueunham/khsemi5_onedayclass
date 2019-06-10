@@ -19,5 +19,5 @@ public class Makeup extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/03_beauty/Makeup.jsp").forward(req, resp);
 		
 	}
-	
+	 
 }

@@ -21,42 +21,7 @@ public class BoardDaoImpl implements BoardDao {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
-	@Override
-	public List selectAll() {
-
-		// 기록 조회쿼리
-		String sql = "";
-		sql += "SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
-		sql += "FROM board";
-		sql += "ORDER BY boardno DESC";
-		
-		List list = new ArrayList();
-		try {
-			ps = conn.prepareStatement(sql);
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				Board board = new Board();
 	
-				board.setBoardno( rs.getInt("boardno") );
-				board.setWritedate( rs.getDate("writedate") );
-				board.setTitle( rs.getString("title") );
-				board.setContent( rs.getString("content") );
-				board.setUsernum(rs.getInt("usernum"));
-				board.setBoardtypenum( rs.getInt("boardtypenum") );
-				board.setHit(rs.getInt("hit"));
-				
-				list.add(board);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return list;
-
-	}
 
 	@Override
 	public Board selectBoardByBoardno(Board viewBoard) {
@@ -275,8 +240,46 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
+	public List selectAll() {
+
+		// 게시판 전체 기록 조회쿼리
+		String sql = "";
+		sql += "SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+		sql += " FROM board";
+	
+		
+		List list = new ArrayList();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				Board board = new Board();
+				
+				board.setBoardno( rs.getInt("boardno") );
+				board.setWritedate( rs.getDate("writedate") );
+				board.setTitle( rs.getString("title") );
+				board.setContent( rs.getString("content") );
+				board.setUsernum(rs.getInt("usernum"));
+				board.setBoardtypenum( rs.getInt("boardtypenum") );
+				board.setHit(rs.getInt("hit"));
+		
+				list.add(board);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+		return list;
+		
+	}
+	
+	@Override
 	public List selectnoticeAll() {
-		//게시글 전체 조회 쿼리
+		//공지사항 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";
@@ -313,7 +316,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public List selectbulletinAll() {
-		//게시글 전체 조회 쿼리
+		//자유게시판 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";
@@ -350,7 +353,7 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public List selectreportAll() {
-		//게시글 전체 조회 쿼리
+		//신고게시판 게시글 전체 조회 쿼리
 				String sql="";
 				sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
 				sql+=" FROM board";
@@ -384,5 +387,47 @@ public class BoardDaoImpl implements BoardDao {
 				return list;
 				
 			}
+
+	@Override
+	public void deleteBoardFileList(String names) {
+		String sql = "DELETE FROM boardFile WHERE boardno IN ( "+names+" )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	public void deleteBoardList(String names) {
+		String sql = "DELETE FROM board WHERE boardno IN ( "+names+" )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }

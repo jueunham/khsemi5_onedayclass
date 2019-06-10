@@ -81,12 +81,12 @@
 
 <div id="background" style="text-align: center;">
 	<div id="footer1">
-		<a href="termofservice">이용약관</a>
+		<a href="/termofservice">이용약관</a>
 	</div>
 	
 	
 	<div id="footer2">
-		<a href="privacypolicy">개인정보 취급방침</a>
+		<a href="/privacypolicy">개인정보 취급방침</a>
 	</div>
 	
 	

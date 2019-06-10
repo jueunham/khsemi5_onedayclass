@@ -8,6 +8,185 @@
 
 <style type="text/css">
 
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+.ngc{font-family: 'Nanum Gothic Coding', monospace;}
+
+#block01{
+	width: 1600px;
+}
+
+#block02{
+	width: 1600px;
+}
+
+
+
+#wrap01{
+	float: left;
+}
+
+#wrap02{
+	float: left;
+}
+
+#wrap03{
+	float: left;
+}
+
+#wrap04{
+	float: left;
+}
+
+#wrap05{
+	float: left;
+}
+
+#wrap06{
+	float: left;
+}
+
+
+
+#content01{
+	border: 1px solid #ccc;
+}
+
+#content02{
+	border: 1px solid #ccc;
+}
+
+#content03{
+	border: 1px solid #ccc;
+}
+
+#content04{
+	border: 1px solid #ccc;
+}
+
+#content05{
+	border: 1px solid #ccc;
+}
+
+#content06{
+	border: 1px solid #ccc;
+}
+
+
+
+#img01{
+	border: 1px solid #ccc;
+}
+
+#img02{
+	border: 1px solid #ccc;
+}
+
+#img03{
+	border: 1px solid #ccc;
+}
+
+#img04{
+	border: 1px solid #ccc;
+}
+
+
+#img05{
+	border: 1px solid #ccc;
+}
+
+#img06{
+	border: 1px solid #ccc;
+}
+
+
+
+
+#txt01{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
+
+
+#txt02{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
+
+
+
+#txt03{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
+
+#txt04{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
+
+#txt05{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
+
+#txt06{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3		
+}
 
 
 </style>
@@ -17,105 +196,220 @@
 </head>
 <body>
 
-<div id="content01">
+<div id="block01">
 
-<div id="img01">
-	<label style="font-size: 30px;"><a href="/trip"> 여행  </a></label>
-	<a href="/trip">
-	<img src="/picture/img01.png" width="400" height="300" style= "display:block;"  ></a>
+<div id="wrap01">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-left: 440px; margin-top: 30px; margin-right: 30px;"></a>
 
-<br>
+<table id="content01" style="width: 300px; margin-left: 440px; height: 200px;">
 
-<table>
+	<tr>		
+		<td>
+				<label id="txt01" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	
+	</tr>
+	
+	
 	<tr>
-		<td width="400px" style="text-align: justify;" >
-		친구들 혹은 가족들 등 소중한 사람들과 함께 하는 여행은 언제나 즐겁고 행복합니다.
-		 하지만 다른 누군가와 함께 하는 것이 아닌, 오롯이 나 혼자 여행을 떠났을 때에 경험할 수 있는 기회들은 훨씬 더 다양해집니다.
-
-		혼자 여행했을 때 현지 친구들과 친해질 수 있는 기회들도 많아지고
-		내가 하고싶은대로 빠른 의사결정이 가능하죠.
-		예상치 못한 사건사고를 겪기도 하고 그걸 해결하는 과정 속에서 배우고 성장합니다.
-
-		그래서 저는 늘 사람들에게 꼭 혼자 여행해보라고 적극 추천해요.
-		</td>
-	</tr>	
-</table>	
-</div>
-
-
-
-<div id="img02">
-	<label style="font-size: 30px;"><a href="/beauty/main"> 뷰티 </a></label>
-	<a href="/beauty/main">
-	<img src="/picture/img02.png" width="400" height="300" style= "display:block;"  ></a>
-<br>
-
-<table>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; &#8361; 50,000 </label></td>
+	</tr>
+	
+	
 	<tr>
-		<td width="400px" style="text-align: justify;" >
-		퍼스널 컬러부터 저렴이 고렴이 추천까지 정말 메이크업에 대한 많은 정보들이 넘실거리고 있는 요즘이지만, 자신한테 정말 딱 맞는, 그리고 나를 정말 빛내주는 메이크업을 찾는 건 정말 어려운 일이예요.
-		그리고 사람이 참 아이러니한게 남의 떡이 더 커보인다고 웜톤이면 쿨톤처럼 핑크핑크한 메이크업이 더 예뻐보이고, 쿨톤이면 여리여리한 코랄 메이크업이 더 예뻐보이지 않으세요?
-		좀 더 본인에게 어울리는 메이크업이 무엇인지 스스로 느끼고, 배워보는 시간입니다. 
-
-		</td>
-	</tr>	
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; 호스트 명 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
 </table>
 
-</div>
-</div> <div style="clear: both"></div><br><br>
 
-
-
-
-<div id="content02">
-
-<div id="img03">
-	<label style="font-size: 30px;"><a href="/excel"> 엑셀 </a></label>
-	<a href="/excel">
-	<img src="/picture/img03.png" width="400" height="300" style= "display:block;"  ></a>
-
-<br>
-
-<table>
-	<tr>
-		<td width="400px" style="text-align: justify;" >
-		EXCEL 왕초보도 [Excel∴lerator] 밟고 업무 속도 UP!
-		때론 천천히 걷다가도 빨리 달려야 할 때가 있습니다.
-		하루하루 밀려만 가는 일거리, 늘지 않는 업무 속도 때문에
-		엑셀을 배우고는 싶지만 시간과 비용 때문에 망설이셨다면,
-		지금이 바로 [EXCELator]강의를 통해 달릴 시간입니다!
-		왕초보분들도 '엑셀 고수' 소리를 들을 수 있도록
-		가장 '쉽게', '빠르게', '쓸모있게' 준비했습니다!
-		</td>
-	</tr>	
-</table>	
 </div>
 
 
+<div id="wrap02">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-top: 30px; margin-right: 30px;"></a>
 
-<div id="img04">
-	<label style="font-size: 30px;"><a href="/composition"> 작곡  </a></label>
-	<a href="/composition">
-	<img src="/picture/img04.png" width="400" height="300" style= "display:block;"  ></a>
-<br>
+<table id="content02" style="width: 300px; height: 200px;">
 
-<table>
+	<tr>		
+		<td>
+				<label id="txt02" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	
+	</tr>
+	
+	
 	<tr>
-		<td width="400px" style="text-align: justify;" >
-		 누가 여러분의 취미를 물으면 '작곡'이라고 답하세요!
-		기술의 발달이 악기를 다뤄본 적이 없어도, 음악적인 기초가 없어도,
-		곡을 쓸 수 있도록 많은 부분들의 진입장벽을 낮춰주고 있습니다.
-		이제 여러분이 필요한 것은 음악에 대한 열정과 첫 시도입니다.
-
-		</td>
-	</tr>	
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;">  &nbsp;&nbsp; &#8361; 50,000 </label></td>
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; 호스트 명 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
 </table>
 
+
 </div>
 
-</div> <div style="clear: both"></div><br><br>
+
+<div id="wrap03">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-top: 30px;"></a>
+
+<table id="content03" style="width: 300px; height: 200px;">
+
+	<tr>		
+		<td>
+				<label id="txt03" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	 
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; &#8361; 50,000 </label></td>
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; 호스트 명 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
+</table>
 
 
+</div>
+
+
+</div><div style="clear: both;"></div>
+
+
+
+
+<div id="block02">
+
+<div id="wrap04">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-left: 440px; margin-top: 30px; margin-right: 30px;"></a>
+
+<table id="content04" style="width: 300px; margin-left: 440px; height: 200px;">
+
+	<tr>		
+		<td>
+				<label id="txt04" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp;  50,000 </label></td>
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; 호스트 명  &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
+</table>
+
+
+</div>
+
+
+<div id="wrap05">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-top: 30px; margin-right: 30px;"></a>
+
+<table id="content05" style="width: 300px; height: 200px;">
+
+	<tr>		
+		<td>
+				<label id="txt05" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; &#8361; 50,000 </label></td>
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;">  &nbsp;&nbsp; 호스트 명 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
+</table>
+
+
+</div>
+
+
+<div id="wrap06">
+	<a href="#"><img id="img01" src="/picture/test.png" width="300px;" height="300px;" 
+		style="margin-top: 30px;"></a>
+
+<table id="content06" style="width: 300px; height: 200px;">
+
+	<tr>		
+		<td>
+				<label id="txt06" class="ngc"> <a href="#" style="color: black; font-weight: bold;">
+					 클래스 내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ 
+					 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+					 </a></label></td>		
+	
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;">  &nbsp;&nbsp; &#8361; 50,000 </label></td>
+	</tr>
+	
+	
+	<tr>
+		<td> <label style="font-family: fantasy; font-weight: bold;
+						 color: darkorange;"> &nbsp;&nbsp; 호스트 명  &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;신촌/홍대 </label></td>
+	</tr>
+	
+</table>
+
+
+</div>
+
+
+</div><div style="clear: both;"></div>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br>
 
 <div id="pagingBox" style="margin-left: 900px" >
 <c:import url="/WEB-INF/views/layout/paging.jsp" />

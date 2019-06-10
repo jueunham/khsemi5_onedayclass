@@ -20,5 +20,5 @@ public class Picture extends HttpServlet {
 	}
 	
 	
-
+ 
 }

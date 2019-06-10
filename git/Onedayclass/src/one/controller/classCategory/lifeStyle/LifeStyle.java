@@ -18,3 +18,4 @@ public class LifeStyle extends HttpServlet {
     }
 
 }
+ 

@@ -18,5 +18,5 @@ public class Image extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/classCategory/04_image/main.jsp").forward(req, resp);
 		
 	}
-
+  
 }

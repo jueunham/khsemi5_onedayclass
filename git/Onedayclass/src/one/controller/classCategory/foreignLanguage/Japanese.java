@@ -20,3 +20,4 @@ public class Japanese extends HttpServlet {
 	}
 
 }
+ 

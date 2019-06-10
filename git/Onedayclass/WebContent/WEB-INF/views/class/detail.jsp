@@ -68,7 +68,7 @@
 
 
 <div id="content1-2" style="width: 400px;">
-	
+	 
 	<br><br>
 	<label>위치:</label><hr>
 	<label>요일:</label><hr>
