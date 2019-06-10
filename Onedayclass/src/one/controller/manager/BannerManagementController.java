@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import one.service.face.ClassService;
 import one.service.impl.ClassServiceImpl;
+import one.util.Paging;
 
 @WebServlet("/admin/banner")
 public class BannerManagementController extends HttpServlet {
@@ -22,8 +23,14 @@ public class BannerManagementController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//  목록조회
-		List list = classService.getNotPagingList();
+		//curpage얻어오기
+		Paging paging = classService.getCurPage(req);
+						
+		//Paging 객체 넣기
+		req.setAttribute("Paging", paging);
+		
+		//클래스 목록조회
+		List list = classService.getList(paging);
 
 		// MODEL로 조회 결과 넣기
 		req.setAttribute("classlist", list);
