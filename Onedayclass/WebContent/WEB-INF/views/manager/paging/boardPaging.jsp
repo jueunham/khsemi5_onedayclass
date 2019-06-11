@@ -6,23 +6,23 @@
 <div class="text-center">
 	<ul class="pagination pagination-sm">
 		<!-- 처음으로 가기 -->
-		<c:if test="${bulletinPaging.startPage ne 1 }">
+		<c:if test="${boardPaging.startPage ne 1 }">
 		<li>
-			<a href="/board/bulletin/list"><span>&larr;처음</span></a>
+			<a href="/admin/board"><span>&larr;처음</span></a>
 		</li>
 		</c:if>
 
 		<!-- 이전 페이지 -->
 		<!-- 첫 페이지라면 버튼 동작 안 되게 만들기 -->
-		<c:if test="${bulletinPaging.curPage eq 1 }">
+		<c:if test="${boardPaging.curPage eq 1 }">
 		<li class="disabled">
 			<span>&laquo;</span>
 		</li>
 		</c:if>
 
-		<c:if test="${bulletinPaging.curPage ne 1 }">
+		<c:if test="${boardPaging.curPage ne 1 }">
 		<li>
-			<a href="/board/bulletin/list?curPage=${bulletinPaging.curPage-1 }"><span>&laquo;</span></a>
+			<a href="/admin/board?curPage=${boardPaging.curPage-1 }"><span>&laquo;</span></a>
 	    </li>
 	    </c:if>
 
@@ -32,19 +32,19 @@
 
 		<!-- 페이징 리스트 -->
 		<c:forEach
-	     begin="${bulletinPaging.startPage }" end="${bulletinPaging.endPage }"
+	     begin="${boardPaging.startPage }" end="${boardPaging.endPage }"
 	     var="i">
 	
 			<!-- 현재 보고 있는 페이지번호만 강조해주기 -->
-			<c:if test="${bulletinPaging.curPage eq i}">
+			<c:if test="${boardPaging.curPage eq i}">
 			<li class="active">
-				<a href="/board/bulletin/list?curPage=${i }">${i }</a>
+				<a href="/admin/board?curPage=${i }">${i }</a>
 			</li>
 			</c:if>
 		
-			<c:if test="${bulletinPaging.curPage ne i}">
+			<c:if test="${boardPaging.curPage ne i}">
 			<li>
-				<a href="/board/bulletin/list?curPage=${i }">${i }</a>
+				<a href="/admin/board?curPage=${i }">${i }</a>
 			</li>
 			</c:if>
 			
@@ -54,15 +54,15 @@
 
 		
 		<!-- 다음 페이지 -->
-		<c:if test="${bulletinPaging.curPage eq bulletinPaging.totalPage }">
+		<c:if test="${boardPaging.curPage eq boardPaging.totalPage }">
 		<li class="disabled">
 			<span>&raquo;</span>
 		</li>
 		</c:if>
 
-		<c:if test="${bulletinPaging.curPage ne bulletinPaging.totalPage }">
+		<c:if test="${boardPaging.curPage ne boardPaging.totalPage }">
 		<li>
-			<a href="/board/bulletin/list?curPage=${bulletinPaging.curPage+1 }">
+			<a href="/admin/board?curPage=${boardPaging.curPage+1 }">
 			<span>&raquo;</span>
 		</a>
 		</li>
