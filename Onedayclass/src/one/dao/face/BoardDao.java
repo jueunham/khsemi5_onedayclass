@@ -3,8 +3,56 @@ package one.dao.face;
 import java.util.List;
 
 import one.dto.Board;
+import one.dto.BoardFile;
+import one.util.Paging;
 
 public interface BoardDao {
+	/**
+	 * Board테이블 전체 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블 전체 조회 결과
+	 */
+	public List selectAll(Paging paging);
+	
+	/**
+	 * Board테이블 공지사항 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
+	public List selectnoticeAll(Paging paging);
+	
+	/**
+	 * Board테이블 자유게시판 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
+	public List selectbulletinAll(Paging paging);
+	
+	/**
+	 * Board테이블 신고게시판 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
+	public List selectreportAll(Paging paging);
+	
+	/**
+	 * 테이블 전체 COUNT 조회
+	 * 
+	 * @return 테이블 전체 행 수 조회 결과
+	 */
+	public int selectCntAll();
+	
+	/**
+	 * 조회되는 게시글의 조회수 +1
+	 * 
+	 * @param viewBoard - 조회 대상
+	 */
+	public void updateHit(Board viewBoard);
+	
 
 	/**
 	 * 상세보기 게시글 조회
@@ -22,12 +70,50 @@ public interface BoardDao {
 	public int selectBoardno();
 
 	/**
-	 * 게시글 입력
+	 * 자유게시판 게시글 입력
 	 * 
 	 * @param board - 삽입될 게시글 내용
 	 */
-	public void insert(Board board);
-
+	public void bulletininsert(Board board);
+	
+	/**
+	 * 공지사항 게시글 입력
+	 * 
+	 * @param board - 삽입될 게시글 내용
+	 */
+	public void noticeinsert(Board board);
+	
+	/**
+	 * 신고게시판 게시글 입력
+	 * 
+	 * @param board - 삽입될 게시글 내용
+	 */
+	public void reportinsert(Board board);
+	
+	/**
+	 * 첨부파일 입력
+	 * 
+	 * @param boardFile - 업로드 된 첨부파일 내용
+	 */
+	public void insertFile(BoardFile boardFile);
+	
+	
+	/**
+	 * 첨부파일 조회
+	 * 
+	 * @param board - 첨부파일을 조회할 게시글 객체
+	 * @return BoardFile - 조회된 첨부파일
+	 */
+	public BoardFile selectFile(Board board);
+	
+	/**
+	 * 파일번호로 첨부파일 정보 조회
+	 * 
+	 * @param fileno - 조회할 첨부파일의 번호
+	 * @return BoardFile - 조회된 첨부파일
+	 */
+	public BoardFile selectByFileno(int fileno);
+	
 	/**
 	 * 게시글 수정
 	 * 
@@ -41,26 +127,13 @@ public interface BoardDao {
 	 * @param board - 삭제할 게시글번호를 담은 객체
 	 */
 	public void delete(Board board);
-
-
-
+	
 	/**
-	 * 테이블 전체 COUNT 조회
+	 * 게시글에 첨부된 파일 기록 삭제
 	 * 
-	 * @return 테이블 전체 행 수 조회 결과
+	 * @param board - 삭제할 게시글번호를 담은 객체
 	 */
-	public int selectCntAll();
-
-	
-	public List selectAll();
-
-	public List selectnoticeAll();
-	
-	public List selectbulletinAll();
-	
-	public List selectreportAll();
-	
-	public List selectByUsernum(int userNum);
+	public void deleteFile(Board board);
 
 	/**
 	 * 리스트에서 게시글의 첨부파일 삭제하기
@@ -75,5 +148,7 @@ public interface BoardDao {
 	 * @param names - 삭제한 게시글 번호 목록들 문자열
 	 */
 	public void deleteBoardList(String names);
+
+
 
 }

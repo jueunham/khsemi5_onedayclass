@@ -30,7 +30,7 @@ public class BoardNoticeListController extends HttpServlet {
 		req.setAttribute("paging", paging);
 
 		// 게시판 목록 조회
-		List list = boardService.getnoticeList();
+		List list = boardService.getnoticeList(paging);
 
 		// MODEL로 조회 결과 넣기
 		req.setAttribute("noticelist", list);
