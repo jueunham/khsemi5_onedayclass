@@ -6,9 +6,19 @@
 
 <script type="text/javascript">
 
- 
+$(document).ready(function() {
 
+$("#qbtnCancel").click(function() {
+	history.go(-1);
+});
 
+$("#qbtnWrite").click(function() {
+	
+	$("form").submit();
+	
+});
+
+});
 
 </script>
 
@@ -47,9 +57,19 @@
 
 
 <div style="width: 1600px;">
-<button style="float: right; margin-right: 280px; background-color: #4169e1; color: white; border-radius: 5px;" >
 
-작성완료</button><div style="clear: both;"></div><br>
+<form action="/question" method="post" >
+<button type="button" id="qbtnWrite" class="btn btn-info"
+	style="float: right; margin-right: 280px; background-color: #4169e1; color: white; border-radius: 5px;" >
+
+작성완료</button>
+
+<button type="button" id="qbtnCancel" class="btn btn-danger"
+	style="float: right; margin-right:10px; background-color: #4169e1; color: white; border-radius: 5px;" >
+
+취소</button><div style="clear: both;"></div><br>
+
+</form>
 </div>
 <hr>
 <br>
@@ -58,10 +78,16 @@
 <div id="person1" style="margin-left: 500px;">
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
+	<div style="float: left; margin-left: 100px; width: 100px;">
+	<label>아이디</label><br><label>${userid }</label><br>
+	</div>
+	
 	<div style="float: left; margin-left: 100px;">
 	질문내용:ㄴㄴㄴㄴㄴ<br>
 	ssa sdf<br>
 	dsfsdfsdfsdfsdf
+	
+	${content }
 	
 	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
 </div>
@@ -70,10 +96,16 @@
 <div id="person2" style="margin-left: 500px;">
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
+	<div style="float: left; margin-left: 100px; width: 100px;">
+	<label>아이디</label><br><label>${userid }</label><br>
+	</div>
+	
 	<div style="float: left; margin-left: 100px;">
 	질문내용:ㄴㄴㄴㄴㄴ<br>
 	ssa sdf<br>
 	dsfsdfsdfsdfsdf
+	
+	${content }
 	
 	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
 </div>
@@ -81,16 +113,25 @@
 
 <div id="person3" style="margin-left: 500px;">
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
+
+	<div style="float: left; margin-left: 100px; width: 100px;">
+	<label>아이디</label><br><label>${userid }</label><br>
+	</div>
 	
 	<div style="float: left; margin-left: 100px;">
 	질문내용:ㄴㄴㄴㄴㄴ<br>
 	ssa sdf<br>
 	dsfsdfsdfsdfsdf
 	
+	${content }
+	
 	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
+</div>
+
+<div id="pasing" style="margin-left: 910px;">
+<c:import url="/WEB-INF/views/layout/ReviewPaging.jsp" />
 </div>
 
 <br><br><br><br><br><br><br>
 
-</body>
-</html>
+<c:import url="/WEB-INF/views/layout/footer.jsp" />

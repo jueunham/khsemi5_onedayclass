@@ -2,10 +2,14 @@ package one.dao.face;
 
 import java.util.List;
 
+
 import one.dto.DayClass;
 import one.dto.Question;
+import one.util.Paging;
+
 
 public interface QuestionDao {
+
 	
 	/**
 	  * 질문 조회 - 질문 번호를 rnum을 통해 같이 조회한다

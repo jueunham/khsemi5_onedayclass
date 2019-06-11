@@ -23,6 +23,7 @@ public class ReviewInsertController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
 		doPost(req, resp);
 		
 	}
@@ -32,7 +33,9 @@ public class ReviewInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Review review = reviewService.getReview(req);
-				
+		
+		reviewService.insertReview(review);
+		
 		resp.sendRedirect("/classlist?reviewNum="+review.getClassNum());
 		
 	}

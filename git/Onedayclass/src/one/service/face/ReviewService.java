@@ -2,12 +2,23 @@ package one.service.face;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import one.dto.DayClass;
 import one.dto.Review;
 
 public interface ReviewService {
+	
+	
+	public DayClass getdayClassNum(HttpServletRequest req);
+	
+	/**
+	 * 상세보기 리뷰 조회
+	 * 
+	 * @param viewBoard - 상세보기할 boardno를 가진 객체
+	 * @return Board - 상세보기할 게시글 조회 결과
+	 */
 	
 	public Review getReview(HttpServletRequest req);
 	/**
@@ -24,7 +35,7 @@ public interface ReviewService {
 	 */
 	
 	
-	public List getReviewList(DayClass ReviewList);
+	public List getReviewList(DayClass reviewList);
 	/**
 	  * 리뷰 리스트
 	 * 

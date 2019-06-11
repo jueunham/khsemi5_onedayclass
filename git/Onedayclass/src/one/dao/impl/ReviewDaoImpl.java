@@ -32,10 +32,11 @@ public class ReviewDaoImpl implements ReviewDao{
 				+ "		reviewNum,"
 				+ "		classNum,"
 				+ "		userNum,"
-				+ "		content"
+				+ "		content,"
 				+ "		reviewDate"	
 				+ "		FROM review"
 				+ "		WHERE classNum = ?"
+				+ "		ORDER BY reviewDate DESC"
 				+ "	) R"
 				+ ") ORDER BY rnum";
 
@@ -83,7 +84,7 @@ public class ReviewDaoImpl implements ReviewDao{
 	@Override
 	public void insertReview(Review review) {
 		String sql
-		= "INSERT INTO comm ("
+		= "INSERT INTO review ("
 				+ "		reviewNum,"
 				+ "		classNum,"
 				+ "		userNum,"
@@ -93,6 +94,7 @@ public class ReviewDaoImpl implements ReviewDao{
 				+ "		review_seq.nextval,"
 				+ "		?,"
 				+ "		?,"
+				+ "		sysdate,"
 				+ "		? )";
 
 		try {

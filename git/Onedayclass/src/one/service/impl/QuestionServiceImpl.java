@@ -10,6 +10,7 @@ import one.dao.impl.QuestionDaoImpl;
 import one.dto.DayClass;
 import one.dto.Question;
 import one.service.face.QuestionService;
+import one.util.Paging;
 
 public class QuestionServiceImpl implements QuestionService{
 	
@@ -59,6 +60,7 @@ public class QuestionServiceImpl implements QuestionService{
 			return true;
 		}
 	}
-	
+
+
 	
 }

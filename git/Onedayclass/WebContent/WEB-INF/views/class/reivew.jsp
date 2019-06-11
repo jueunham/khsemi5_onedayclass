@@ -21,7 +21,49 @@ $(".starRev span").click(function(){
 	  $(this).addClass('on').prevAll('span').addClass('on');
 	  return false;
 	});
-}
+
+
+$("#btnCancel").click(function() {
+	history.go(-1);
+});
+
+$("#btnWrite").click(function() {
+	
+
+	$form = $("<form>").attr({
+		action: "/review/insert",
+		method: "post"
+	}).append(
+		$("<input>").attr({
+			type:"hidden",
+			name:"classNum",
+			value:"${classdetail.classNum}"
+		})
+	).append(
+		$("<input>").attr({
+			type:"hidden",
+			name:"userid",
+			value:"${sessionScope.userid }"
+		})
+	).append(
+		$("<textarea>")
+			.attr("name", "content")
+			.css("display", "none")
+			.text($("#reviewcontent").val())
+	);
+	$(document.body).append($form);
+	$form.submit();
+	
+});
+
+
+
+});
+
+
+
+
+
 
 
 </script>
@@ -53,9 +95,6 @@ $(".starRev span").click(function(){
 
 
 
-
-
-
 #review{
 
 	float: left; 
@@ -69,7 +108,6 @@ $(".starRev span").click(function(){
     background: #ccc;
   
 }
-
 
 
 </style>
@@ -103,54 +141,55 @@ $(".starRev span").click(function(){
 </div><div style="clear: both;"></div><br><br>
 
 <div style="width: 1600px;">
-<button style="float: right; margin-right: 280px; background-color: #4169e1; color: white; border-radius: 5px;" >
 
-작성완료</button><div style="clear: both;"></div><br>
+<form action="/review/insert" method="post" >
+<button type="button" id="btnWrite" class="btn btn-info"
+	style="float: right; margin-right: 280px; background-color: #4169e1; color: white; border-radius: 5px;" >
+
+작성완료</button>
+
+<button type="button" id="btnCancel" class="btn btn-danger"
+	style="float: right; margin-right:10px; background-color: #4169e1; color: white; border-radius: 5px;" >
+
+취소</button><div style="clear: both;"></div><br>
+</form>
+
 </div>
 <hr><br>
 
 
-
+<c:forEach  items="${reviewList}" var="i">
 <div id="person1" style="margin-left: 500px;">
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
-	<div style="float: left; margin-left: 100px;">
-	<div>
-		sadkajdsk
+	<div style="float: left; margin-left: 100px; width: 100px;">
+	<label>아이디</label><br><label>${i.userNum }</label><br>
 	</div>
-	리뷰내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
+	<div style="float: left; margin-left: 100px;">	
+	<table>
+		<tbody>
+		<tr>
+			<td> 리뷰번호 :${i.reviewNum }</td>
+		</tr>
+		
+		<tr>
+			<td><pre>${i.content }</pre></td>
+		</tr>
+		
+		
+		
+		</tbody>
+    		
+	</table>	
 	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
 </div>
+</c:forEach>
 
 
-<div id="person1" style="margin-left: 500px;">
-	<img id="q1" src="/picture/profile.png" style="float: left;"> 
-	
-	<div style="float: left; margin-left: 100px;">
-	리뷰내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
-	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
-</div>	
+<div id="pasing" style="margin-left: 910px;">
+<c:import url="/WEB-INF/views/layout/ReviewPaging.jsp" />
+</div>
 
-
-<div id="person1" style="margin-left: 500px;">
-	<img id="q1" src="/picture/profile.png" style="float: left;"> 
-	
-	<div style="float: left; margin-left: 100px;">
-	리뷰내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
-	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
-</div>	
-	
-<div style="clear: both;"></div>
-<br><br>
 
 <hr id="hr"><br>
 	
@@ -158,4 +197,3 @@ $(".starRev span").click(function(){
 
 
 
-<c:import url="/WEB-INF/views/layout/footer.jsp" />

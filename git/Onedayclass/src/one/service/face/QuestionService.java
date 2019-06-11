@@ -2,13 +2,18 @@ package one.service.face;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 
 import one.dto.DayClass;
 import one.dto.Question;
+import one.util.Paging;
+
 
 public interface QuestionService {
+	
+
 	
 	public Question getQuestion(HttpServletRequest req);
 	/**

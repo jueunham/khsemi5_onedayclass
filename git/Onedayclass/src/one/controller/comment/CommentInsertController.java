@@ -35,6 +35,8 @@ public class CommentInsertController extends HttpServlet {
 		
 		Comment comment = commentService.getComment(req);
 		
+		commentService.insertComment(comment);
+		
 		resp.sendRedirect("/classlist?classNum="+comment.getClassNum());
 	}
 	

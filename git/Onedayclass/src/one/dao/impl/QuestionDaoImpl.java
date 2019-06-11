@@ -1,6 +1,7 @@
 package one.dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import one.dbutil.DBConn;
 import one.dto.Comment;
 import one.dto.DayClass;
 import one.dto.Question;
+import one.util.Paging;
 
 public class QuestionDaoImpl implements QuestionDao {
 	
@@ -34,7 +36,7 @@ public class QuestionDaoImpl implements QuestionDao {
 				+ "		userNum,"
 				+ "		content,"
 				+ "		quesDate"
-				+ "		FROM comm"
+				+ "		FROM question"
 				+ "		WHERE classNum = ?"
 				+ "	) Q"
 				+ ") ORDER BY rnum";
@@ -159,5 +161,8 @@ public class QuestionDaoImpl implements QuestionDao {
 		
 		return cnt;
 	}
+
+	
+
 
 }

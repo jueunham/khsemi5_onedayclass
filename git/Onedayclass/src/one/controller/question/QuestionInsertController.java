@@ -32,7 +32,9 @@ public class QuestionInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Question question = questionService.getQuestion(req);
-				
+		
+		questionService.insertQuestion(question);
+		
 		resp.sendRedirect("/classlist?classNum="+question.getClassNum());
 		
 		

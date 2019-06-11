@@ -1,6 +1,7 @@
 package one.service.impl;
 
 import java.io.UnsupportedEncodingException;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import one.dao.impl.ReviewDaoImpl;
 import one.dto.DayClass;
 import one.dto.Review;
 import one.service.face.ReviewService;
+
 
 public class ReviewServiceImpl implements ReviewService{
 	
@@ -42,8 +44,8 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List getReviewList(DayClass ReviewList) {
-		return reviewDao.selectReview(ReviewList);
+	public List getReviewList(DayClass reviewList) {
+		return reviewDao.selectReview(reviewList);
 				
 	}
 
@@ -59,6 +61,22 @@ public class ReviewServiceImpl implements ReviewService{
 			
 		
 				
+	}
+
+	@Override
+	public DayClass getdayClassNum(HttpServletRequest req) {
+		
+		String param = req.getParameter("classNum");
+		int classNum = 0;
+		if( param!=null && !"".equals(param) ) {
+			classNum = Integer.parseInt(param);
+		}
+				
+	
+		DayClass dayclass = new DayClass();
+		dayclass.setClassnum(classNum);
+				
+		return dayclass;
 	}
 
 }
