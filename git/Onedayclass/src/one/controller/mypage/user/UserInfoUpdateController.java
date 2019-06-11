@@ -35,11 +35,11 @@ public class UserInfoUpdateController extends HttpServlet {
 		
 		req.setAttribute("member", member);
 		
-//		if(userid == null) {
-//			resp.sendRedirect("/main");
-//		} else {
+		if(userid == null) {
+			resp.sendRedirect("/main");
+		} else {
 			req.getRequestDispatcher("/WEB-INF/views/mypage/user/updateinfo.jsp").forward(req, resp);
-//		}
+		}
 	}
 	
 	@Override
@@ -47,7 +47,7 @@ public class UserInfoUpdateController extends HttpServlet {
 
 		req.setCharacterEncoding("utf-8");
 		
-		mypageService.updateInfo(req);
+		mypageService.updateInfo(req); //
 		
 		String[] CheckBoxInputName = req.getParameterValues("CheckBoxInputName");
 		List list = Arrays.asList(CheckBoxInputName);
