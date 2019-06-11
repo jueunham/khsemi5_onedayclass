@@ -17,10 +17,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	// DB관련 객체
 	private Connection conn = DBConn.getConnection();
-
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-
 	
 
 	@Override
@@ -107,7 +105,7 @@ public class BoardDaoImpl implements BoardDao {
 	public void insert(Board board) {
 		// 다음 게시글 번호 조회 쿼리
 		String sql = "";
-		sql += "INSERT INTO board(boardno,wirteDate,title,content,userNum,boardtypeNum) ";
+		sql += "INSERT INTO board(boardno,writeDate,title,content,userNum,boardtypeNum) ";
 		sql += " VALUES (?, ?, ?, ?, ?, ?)";
 
 		try {
@@ -117,8 +115,10 @@ public class BoardDaoImpl implements BoardDao {
 			ps.setDate(2, board.getWritedate());
 			ps.setString(3, board.getTitle());
 			ps.setString(4, board.getContent());
-			ps.setInt(5, board.getUsernum());
+//			ps.setInt(5, board.getUsernum());
+			ps.setInt(5, 23);
 			ps.setInt(6, board.getBoardtypenum());
+//			ps.setInt(6, 2);
 
 			ps.executeUpdate();
 
@@ -277,6 +277,9 @@ public class BoardDaoImpl implements BoardDao {
 		
 	}
 	
+	
+	
+	
 	@Override
 	public List selectnoticeAll() {
 		//공지사항 게시글 전체 조회 쿼리
@@ -428,6 +431,43 @@ public class BoardDaoImpl implements BoardDao {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public List selectByUsernum(int userNum) {
+		
+		//user가 쓴 글 리스트 검색
+		String sql="";
+		sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+		sql+=" FROM board";
+		sql+=" WHERE usernum=?";
+		
+		List list = new ArrayList();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, userNum);
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				Board board = new Board();
+				
+				board.setBoardno( rs.getInt("boardno") );
+				board.setWritedate( rs.getDate("writedate") );
+				board.setTitle( rs.getString("title") );
+				board.setContent( rs.getString("content") );
+				board.setUsernum(rs.getInt("usernum"));
+				board.setBoardtypenum( rs.getInt("boardtypenum") );
+				board.setHit(rs.getInt("hit"));
+		
+				list.add(board);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+		return list;
 	}
 
 }

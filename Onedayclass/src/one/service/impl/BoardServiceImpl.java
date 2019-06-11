@@ -194,6 +194,11 @@ public class BoardServiceImpl implements BoardService {
 						if ("content".equals(item.getFieldName())) {
 							board.setContent(item.getString("utf-8"));
 						}
+						
+						// 게시판종류 처리
+						if ("boardtypenum".equals(item.getFieldName())) {
+							board.setBoardtypenum(Integer.parseInt(item.getString("utf-8")));
+						}
 
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
@@ -262,5 +267,15 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.deleteBoardFileList(names);
 		boardDao.deleteBoardList(names);
 		
+	}
+
+	@Override
+	public List getListByUsernum(HttpServletRequest req) {
+		String param = req.getParameter("usernum");
+		int userNum = 0;
+		if (param != null && !"".equals(param)) {
+			userNum = Integer.parseInt(param);
+		}
+		return boardDao.selectByUsernum(userNum);
 	}
 }

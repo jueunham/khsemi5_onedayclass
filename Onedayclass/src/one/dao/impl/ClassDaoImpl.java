@@ -147,7 +147,7 @@ public class ClassDaoImpl implements ClassDao {
 			//다음 게시글 번호 조회 쿼리
 			String sql = "";
 			sql += "INSERT INTO dayclass(classnum,classname,classcontent,classday,classtime, classplace, classprice, classrunningtime, usernum) ";
-			sql += " VALUES (?, ?, ?, ?, ?, ?, ? , ?, 100 )";
+			sql += " VALUES (?, ?, ?, ?, ?, ?, ? , ?, 2 )";
 			
 			try {
 				//DB작업
@@ -287,11 +287,11 @@ public class ClassDaoImpl implements ClassDao {
 			String sql = "";
 			sql += "UPDATE dayclass";
 			sql += " SET classname = ?,";
-			sql += " 	classcontent = ?";
-			sql += " 	classday = ?";
-			sql += " 	classtime = ?";
-			sql += " 	classrunningtime = ?";
-			sql += " 	classplace = ?";
+			sql += " 	classcontent = ?,";
+			sql += " 	classday = ?,";
+			sql += " 	classtime = ?,";
+			sql += " 	classrunningtime = ?,";
+			sql += " 	classplace = ?,";
 			sql += " 	classprice = ?";
 
 			sql += " WHERE classnum = ?";
@@ -366,6 +366,43 @@ public class ClassDaoImpl implements ClassDao {
 			}
 			
 			return classFile;
+		}
+
+
+		@Override
+		public List selectListByUserid(String userid) {
+			  String sql = "";
+		      sql += "SELECT *";
+		      sql += " FROM dayclass";
+		      sql += " WHERE userid = ?";
+		   
+		      
+		      List hostClassList = new ArrayList();
+		      
+		      try {
+		    	  ps = conn.prepareStatement(sql);
+		    	  ps.setString(1, userid);
+		    	  
+		        rs = ps.executeQuery();
+		         
+		        DayClass dayclass = new DayClass();
+					
+				dayclass.setClassnum( rs.getInt("classnum") );
+				dayclass.setClassname( rs.getString("classname") );
+				dayclass.setClasscontent( rs.getString("classcontent") );
+				dayclass.setClassday( rs.getDate("classday") );
+				dayclass.setClasstime(rs.getString("classtime"));
+				dayclass.setClassplace( rs.getString("classplace") );
+				dayclass.setClassprice(rs.getInt("classprice"));
+				dayclass.setClassrunningtime(rs.getInt("classrunningtime"));
+						
+				hostClassList.add(dayclass);
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      }
+		            
+		      return hostClassList;
 		}
 
 				

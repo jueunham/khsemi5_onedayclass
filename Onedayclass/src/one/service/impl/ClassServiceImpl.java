@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -103,7 +104,7 @@ public class ClassServiceImpl implements ClassService {
 						}
 						//강의 요일
 						if("classDay".equals(item.getFieldName())) {
-//							dayClass.setClassday(sdFormat.parse(item.getString("utf-8"))); 
+//							dayClass.setClassday(Date sdFormat.parse(item.getString("utf-8"))); 
 						}
 						//강의시간
 						if("classTime".equals(item.getFieldName())) {
@@ -207,9 +208,11 @@ public class ClassServiceImpl implements ClassService {
 			classnum = Integer.parseInt(param);
 		}
 
+		System.out.println(classnum);
 		
 		DayClass dayclass = new DayClass();
 		dayclass.setClassnum(classnum);
+		
 		
 		return dayclass;
 	}
@@ -231,13 +234,13 @@ public class ClassServiceImpl implements ClassService {
 			//파일 첨부가 없는 경우
 			dayClass = new DayClass();
 			
-			dayClass.setClassname(req.getParameter("classname"));
-			dayClass.setClasscontent(req.getParameter("classcontent"));
-//			dayClass.setClassday(req.getParameter("classday"));
-			dayClass.setClasstime(req.getParameter("classtime"));
-			dayClass.setClassrunningtime(Integer.parseInt(req.getParameter("classrunningtime")));
-			dayClass.setClassplace(req.getParameter("classplace"));
-			dayClass.setClassprice(Integer.parseInt(req.getParameter("classprice")));
+			dayClass.setClassname(req.getParameter("className"));
+			dayClass.setClasscontent(req.getParameter("classContent"));
+//			dayClass.setClassday(req.getParameter("classDay"));
+			dayClass.setClasstime(req.getParameter("classTime"));
+			dayClass.setClassrunningtime(Integer.parseInt(req.getParameter("classRunningTime")));
+			dayClass.setClassplace(req.getParameter("classPlace"));
+			dayClass.setClassprice(Integer.parseInt(req.getParameter("classPrice")));
 			
 			
 		} else {
@@ -368,6 +371,22 @@ public class ClassServiceImpl implements ClassService {
 	@Override
 	public ClassFile viewFile(DayClass viewDayclass) {
 		return classDao.selectFile(viewDayclass);
+	}
+
+	@Override
+	public DayClass getCntuserid(HttpServletRequest req) {
+		String param = req.getParameter("userid");
+	      String userid = null;
+	      if( param != null && !"".equals(param) ) { 
+	         userid = param; 
+	      }
+	      
+	      DayClass dayClass = new DayClass();
+	      dayClass.setUserid(userid);
+	      
+	      classDao.selectListByUserid(userid);
+	      
+	      return dayClass;
 	}
 
 	

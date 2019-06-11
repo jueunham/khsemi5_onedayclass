@@ -59,6 +59,8 @@ public interface BoardDao {
 	public List selectbulletinAll();
 	
 	public List selectreportAll();
+	
+	public List selectByUsernum(int userNum);
 
 	/**
 	 * 리스트에서 게시글의 첨부파일 삭제하기

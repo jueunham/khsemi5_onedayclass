@@ -25,6 +25,8 @@ public interface ClassService {
  	 public void updateClass(HttpServletRequest req);
 
 	public ClassFile viewFile(DayClass viewDayclass);
+	
+	public DayClass getCntuserid(HttpServletRequest req);
  	 
  	 
 }
