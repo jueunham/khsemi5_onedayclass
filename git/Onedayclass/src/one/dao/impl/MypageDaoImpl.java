@@ -11,6 +11,7 @@ import java.util.Map;
 
 import one.dao.face.MypageDao;
 import one.dbutil.DBConn;
+import one.dto.Board;
 import one.dto.Member;
 import one.dto.UserInterList;
 
@@ -166,9 +167,9 @@ public class MypageDaoImpl implements MypageDao{
 	public List<Map<String, Object>> selectWishList() {
 
 		String sql = "";
-		sql += "SELECT w.wishNum, w.userNum, c.className, c.classPrice";
+		sql += "SELECT w.wishNum, w.classnum, c.className, c.classPrice";
 		sql += " FROM wishlist w, dayclass c";
-		sql += " WHERE w.userNum = c.userNum";
+		sql += " WHERE w.classnum = c.classnum";
 		
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		
@@ -180,7 +181,7 @@ public class MypageDaoImpl implements MypageDao{
 			while(rs.next()) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("wishNum", rs.getInt("wishNum"));
-				map.put("userNum", rs.getInt("userNum"));
+				map.put("classnum", rs.getInt("classnum"));
 				map.put("className", rs.getString("classname"));
 				map.put("classPrice", rs.getInt("classprice"));
 				
@@ -195,12 +196,12 @@ public class MypageDaoImpl implements MypageDao{
 	}
 	
 	@Override
-	public List<Map<String, Object>> selectRevQue() {
+	public List<Map<String, Object>> selectReview() {
 		
 		String sql = "";
-		sql += "SELECT c.className, r.reviewDate, q.quesDate";
-		sql += " FROM dayclass c, review r, question q"; 
-		sql += " WHERE c.classNum = r.classNum AND c.classNum = q.classNum";
+		sql += "SELECT c.className, r.reviewDate";
+		sql += " FROM dayclass c, review r"; 
+		sql += " WHERE c.classNum = r.classNum";
 		
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		
@@ -214,6 +215,46 @@ public class MypageDaoImpl implements MypageDao{
 				
 				map.put("className", rs.getString("classname"));
 				map.put("reviewDate", rs.getDate("reviewDate")); 
+//				System.out.println(map);
+				
+				list.add(map);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 자원 해제
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+		
+	}
+	
+	@Override
+	public List<Map<String, Object>> selectQuestion() {
+
+		String sql = "";
+		sql += "SELECT c.className, q.quesDate";
+		sql += " FROM dayclass c, question q"; 
+		sql += " WHERE c.classNum = q.classNum";
+		
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				
+				map.put("className", rs.getString("classname"));
 				map.put("quesDate", rs.getDate("quesDate"));
 				
 				list.add(map);
@@ -233,6 +274,127 @@ public class MypageDaoImpl implements MypageDao{
 		
 		return list;
 		
+	}
+	
+	@Override
+	public Board selectCntuserid(Member member) {
+
+		String sql = "";
+		sql += "SELECT COUNT(*)";
+		sql += " FROM board";
+		sql += " WHERE userid = ?";
+		
+		Board board = new Board();
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, member.getUserid());
+			
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				board.setBoardno(rs.getInt("boardno"));
+				board.setBoardtypenum(rs.getInt("boardtypenum"));
+				board.setTitle(rs.getString("title"));
+				board.setWritedate(rs.getDate("writedate"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 자원 해제
+				if (rs != null)	rs.close();
+				if (ps != null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return board;
+	}
+	
+	@Override
+	public int selectCntuserid(Board board) {
+
+		String sql = "";
+		sql += "SELECT COUNT(*)";
+		sql += " FROM board";
+		sql += " WHERE userid = ?";
+		
+		int totalCount = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, board.getUserid());
+			
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				totalCount = rs.getInt(1);
+				
+				board.setBoardno(rs.getInt("boardno"));
+				board.setBoardtypenum(rs.getInt("boardtypenum"));
+				board.setTitle(rs.getString("title"));
+				board.setWritedate(rs.getDate("writedate"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// 자원 해제
+				if (rs != null)	rs.close();
+				if (ps != null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return totalCount;
+	}
+	
+	@Override
+	public List selectUserid(String userid) {
+		String sql = "";
+        sql += "SELECT *";
+        sql += " FROM board";
+        sql += " WHERE userid = ?";
+     
+        
+        List idList = new ArrayList();
+        
+        Board board = new Board();
+        
+        try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userid);
+			   
+			rs = ps.executeQuery();
+			 
+			while( rs.next() ) {
+				board.setBoardno(rs.getInt("boardno"));
+				board.setBoardtypenum(rs.getInt("boardtypenum"));
+				board.setTitle(rs.getString("title"));
+				board.setWritedate(rs.getDate("writedate"));
+				
+				idList.add(board);
+			}
+
+        } catch (SQLException e) {
+           e.printStackTrace();
+        } finally {
+			try {
+				// 자원 해제
+				if (rs != null)	rs.close();
+				if (ps != null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+              
+        return idList;
+
 	}
 
 }

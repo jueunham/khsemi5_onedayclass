@@ -3,6 +3,7 @@ package one.dao.face;
 import java.util.List;
 import java.util.Map;
 
+import one.dto.Board;
 import one.dto.Member;
 import one.dto.UserInterList;
 
@@ -18,6 +19,14 @@ public interface MypageDao {
 	
 	public List<Map<String, Object>> selectWishList();
 	
-	public List<Map<String, Object>> selectRevQue();
+	public List<Map<String, Object>> selectReview();
+	
+	public List<Map<String, Object>> selectQuestion();
+	
+	public Board selectCntuserid(Member member);
+	
+	public int selectCntuserid(Board board);
+	
+	public List selectUserid(String userid);
 	
 }
