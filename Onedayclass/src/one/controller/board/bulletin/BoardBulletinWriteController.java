@@ -38,7 +38,7 @@ public class BoardBulletinWriteController extends HttpServlet {
 		boardService.write(req);
 
 		// 목록으로 리다이렉션
-		resp.sendRedirect("/board/list");
+		resp.sendRedirect("/board/bulletin/list");
 
 	}
 }

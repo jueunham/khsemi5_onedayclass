@@ -68,6 +68,7 @@ public interface BoardService {
 
 	public List getreportList();
 
+	public List getListByUsernum(HttpServletRequest req);
 	/**
 	 * 게시글 작성 입력한 게시글 내용을 DB에 저장
 	 * 
