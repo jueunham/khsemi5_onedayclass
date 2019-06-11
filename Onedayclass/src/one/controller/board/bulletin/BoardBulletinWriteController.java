@@ -14,6 +14,7 @@ import one.service.impl.BoardServiceImpl;
 @WebServlet("/board/bulletin/write")
 public class BoardBulletinWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	// BoardService 객체
 	private BoardService boardService = new BoardServiceImpl();
 
@@ -35,10 +36,10 @@ public class BoardBulletinWriteController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// 작성글 삽입
-		boardService.write(req);
+		boardService.BulletinWrite(req);
 
 		// 목록으로 리다이렉션
-		resp.sendRedirect("/board/list");
+		resp.sendRedirect("/board/bulletin/list");
 
 	}
 }

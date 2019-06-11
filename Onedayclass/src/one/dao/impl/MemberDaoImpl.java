@@ -144,11 +144,10 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public List selectAll() {
-	    //회원전체 조회쿼리
+	    //파일업로드 기록 조회쿼리
         String sql = "";
         sql+="SELECT usernum,username,userid,userpw,userphone,userlevel";
         sql+=" FROM member";
-        sql+=" ORDER BY usernum";
                  
         List list = new ArrayList();
         try {
