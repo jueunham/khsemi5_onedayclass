@@ -13,6 +13,7 @@ import one.dto.Banner;
 import one.dto.Board;
 
 public class BannerDaoImpl implements BannerDao{
+	
 	// DB관련 객체
 	private Connection conn = DBConn.getConnection();
 	private PreparedStatement ps = null;

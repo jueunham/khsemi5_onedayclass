@@ -684,7 +684,6 @@ public class BoardDaoImpl implements BoardDao {
    @Override
    public void deleteBoardFileList(String names) {
       // TODO Auto-generated method stub
-
    }
 
    @Override
