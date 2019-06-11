@@ -20,12 +20,13 @@ public class BoardNoticeDeleteController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String names = req.getParameter("names");
+	
+		String names = req.getParameter("names");
 		
 		if( !"".equals(names) && names != null) {
 			boardService.boardListDelete(names);
 		}
 		
-		resp.sendRedirect("/board/list");
+		resp.sendRedirect("/admin/board/notice/list");
 	}
 }

@@ -79,10 +79,10 @@ function checkAll() {
 
 <div class="container">
 
-<div id="serch" class="float-right">
-	<input type="text" placeholder="회원명 검색">
+<div class="form-inline text-center">
+	<input class="form-control" type="text" id="search" />
 	<button id="btnSearch" class="btn">검색</button>
-</div>
+</div> 
 
 <br><br>
 

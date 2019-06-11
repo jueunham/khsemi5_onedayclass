@@ -20,7 +20,7 @@ $(document).ready(function() {
 	});
 	//검색 버튼 동작
 	$("#btnSearch").click(function() {
-		location.href="/admin/board/notice/list?search="+$("#search").val();
+		location.href="/admin/board?search="+$("#search").val();
 	});
 	// 선택체크 삭제
 	$("#btnDelete").click(function() {

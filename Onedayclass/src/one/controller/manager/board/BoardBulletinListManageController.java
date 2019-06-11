@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
+import one.util.Paging;
 
 @WebServlet("/admin/board/bulletin/list")
 public class BoardBulletinListManageController extends HttpServlet {
@@ -18,9 +19,16 @@ public class BoardBulletinListManageController extends HttpServlet {
 
 	//BoardService 객체
 	private BoardService boardService = new BoardServiceImpl();
+	
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+//		//요청파라미터에서 curPage 얻어오기
+//		Paging paging = boardService.getCurPage(req);
+//				
+//		//MODEL로 Paging 객체 넣기
+//		req.setAttribute("paging", paging);
+//		
 		//게시판 목록조회
 		List list  = boardService.getbulletinList();
 			

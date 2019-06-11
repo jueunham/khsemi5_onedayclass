@@ -3,6 +3,7 @@ package one.dao.face;
 import java.util.List;
 
 import one.dto.Board;
+import one.util.Paging;
 
 public interface BoardDao {
 
@@ -42,8 +43,6 @@ public interface BoardDao {
 	 */
 	public void delete(Board board);
 
-
-
 	/**
 	 * 테이블 전체 COUNT 조회
 	 * 
@@ -52,12 +51,33 @@ public interface BoardDao {
 	public int selectCntAll();
 
 	
+	/**
+	 * Board테이블 전체 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블 전체 조회 결과
+	 */
 	public List selectAll();
-
+	/**
+	 * Board테이블 공지사항 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
 	public List selectnoticeAll();
-	
+	/**
+	 * Board테이블 자유게시판 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
 	public List selectbulletinAll();
-	
+	/**
+	 * Board테이블 신고게시판 튜플 조회
+	 * 
+	 * @param paging - 조회대상 페이징 객체
+	 * @return 테이블  조회 결과
+	 */
 	public List selectreportAll();
 
 	/**
