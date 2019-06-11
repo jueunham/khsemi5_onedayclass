@@ -134,7 +134,7 @@ public interface BoardDao {
 	 * @param board - 삭제할 게시글번호를 담은 객체
 	 */
 	public void deleteFile(Board board);
-	
+
 	/**
 	 * 리스트에서 게시글의 첨부파일 삭제하기
 	 * 

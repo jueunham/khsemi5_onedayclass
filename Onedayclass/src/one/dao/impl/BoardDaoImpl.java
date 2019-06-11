@@ -15,7 +15,6 @@ import one.dto.BoardFile;
 import one.dto.Member;
 
 public class BoardDaoImpl implements BoardDao {
-
    // DB관련 객체
    private Connection conn = DBConn.getConnection();
 
@@ -694,6 +693,41 @@ public class BoardDaoImpl implements BoardDao {
 
    }
 
+	@Override
+	public List selectByUsernum(int userNum) {
+		
+		//user가 쓴 글 리스트 검색
+		String sql="";
+		sql+="SELECT boardno,writedate,title,content,usernum,boardtypenum,hit";
+		sql+=" FROM board";
+		sql+=" WHERE usernum=?";
+		
+		List list = new ArrayList();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, userNum);
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				Board board = new Board();
+				
+				board.setBoardno( rs.getInt("boardno") );
+				board.setWritedate( rs.getDate("writedate") );
+				board.setTitle( rs.getString("title") );
+				board.setContent( rs.getString("content") );
+				board.setUsernum(rs.getInt("usernum"));
+				board.setBoardtypenum( rs.getInt("boardtypenum") );
+				board.setHit(rs.getInt("hit"));
+		
+				list.add(board);
+			}
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+		return list;
+	}
 
 }

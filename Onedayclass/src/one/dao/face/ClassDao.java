@@ -13,6 +13,7 @@ public interface ClassDao {
 	
 	public List selectNotPagingAll();
 	
+	public List selectListByUserid(String userid);
 	
 	/**
 	 * 클래스 번호 반환

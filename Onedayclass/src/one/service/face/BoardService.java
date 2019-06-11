@@ -122,6 +122,5 @@ public interface BoardService {
 	 */
 	public void delete(Board board);
 
-
 	public void boardListDelete(String names);
 }

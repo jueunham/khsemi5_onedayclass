@@ -5,14 +5,14 @@
 
 margin-left: 20px;
 margin-bottom: 30px;
-width: 230px;
-height:350px;
+width: 300px;
+height:450px;
 
 background:lightgray;
 
 }
  .center{
-width:200px;
+width:250px;
 margin: 0 auto;
 } 
 
@@ -28,11 +28,12 @@ margin: 0 auto;
 <div class="menubar" >
 <form>
 
-
 <div class="center">
 <br>
+<div>
 <img src="/resources/images/Koala.jpg" style="width:50px; height:50px;">
 수강생 ${userid }님
+</div>
 </div>
 <br>
 <div class="center">
@@ -40,7 +41,7 @@ margin: 0 auto;
 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">로그아웃</button>
 </div>
 </form>
-<ul class="nav flex-column">
+<ul class="nav flex-column center">
   <li class="nav-item">
     <a class="nav-link active" href="/mypage/user/myclass">마이 클래스</a>
   </li>
