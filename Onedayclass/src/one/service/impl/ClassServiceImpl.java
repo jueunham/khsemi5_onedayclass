@@ -382,7 +382,7 @@ public class ClassServiceImpl implements ClassService {
 	      }
 	      
 	      DayClass dayClass = new DayClass();
-	      dayClass.setUserid(userid);
+//	      dayClass.setUserid(userid);
 	      
 	      classDao.selectListByUserid(userid);
 	      
