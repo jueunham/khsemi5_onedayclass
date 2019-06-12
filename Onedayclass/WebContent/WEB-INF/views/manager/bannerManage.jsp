@@ -7,8 +7,28 @@
 $(document).ready(function() {
 	//배너로 추가 버튼 동작
 	$("#btnAdd").click(function() {
+		// 선택된 체크박스
+		var $checkboxes = $("input:checkbox[name='checkRow']:checked");
 		
-	})
+		// 체크된 대상들을 map으로 만들고 map을 문자열로 만들기
+		var map = $checkboxes.map(function() {
+			return $(this).val();
+		});
+		var names = map.get().join(",");
+	
+		// 전송 폼
+		var $form = $("<form>")
+			.attr("action", "/banner/listAdd")
+			.attr("method", "post")
+			.append(
+				$("<input>")
+					.attr("type", "hidden")
+					.attr("name", "names")
+					.attr("value", names)
+			);
+		$(document.body).append($form);
+		$form.submit();
+	});
 	//검색 버튼 동작
 	$("#btnSearch").click(function() {
 		location.href="/admin/banner?search="+$("#search").val();
@@ -26,7 +46,7 @@ $(document).ready(function() {
 	
 		// 전송 폼
 		var $form = $("<form>")
-			.attr("action", "/board/listDelete")
+			.attr("action", "/banner/listDelete")
 			.attr("method", "post")
 			.append(
 				$("<input>")
@@ -82,13 +102,43 @@ function checkAll() {
 </div>
 
 <div class="container">
-
-<div class="float-right">
-	<input type="text" placeholder="클래스명 검색">
-	<button id="btnSearch" class="btn">검색</button>
+<table class = "table table-bordered" >
+	<thead>
+		<tr bgcolor = #bcbcbc align="center">
+			<th style="width:10%;">클래스번호</th>
+			<th style="width:25%;">배너로 등록된 클래스명</th>
+			<th style="width:10%;">호스트</th>  
+			<th style="width:10%;">
+				<input type="checkbox" id="checkAll" onclick="checkAll();" />
+			</th>
+		</tr>
+	</thead>
+	
+	
+	<tbody>
+	<c:forEach items="${bannerlist}" var="b">
+		<tr align="center">
+			<td>${b.classnum }</td>
+			<td>${b.classname }</td>
+			<td>${b.usernum }</td>
+			<td><input type="checkbox" name="checkRow" value="${b.classnum}" /></td>		
+		</tr>
+	</c:forEach>	
+	</tbody>
+</table>
+<div id="btnBox" class=float-right>
+	<button id="btnDelete" class="btn btn-primary">배너목록에서 삭제</button>
+</div>
 </div>
 
-<br><br>
+<br><br><br><br><br><br>
+<div class="container">
+<div class="form-inline text-center">
+	<input class="form-control" type="text" id="search" />
+	<button id="btnSearch" class="btn">검색</button>
+</div> 
+
+
 <table class = "table table-bordered" >
 	<thead>
 		<tr bgcolor = #bcbcbc align="center">
@@ -115,8 +165,7 @@ function checkAll() {
 
 <br>
 <div id="btnBox" class=float-right>
-	<button id="btnadd" class="btn-primary">추가</button>
-	<button id="btnDelete" class="btn btn-primary">삭제</button>
+	<button id="btnadd" class="btn-primary">배너로 추가</button>
 </div>
 
 <div class="float-left">

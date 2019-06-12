@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import one.dto.Board;
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
+import one.dto.BoardFile;
 
 @WebServlet("/board/bulletin/update")
 public class BoardBulletinUpdateController extends HttpServlet {
@@ -24,7 +25,7 @@ public class BoardBulletinUpdateController extends HttpServlet {
 		
 		//로그인한 사람의 글이 아니면 중단하고 목록으로 리다이렉트
 		if( !boardService.checkWriter(req) ) {
-			resp.sendRedirect("/board/list");
+			resp.sendRedirect("/board/bulletin/list");
 			return;
 		}
 		
@@ -37,8 +38,12 @@ public class BoardBulletinUpdateController extends HttpServlet {
 		//MODEL로 게시글 전달
 		req.setAttribute("viewBoard", viewBoard);
 		
+		//첨부파일 전달
+		BoardFile boardFile = boardService.viewFile(viewBoard);
+		req.setAttribute("boardFile", boardFile);
+		
 		//VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/board/update.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/board/bulletin/update.jsp").forward(req, resp);
 		
 	}
 	
@@ -49,7 +54,7 @@ public class BoardBulletinUpdateController extends HttpServlet {
 
 		boardService.update(req);
 		
-		resp.sendRedirect("/board/list");		
+		resp.sendRedirect("/board/bulletin/list");		
 	}
 	
 }
