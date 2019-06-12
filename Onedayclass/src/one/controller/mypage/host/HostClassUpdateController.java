@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import one.dto.DayClass;
 import one.service.face.ClassService;
@@ -34,6 +35,10 @@ public class HostClassUpdateController extends HttpServlet {
 		
 		
 		req.setAttribute("myclasslist", myclasslist);
+		
+		HttpSession session = req.getSession();
+		int usernum = (int) session.getAttribute("usernum");
+		req.setAttribute("usernum", usernum);
 		
 		req.getRequestDispatcher("/WEB-INF/views/mypage/host/updateclass.jsp").forward(req, resp);
 	}

@@ -51,16 +51,21 @@ i {
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#btnUpdate").click(function() {
 		//수정 정보 전송 처리
 		$("form").submit();
-	})
+	});
 	
 	$("#btnCancel").click(function() {
 		history.go(-1);
-	})
+	});
 });
 </script>
 
@@ -81,7 +86,7 @@ $(document).ready(function() {
 
 <div class="container" style="border: solid 1px; padding: 10px; text-align:center;">
 <form action="/mypage/host/upclassdetail" method="post" enctype="multipart/form-data">
-<input type="hidden" name="classnum" value="${viewDayclass.classnum }" />
+<input type="hidden" name="classNum" value="${viewDayclass.classnum }" />
 
 <table>
 <tr>
