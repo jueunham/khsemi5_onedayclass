@@ -54,15 +54,15 @@
 
 		
 		<!-- 다음 페이지 -->
-		<c:if test="${bulletinPaging.curPage eq bulletinPaging.totalPage }">
+		<c:if test="${noticePaging.curPage eq noticePaging.totalPage }">
 		<li class="disabled">
 			<span>&raquo;</span>
 		</li>
 		</c:if>
 
-		<c:if test="${bulletinPaging.curPage ne bulletinPaging.totalPage }">
+		<c:if test="${noticePaging.curPage ne noticePaging.totalPage }">
 		<li>
-			<a href="/admin/board/notice/list?curPage=${bulletinPaging.curPage+1 }">
+			<a href="/admin/board/notice/list?curPage=${noticePaging.curPage+1 }">
 			<span>&raquo;</span>
 		</a>
 		</li>

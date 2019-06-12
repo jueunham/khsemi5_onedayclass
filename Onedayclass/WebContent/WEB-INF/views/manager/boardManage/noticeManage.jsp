@@ -146,16 +146,18 @@ function checkAll() {
 	</c:forEach>	
 	</tbody>
 </table>
-<br><br>
+<br>
+
+<div id="pagingBox">
+<c:import url="/WEB-INF/views/manager/paging/noticePaging.jsp" />
+</div>
+
 <div id="btnBox" class="float-right">
 	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
 	<button id="btnUpdate" class="btn btn-primary">수정</button>	
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>
 
-<div id="pagingBox">
-<c:import url="/WEB-INF/views/manager/paging/noticePaging.jsp" />
-</div>
 
 <div class="float-left">
 <h3><a href ="/admin/main">관리 메인으로</a></h3>
