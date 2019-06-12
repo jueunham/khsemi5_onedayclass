@@ -5,19 +5,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import one.dto.Board;
-import one.dto.BoardFile;
 import one.util.Paging;
+import one.dto.BoardFile;
+import one.dto.Bulletin_Comment;
 
 public interface BoardService {
+
 	/**
 	 * 게시글 리스트 조회
-	 * 
-	 * @param paging - 조회대상 페이징 객체
-	 * @return 게시글을 조회한 결과
-	 */
-	public List getList(Paging paging);
-	/**
-	 * 공지사항게시글 리스트 조회
 	 * 
 	 * @param paging - 조회대상 페이징 객체
 	 * @return 게시글을 조회한 결과
@@ -25,7 +20,7 @@ public interface BoardService {
 	public List getnoticeList(Paging paging);
 	
 	/**
-	 * 자유게시판 게시글 리스트 조회
+	 * 게시글 리스트 조회
 	 * 
 	 * @param paging - 조회대상 페이징 객체
 	 * @return 게시글을 조회한 결과
@@ -33,14 +28,15 @@ public interface BoardService {
 	public List getbulletinList(Paging paging);
 	
 	/**
-	 * 신고게시판 게시글 리스트 조회
+	 * 게시글 리스트 조회
 	 * 
 	 * @param paging - 조회대상 페이징 객체
 	 * @return 게시글을 조회한 결과
 	 */
 	public List getreportList(Paging paging);
-
-	 /* 요청파라미터에서 curPage를 파싱한다
+	
+	/**
+	 * 요청파라미터에서 curPage를 파싱한다
 	 * 
 	 * @param req - 요청정보객체
 	 * @return Paging - 페이징 계산이 완료된 객체
@@ -62,6 +58,7 @@ public interface BoardService {
 	 * @return Board - 상세보기할 게시글 조회 결과
 	 */
 	public Board view(Board viewBoard);
+
 	/**
 	 * 게시글 작성
 	 * 	입력한 게시글 내용을 DB에 저장
@@ -122,5 +119,18 @@ public interface BoardService {
 	 */
 	public void delete(Board board);
 
+
 	public void boardListDelete(String names);
+
+	public List getList();
+
+	public List<Bulletin_Comment> getCommentList(Board viewBoard);
+
+	public Bulletin_Comment getComment(HttpServletRequest req);
+
+	public void insertComment(Bulletin_Comment comment);
+
+	public boolean deleteComment(Bulletin_Comment comment);
+
 }
+

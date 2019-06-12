@@ -139,6 +139,22 @@ placeholder="상세한 클래스 소개로 수강생들에게 자신의 클래�
 <td style="positon: absolute; padding-left: 50px;">강의 날짜</td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td>
+<!-- <label class="checkbox-inline"> -->
+<!--   <input type="checkbox" id="monday" name="monday" value="mon"> 월 -->
+<!-- </label> -->
+<!-- <label class="checkbox-inline"> -->
+<!--   <input type="checkbox" id="tuesday" name="tuesday" value="tue"> 화 -->
+<!-- </label> -->
+<!-- <label class="checkbox-inline"> -->
+<!--   <input type="checkbox" id="wendsday" name="wendsday" value="wen"> 수 -->
+<!-- </label> -->
+<!-- <label class="checkbox-inline"> -->
+<!--   <input type="checkbox" id="thursday" name="thursday" value="thu"> 목 -->
+<!-- </label> -->
+<!-- <label class="checkbox-inline"> -->
+<!--   <input type="checkbox" id="friday" name="friday" value="fri"> 금 -->
+<!-- </label> -->
+<!-- <input id="classDay" name="classDay" type="text" class="form-control"/> -->
 <input type="text" id="datepicker" name="classDay" placeholder="강의일을 선택하세요">
 </td>
 
@@ -149,17 +165,16 @@ placeholder="상세한 클래스 소개로 수강생들에게 자신의 클래�
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td>
 <select class="form-control" style="width:200px" name="classTime">
-  <option value="09:00">09:00</option>
-  <option value="10:00">10:00</option>
-  <option value="11:00">11:00</option>
-  <option value="12:00">12:00</option>
-  <option value="13:00">13:00</option>
-  <option value="14:00">14:00</option>
-  <option value="15:00">15:00</option>
-  <option value="16:00">16:00</option>
-  <option value="17:00">17:00</option>
-  <option value="19:00">19:00</option>
-  <option value="20:00">20:00</option>
+  <option value="09:00">09:00-10:00</option>
+  <option value="10:00">10:00-11:00</option>
+  <option value="11:00">11:00-12:00</option>
+  <option value="12:00">12:00-13:00</option>
+  <option value="13:00">13:00-14:00</option>
+  <option value="14:00">14:00-15:00</option>
+  <option value="15:00">15:00-16:00</option>
+  <option value="16:00">16:00-17:00</option>
+  <option value="17:00">17:00-18:00</option>
+  <option value="19:00">19:00-20:00</option>
 </select>
 </td>
 </tr>

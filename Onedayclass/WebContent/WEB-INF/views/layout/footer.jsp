@@ -12,7 +12,7 @@
 	background-color: #d3d3d3;
 	width: 1679px;
 	
-	margin-left:120px;
+	margin-left:0px;
 	margin-right:0px;
 }
 

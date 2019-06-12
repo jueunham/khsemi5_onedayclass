@@ -78,9 +78,8 @@ public class MemberDaoImpl implements MemberDao {
 		//쿼리 작성
 		String sql = "";
 		sql += "SELECT * FROM member";
-//		sql += " WHERE 1=1";
-//		sql += " AND userid = ?";
-		sql += " WHERE userid=?";
+		sql += " WHERE 1=1";
+		sql += " AND userid = ?";
 		
 		try {
 			//DB작업
@@ -91,10 +90,7 @@ public class MemberDaoImpl implements MemberDao {
 			
 			while( rs.next() ) {
 				member.setUserid( rs.getString("userid") );
-				member.setUserpw( rs.getString("userpw") );
-				member.setUsernum( rs.getInt("usernum") );
-				member.setUsername( rs.getString("username") );
-				member.setUserlevel( rs.getString("userlevel") );
+
 			}
 			
 		} catch (SQLException e) {
@@ -182,3 +178,4 @@ public class MemberDaoImpl implements MemberDao {
 
 
 }
+

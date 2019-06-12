@@ -5,6 +5,20 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+<script type="text/javascript" src="code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btnUpdate").click(function() {
+		//수정 정보 전송 처리
+	})
+	
+	$("#btnCancel").click(function() {
+		history.go(-1);
+	})
+});
+</script>
+
 <style type="text/css">
 
 .list-group-item {
@@ -51,49 +65,33 @@ i {
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#btnUpdate").click(function() {
-		//수정 정보 전송 처리
-		$("form").submit();
-	});
-	
-	$("#btnCancel").click(function() {
-		history.go(-1);
-	});
-});
-</script>
-
 <div class="container">
 
 <div class="row">
-<c:import url="/WEB-INF/views/mypage/host/menu.jsp" />
+<c:import url="/WEB-INF/views/mypage/user/menu.jsp" />
 
 <div class="col order-1">
 
 <div class="container">
 
 <div style="border: solid 1px; padding: 10px; text-align:center;">
- <h4> ${viewDayclass.classname }  정보를 수정하세요!! </h4>
+ <h4> 클래스를  정보를 수정하세요!! </h4>
+<%--  <h4> ${className }를  정보를 수정하세요!! </h4> --%>
 </div>  
 </div>
 <br>
 
 <div class="container" style="border: solid 1px; padding: 10px; text-align:center;">
-<form action="/mypage/host/upclassdetail" method="post" enctype="multipart/form-data">
-<input type="hidden" name="classNum" value="${viewDayclass.classnum }" />
-
 <table>
 <tr>
 <!-- 프로필 사진 등록 처리해야 함 -->
 <td style="positon: absolute; padding-left: 50px;">프로필사진 </td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td><i class="fas fa-child"></i></td>
+</tr>
+
+<tr>
+<td></td>
 </tr>
 
 <tr>
@@ -106,74 +104,43 @@ $(document).ready(function() {
 <tr>
 <td></td>
 </tr>
-<tr>
-<td style="positon: absolute; padding-left: 50px;">클래스 이름</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input id="className" name="className" type="text" class="form-control" value="${viewDayclass.classname }"/></td>
-</tr>
 
 <tr>
 <td style="positon: absolute; padding-left: 50px;">클래스 소개</td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input type="text" id="classContent" name="classContent" style="width:500px; height:400px;" class="form-control" value="${viewDayclass.classcontent }">
+<td><textarea id="classContent" rows="15" cols="70" class="form-control"></textarea>
 </tr>
 
 <tr>
-<td style="positon: absolute; padding-left: 50px;">강의 날짜</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td>
-<input type="text" id="datepicker" name="classDay" value="${viewDayclass.classday }">
-</td>
+<td></td>
 </tr>
 
 <tr>
-<td style="positon: absolute; padding-left: 50px;">강의 시작 시간</td>
+<td style="positon: absolute; padding-left: 50px;">강의료</td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td>
-<select class="form-control" style="width:200px" name="classTime">
-  <option value="09:00">09:00</option>
-  <option value="10:00">10:00</option>
-  <option value="11:00">11:00</option>
-  <option value="12:00">12:00</option>
-  <option value="13:00">13:00</option>
-  <option value="14:00">14:00</option>
-  <option value="15:00">15:00</option>
-  <option value="16:00">16:00</option>
-  <option value="17:00">17:00</option>
-  <option value="19:00">19:00</option>
-  <option value="20:00">20:00</option>
-</select>
-</td>
+<td><input type="text" class="form-control" value="${classPrice }"></td>
 </tr>
+
 <tr>
-<td style="positon: absolute; padding-left: 50px;">강의 시간</td>
-<td> &nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td>
-<select class="form-control" name ="classRunningTime" style="width:200px">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-</select>
-</td>
+<td></td>
 </tr>
 
 <tr>
 <td style="positon: absolute; padding-left: 50px;">강의 장소</td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input id="classPlace" name="classPlace" type="text" class="form-control" value="${viewDayclass.classplace }" ></td>
+<td><input type="text" class="form-control" value="${classPlace }"></td>
 </tr>
+
 <tr>
-<td style="positon: absolute; padding-left: 50px;">강의료</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input id="classPrice" name="classPrice" type="text" class="form-control" value="${viewDayclass.classprice }"></td>
+<td></td>
 </tr>
+
 
 </table>
 <br>
 <br>
-</form>
 <div>
-<button type="submit" id="btnUpdate" class="btn btn-dark" >수정 완료</button>
+<button type="button" id="btnUpdate" class="btn btn-dark">수정 완료</button>
 <button type="button" id="btnCancel" class="btn btn-dark">취소</button>
 </div>
 <br>

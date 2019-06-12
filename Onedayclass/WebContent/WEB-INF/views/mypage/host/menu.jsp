@@ -32,12 +32,12 @@ margin: 0 auto;
 <div class="center">
 <br>
 <img src="/resources/images/Koala.jpg" style="width:50px; height:50px;">
-호스트 ${userid }님
+호스트 ${username }님
 </div>
 <br>
 <div class="center">
 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/mypage/host/upinfo'">정보수정</button>
-<button type="button" class="btn btn-outline-secondary" onclick="location.href='/member/logout'">로그아웃</button>
+<button type="button" class="btn btn-outline-secondary" onclick="location.href='/main'">로그아웃</button>
 </div>
 </form>
 <ul class="nav flex-column">

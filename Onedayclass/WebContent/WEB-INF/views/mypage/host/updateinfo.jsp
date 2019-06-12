@@ -14,8 +14,6 @@
 <div class="row">
 <c:import url="/WEB-INF/views/mypage/host/menu.jsp" />
 
-
-
 <style type="text/css">
 
 .list-group-item {
@@ -76,13 +74,12 @@ i {
 <tr>
 
 <td style="positon: absolute; padding-left: 50px;">휴대폰번호</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="userphone" value="${userphone }" /></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" value="${userPhone }" /></td>
 
 </tr>
 <tr>
 <td style="positon: absolute; padding-left: 50px;">호스트 소개글</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input type="text" style="width:500px; height:100px;" value="${hostContent }" /></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" style="width:500px; height:100px;" value="${hostContent }" /></td>
 
 </tr>
 </table>

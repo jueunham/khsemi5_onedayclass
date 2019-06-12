@@ -26,7 +26,7 @@
 <td style="background:lightgray;">클래스 후기 답글</td>
 </tr>
 <!-- 작성글 목록을 불러서 스크롤바로 처리할 예정 -->
-<%-- <c:forEach items="${mywrittenlist}" var="i"> --%>
+<%-- <c:forEach items="${list}" var="i"> --%>
 	<tr>
 		<!-- 임의지정 -->
 		<td><img src="/resources/images/Tulips.jpg" style="width:250px; height:200px; padding:10px;" ></td>
@@ -64,14 +64,14 @@
 </thead>
 
 <tbody>
-<c:forEach items="${mywrittenlist}" var="i">
+<%-- <c:forEach items="${list}" var="i"> --%>
 	<tr>
 		<td>${i.boardno }</td>
 		<td>${i.boardtypeNum }</td>
 		<td><a href="/board/view?boardno=${i.boardno }">${i.title }</a></td>
 		<td><fmt:formatDate value="${i.writtenDate }" pattern="yyyy-MM-dd" /></td>
 	</tr>
-</c:forEach>
+<%-- </c:forEach> --%>
 </tbody>
 
 </table>

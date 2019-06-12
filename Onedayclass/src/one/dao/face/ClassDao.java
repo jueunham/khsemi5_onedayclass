@@ -4,17 +4,11 @@ import java.util.List;
 
 import one.dto.ClassFile;
 import one.dto.DayClass;
-import one.util.Paging;
 
 public interface ClassDao {
 	
-	public List selectAll(Paging paging);
+	public List selectAll();
 
-	
-	public List selectNotPagingAll();
-	
-	public List selectListByUserid(String userid);
-	
 	/**
 	 * 클래스 번호 반환
 	 * 	새 클래스의 번호를 추출
@@ -37,20 +31,6 @@ public interface ClassDao {
 	 * @param classFile - 업로드 된 첨부파일 내용
 	 */
 	public void insertFile(ClassFile classFile);
-
-	public int selectCntAll();
-
-	public DayClass selectDayClasByClassnum(DayClass viewDayclass);
-
-	public void update(DayClass dayClass);
-
-	public ClassFile selectFile(DayClass viewDayclass);
-
-
-	public void deleteFile(DayClass dayClass);
-
-
-	public void delete(DayClass dayClass);
 	
 	
 	

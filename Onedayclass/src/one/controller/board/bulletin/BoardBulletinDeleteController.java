@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import one.dto.Board;
+import one.dto.Bulletin_Comment;
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
 
@@ -27,6 +28,6 @@ public class BoardBulletinDeleteController extends HttpServlet {
 		boardService.delete(board);
 
 		// 목록으로 리다이렉트
-		resp.sendRedirect("/board/list");
+		resp.sendRedirect("/board/bulletin/list");
 	}
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="git/Onedayclass/src"/>
+	<classpathentry kind="src" path="Onedayclass/src"/>
+	<classpathentry kind="lib" path="git/Onedayclass/WebContent/WEB-INF/lib/commons-fileupload-1.4.jar"/>
+	<classpathentry kind="lib" path="git/Onedayclass/WebContent/WEB-INF/lib/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="git/Onedayclass/WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="git/Onedayclass/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="git/Onedayclass/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="Onedayclass/WebContent/WEB-INF/lib/commons-fileupload-1.4.jar"/>
+	<classpathentry kind="lib" path="Onedayclass/WebContent/WEB-INF/lib/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="Onedayclass/WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="Onedayclass/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="Onedayclass/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
