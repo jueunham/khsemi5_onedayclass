@@ -26,10 +26,6 @@ $(document).ready(function() {
 	$("#btnReport").click(function() {
 		location.href="/admin/board/report/list";
 	});
-	//검색 버튼 동작
-	$("#btnSearch").click(function() {
-		location.href="/admin/board?search="+$("#search").val();
-	});
 	// 선택체크 삭제
 	$("#btnDelete").click(function() {
 		// 선택된 체크박스
@@ -43,7 +39,7 @@ $(document).ready(function() {
 	
 		// 전송 폼
 		var $form = $("<form>")
-			.attr("action", "/board/listDelete")
+			.attr("action", "/admin/board/listDelete")
 			.attr("method", "post")
 			.append(
 				$("<input>")
@@ -80,7 +76,9 @@ function checkAll() {
 
 </script>
 <style type="text/css">
-
+	#pagingBox {
+		position: relative;
+	}
 	 th, td{
 		border:1px solid #bcbcbc;
 		}
@@ -106,10 +104,6 @@ function checkAll() {
 	<button id="btnNotice" class="btn btn-info">공지사항</button>	
 	<button id="btnBulletin" class="btn btn-info">자유게시판</button>
 	<button id="btnReport" class="btn btn-info">신고게시판</button>
-</div>
-<div id="search" class="float-right">
-	<input class="form-control" type="text" placeholder="게시글 검색">
-	<button id="btnSearch" class="btn">검색</button>
 </div>
 
 <br><br>
@@ -162,7 +156,6 @@ function checkAll() {
 
 <div id="btnBox" class="float-right">
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
-
 </div>
 
 <div class="float-left">

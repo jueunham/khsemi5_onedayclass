@@ -681,15 +681,45 @@ public class BoardDaoImpl implements BoardDao {
       }
    }
 
-   @Override
-   public void deleteBoardFileList(String names) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void deleteBoardList(String names) {
-      // TODO Auto-generated method stub
-
-   }
-
+	@Override
+	public void deleteBoardFileList(String names) {
+		String sql = "DELETE FROM boardFile WHERE boardno IN ( "+names+" )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	public void deleteBoardList(String names) {
+		String sql = "DELETE FROM board WHERE boardno IN ( "+names+" )";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

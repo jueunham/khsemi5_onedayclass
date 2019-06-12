@@ -29,10 +29,7 @@ $(document).ready(function() {
 		$(document.body).append($form);
 		$form.submit();
 	});
-	//검색 버튼 동작
-	$("#btnSearch").click(function() {
-		location.href="/admin/banner?search="+$("#search").val();
-	});
+	
 	// 선택체크 삭제
 	$("#btnDelete").click(function() {
 		// 선택된 체크박스
@@ -133,11 +130,6 @@ function checkAll() {
 
 <br><br><br><br><br><br>
 <div class="container">
-<div class="form-inline text-center">
-	<input class="form-control" type="text" id="search" />
-	<button id="btnSearch" class="btn">검색</button>
-</div> 
-
 
 <table class = "table table-bordered" >
 	<thead>

@@ -122,6 +122,12 @@ public interface BoardService {
 	 */
 	public void delete(Board board);
 
+	/**
+	 * 게시판 리스트 삭제
+	 * 
+	 * @param names - 지울 boardno를 문자열로 합친 것
+	 */
 	public void boardListDelete(String names);
+
 }
 

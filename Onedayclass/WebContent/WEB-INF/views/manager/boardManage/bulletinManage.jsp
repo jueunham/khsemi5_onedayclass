@@ -26,18 +26,6 @@ $(document).ready(function() {
 	$("#btnReport").click(function() {
 		location.href="/admin/board/report/list";
 	});
-	//검색 버튼 동작
-	$("#btnSearch").click(function() {
-		location.href="/admin/board/bulletin/list?search="+$("#search").val();
-	});
-	//글쓰기 버튼 누르면 이동
-	$("#btnWrite").click(function() {
-		location.href="/admin/board/notice/write";
-	});
-	//수정버튼 동작
-	$("#btnUpdate").click(function() {
-		
-	})
 	// 선택체크 삭제
 	$("#btnDelete").click(function() {
 		// 선택된 체크박스
@@ -88,8 +76,11 @@ function checkAll() {
 }
 </script>
 <style type="text/css">
-
-	 th, td{
+	#pagingBox {
+		position: relative;
+	}
+	
+	th, td{
 		border:1px solid #bcbcbc;
 		}
 
@@ -114,10 +105,6 @@ function checkAll() {
 	<button id="btnNotice" class="btn btn-info">공지사항</button>	
 	<button id="btnBulletin" class="btn btn-info">자유게시판</button>
 	<button id="btnReport" class="btn btn-info">신고게시판</button>
-</div>
-<div id="search" class="float-right">
-	<input class="form-control" type="text" placeholder="게시글 검색">
-	<button id="btnSearch" class="btn">검색</button>
 </div>
 
 <br><br>

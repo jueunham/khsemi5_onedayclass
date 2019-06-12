@@ -149,6 +149,6 @@ public interface BoardDao {
 	 */
 	public void deleteBoardList(String names);
 
-
+	
 
 }

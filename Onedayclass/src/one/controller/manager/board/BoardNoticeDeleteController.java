@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import one.dto.Board;
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
 
@@ -21,11 +22,10 @@ public class BoardNoticeDeleteController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		String names = req.getParameter("names");
+		Board board = boardService.getBoardno(req);
 		
-		if( !"".equals(names) && names != null) {
-			boardService.boardListDelete(names);
-		}
+		boardService.delete(board);
+		
 		
 		resp.sendRedirect("/admin/board/notice/list");
 	}

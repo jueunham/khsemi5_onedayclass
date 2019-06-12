@@ -5,10 +5,6 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	//검색 버튼 동작
-	$("#btnSearch").click(function() {
-		location.href="/admin/member?search="+$("#search").val();
-	});
 	// 선택체크 삭제
 	$("#btnDelete").click(function() {
 		// 선택된 체크박스
@@ -78,11 +74,6 @@ function checkAll() {
 </div>
 
 <div class="container">
-
-<div class="form-inline text-center">
-	<input class="form-control" type="text" id="search" />
-	<button id="btnSearch" class="btn">검색</button>
-</div> 
 
 <br><br>
 
