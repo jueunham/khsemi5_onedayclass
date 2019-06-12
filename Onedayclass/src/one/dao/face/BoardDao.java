@@ -79,7 +79,7 @@ public interface BoardDao {
 	 * @return 테이블  조회 결과
 	 */
 	public List selectreportAll();
-
+	
 	/**
 	 * 리스트에서 게시글의 첨부파일 삭제하기
 	 * 

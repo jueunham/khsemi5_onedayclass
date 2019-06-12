@@ -17,10 +17,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	// DB관련 객체
 	private Connection conn = DBConn.getConnection();
-
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-
 	
 
 	@Override
