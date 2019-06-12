@@ -45,6 +45,12 @@ public interface ClassDao {
 	public void update(DayClass dayClass);
 
 	public ClassFile selectFile(DayClass viewDayclass);
+
+
+	public void deleteFile(DayClass dayClass);
+
+
+	public void delete(DayClass dayClass);
 	
 	
 	

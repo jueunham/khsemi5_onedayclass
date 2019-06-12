@@ -24,7 +24,9 @@
 </td>
 </tr>
 <!-- 수강 클래스 리스트 목록을 불러서 스크롤바로 처리할 예정 -->
+
 <c:forEach items="${myclasslist}" var="i">
+<c:if test="${i.usernum eq usernum }">
 	<tr>
 		<!-- 임의지정 -->
 		<td style="width: 40%;"><img src="/resources/images/Tulips.jpg" style="width:250px; height:200px; padding:10px;" ></td>
@@ -34,9 +36,10 @@
 		<td style="width: 10%;">
 			<button id=btnUpdate class="btn btn-dark float-right" onclick="location.href='/mypage/host/upclassdetail?classnum=${i.classnum }'">수정</button>
 			&nbsp;
-			<button id=btnDelete class="btn btn-dark float-right" onclick="location.href='/mypage/host/deleteclass'">삭제</button>
+			<button id=btnDelete class="btn btn-dark float-right" onclick="location.href='/mypage/host/deleteclass?classnum=${i.classnum }'">삭제</button>
 		</td>
 	</tr>
+</c:if>
 </c:forEach>
 
 

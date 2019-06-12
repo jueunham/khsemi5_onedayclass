@@ -27,10 +27,10 @@ public class BoardReportListController extends HttpServlet {
 		Paging paging = boardService.getCurPage(req);
 		
 		//MODEL로 Paging 객체 넣기
-		req.setAttribute("paging", paging);
+		req.setAttribute("reportpaging", paging);
 		
 		//게시판 목록 조회
-		List list = boardService.getreportList();
+		List list = boardService.getreportList(paging);
 		
 		//MODEL로 조회 결과 넣기
 		req.setAttribute("reportlist", list);

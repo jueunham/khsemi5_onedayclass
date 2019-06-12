@@ -130,7 +130,9 @@ public class ClassServiceImpl implements ClassService {
 					}
 					
 //					 등록 호스트 처리
-//					dayClass.setUsernum((int) req.getSession().getAttribute("usernum"));
+					dayClass.setUsernum((int) req.getSession().getAttribute("usernum"));
+					System.out.println(dayClass.getUsernum());
+
 					
 				} else {
 					UUID uuid = UUID.randomUUID();
@@ -284,6 +286,10 @@ public class ClassServiceImpl implements ClassService {
 				// 빈 파일이 아닐 경우
 				if( item.isFormField() ) {
 					try {
+						if("classNum".equals(item.getFieldName())) {
+							dayClass.setClassnum(Integer.parseInt(item.getString()));
+						}
+						
 						if("className".equals(item.getFieldName())) {
 							dayClass.setClassname(item.getString("utf-8"));							
 						}
@@ -314,7 +320,7 @@ public class ClassServiceImpl implements ClassService {
 						}
 						
 //						 등록 호스트 처리
-//						dayClass.setUsernum((int) req.getSession().getAttribute("usernum"));
+						dayClass.setUsernum((int) req.getSession().getAttribute("usernum"));
 
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
@@ -358,6 +364,7 @@ public class ClassServiceImpl implements ClassService {
 //		System.out.println(boardFile);
 		
 		if(dayClass != null) {
+			
 			classDao.update(dayClass);
 		}
 		
@@ -387,6 +394,14 @@ public class ClassServiceImpl implements ClassService {
 	      classDao.selectListByUserid(userid);
 	      
 	      return dayClass;
+	}
+
+	@Override
+	public void delete(DayClass dayClass) {
+		classDao.deleteFile(dayClass);
+		
+		classDao.delete(dayClass);
+		
 	}
 
 	

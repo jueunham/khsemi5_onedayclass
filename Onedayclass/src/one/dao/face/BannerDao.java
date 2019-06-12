@@ -3,7 +3,6 @@ package one.dao.face;
 import java.util.List;
 
 public interface BannerDao {
-
 	/**
 	 * Board테이블 전체 조회
 	 * 

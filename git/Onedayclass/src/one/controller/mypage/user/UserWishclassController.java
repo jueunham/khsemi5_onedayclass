@@ -22,7 +22,7 @@ public class UserWishclassController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Map<String, Object>> list = mypageService.getList();
+		List<Map<String, Object>> list = mypageService.getWishList();
 		
 		req.setAttribute("list", list);
 		

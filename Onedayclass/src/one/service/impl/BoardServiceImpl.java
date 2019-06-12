@@ -16,14 +16,54 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import one.dao.face.BoardDao;
 import one.dao.impl.BoardDaoImpl;
 import one.dto.Board;
+import one.dto.BoardFile;
 import one.service.face.BoardService;
 import one.util.Paging;
 
 public class BoardServiceImpl implements BoardService {
-
 	// BoardDao 객체
 	private BoardDao boardDao = new BoardDaoImpl();
+	
+	@Override
+	public List getList(Paging paging) {
+		return boardDao.selectAll(paging);
+	}
+	
+	@Override
+	public List getnoticeList(Paging paging) {
+		return boardDao.selectnoticeAll(paging);
+	}
 
+	@Override
+	public List getbulletinList(Paging paging) {
+		return boardDao.selectbulletinAll(paging);
+	}
+
+	@Override
+	public List getreportList(Paging paging) {
+		return boardDao.selectreportAll(paging);
+	}      
+
+	@Override
+	public Paging getCurPage(HttpServletRequest req) {
+
+		// 전달파라미터 curPage 파싱
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if (param != null && !"".equals(param)) {
+			curPage = Integer.parseInt(param);
+		}
+
+		// 전체 게시글 수
+		int totalCount = boardDao.selectCntAll();
+
+		// 페이징 객체 생성
+		Paging paging = new Paging(totalCount, curPage);
+//		System.out.println(paging); //TEST
+
+		return paging;
+	}
+	
 	@Override
 	public Board getBoardno(HttpServletRequest req) {
 
@@ -40,100 +80,276 @@ public class BoardServiceImpl implements BoardService {
 
 		return board;
 	}
-
+	
 	@Override
 	public Board view(Board viewBoard) {
+
+		// 게시글 조회수 +1
+		boardDao.updateHit(viewBoard);
 
 		// 게시글 조회 반환
 		return boardDao.selectBoardByBoardno(viewBoard);
 	}
-	
+
 	@Override
-	public boolean checkWriter(HttpServletRequest req) {
+	public void BulletinWrite(HttpServletRequest req) {
 
-		// 로그인한 세션 ID 얻기
-		String loginId = (String) req.getSession().getAttribute("userid");
+		Board board = null;
+		BoardFile boardFile = null;
 
-		// 작성한 게시글 번호 얻기
-		Board board = getBoardno(req);
+		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
 
-		// 게시글 얻어오기
-		board = boardDao.selectBoardByBoardno(board);
+		if (!isMultipart) {
+			return;
 
-		// 게시글의 작성자와 로그인 아이디 비교
-		if (!loginId.equals(board.getUsernum())) {
-			return false;
+		} else {
+			// 파일업로드를 사용하고 있을 경우
+			board = new Board();
+
+			// 디스크팩토리
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+
+			// 메모리처리 사이즈
+			factory.setSizeThreshold(1 * 1024 * 1024); // 1MB
+
+			// 임시 저장소
+			File repository = new File(req.getServletContext().getRealPath("tmp"));
+			factory.setRepository(repository);
+
+			// 업로드 객체 생성
+			ServletFileUpload upload = new ServletFileUpload(factory);
+
+			// 용량 제한 설정 : 10MB
+			upload.setFileSizeMax(10 * 1024 * 1024);
+
+			// form-data 추출
+			List<FileItem> items = null;
+			try {
+				items = upload.parseRequest(req);
+
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+			}
+
+			// 파싱된 데이터 처리 반복자
+			Iterator<FileItem> iter = items.iterator();
+
+			// 요청정보 처리
+			while (iter.hasNext()) {
+				FileItem item = iter.next();
+
+				// 빈 파일 처리
+				if (item.getSize() <= 0)
+					continue;
+
+				// 빈 파일이 아닐 경우
+				if (item.isFormField()) {
+
+					try {
+
+						// 제목 처리
+						if ("title".equals(item.getFieldName())) {
+							board.setTitle(item.getString("utf-8"));
+						}
+
+						// 본문 처리
+						if ("content".equals(item.getFieldName())) {
+							board.setContent(item.getString("utf-8"));
+						}
+
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+
+					board.setUserid((String) req.getSession().getAttribute("userid)"));
+
+				} else {
+					UUID uuid = UUID.randomUUID();
+//						System.out.println(uuid);
+
+					String u = uuid.toString().split("-")[4];
+//						System.out.println(u);
+					// -----------------
+
+					// 로컬 저장소 파일
+					String stored = item.getName() + "_" + u;
+					File up = new File(req.getServletContext().getRealPath("upload"), stored);
+
+					boardFile = new BoardFile();
+					boardFile.setOriginName(item.getName());
+					boardFile.setStoredName(stored);
+					boardFile.setFilesize(item.getSize());
+
+					try {
+						// 실제 업로드
+						item.write(up);
+
+						// 임시 파일 삭제
+						item.delete();
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // try end
+				} // if end
+			} // while end
+		} // if(!isMultipart) end
+		
+		
+
+		int boardno = boardDao.selectBoardno();
+		
+		//세션에서 userid 꺼내기
+		board.setUserid((String)req.getSession().getAttribute("userid"));
+		
+		if (board != null) {
+			board.setBoardno(boardno);
+
+			if (board.getTitle() == null || "".equals(board.getTitle())) {
+				board.setTitle("(제목없음)");
+
+				board.setUserid((String) req.getSession().getAttribute("userid)"));
+				
+			}
+			boardDao.bulletininsert(board);
 		}
 
-		return true;
+		if (boardFile != null) {
+			boardFile.setBoardno(boardno);
+			System.out.println(boardFile);
+			boardDao.insertFile(boardFile);
+		}
 	}
+
 	@Override
-	public void update(HttpServletRequest req) {
+	public void NoticeWrite(HttpServletRequest req) {
+
 		Board board = null;
+		BoardFile boardFile = null;
 
-		board = new Board();
+		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
 
-		board.setTitle(req.getParameter("title"));
-		board.setContent(req.getParameter("content"));
+		if (!isMultipart) {
+			return;
 
-//		System.out.println(board);
-//		System.out.println(boardFile);
+		} else {
+			// 파일업로드를 사용하고 있을 경우
+			board = new Board();
+
+			// 디스크팩토리
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+
+			// 메모리처리 사이즈
+			factory.setSizeThreshold(1 * 1024 * 1024); // 1MB
+
+			// 임시 저장소
+			File repository = new File(req.getServletContext().getRealPath("tmp"));
+			factory.setRepository(repository);
+
+			// 업로드 객체 생성
+			ServletFileUpload upload = new ServletFileUpload(factory);
+
+			// 용량 제한 설정 : 10MB
+			upload.setFileSizeMax(10 * 1024 * 1024);
+
+			// form-data 추출
+			List<FileItem> items = null;
+			try {
+				items = upload.parseRequest(req);
+
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+			}
+
+			// 파싱된 데이터 처리 반복자
+			Iterator<FileItem> iter = items.iterator();
+
+			// 요청정보 처리
+			while (iter.hasNext()) {
+				FileItem item = iter.next();
+
+				// 빈 파일 처리
+				if (item.getSize() <= 0)
+					continue;
+
+				// 빈 파일이 아닐 경우
+				if (item.isFormField()) {
+
+					try {
+
+						// 제목 처리
+						if ("title".equals(item.getFieldName())) {
+							board.setTitle(item.getString("utf-8"));
+						}
+
+						// 본문 처리
+						if ("content".equals(item.getFieldName())) {
+							board.setContent(item.getString("utf-8"));
+						}
+
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+
+					
+					board.setUserid((String) req.getSession().getAttribute("userid)"));
+
+				} else {
+					UUID uuid = UUID.randomUUID();
+//						System.out.println(uuid);
+
+					String u = uuid.toString().split("-")[4];
+//						System.out.println(u);
+					// -----------------
+
+					// 로컬 저장소 파일
+					String stored = item.getName() + "_" + u;
+					File up = new File(req.getServletContext().getRealPath("upload"), stored);
+
+					boardFile = new BoardFile();
+					boardFile.setOriginName(item.getName());
+					boardFile.setStoredName(stored);
+					boardFile.setFilesize(item.getSize());
+
+					try {
+						// 실제 업로드
+						item.write(up);
+
+						// 임시 파일 삭제
+						item.delete();
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // try end
+				} // if end
+			} // while end
+		} // if(!isMultipart) end
+
+		int boardno = boardDao.selectBoardno();
 
 		if (board != null) {
-			boardDao.update(board);
-		}
-	}
+			board.setBoardno(boardno);
 
-	@Override
-	public void delete(Board board) {
-		boardDao.delete(board);
+			if (board.getTitle() == null || "".equals(board.getTitle())) {
+				board.setTitle("(제목없음)");
 
-	}
+				board.setUserid((String) req.getSession().getAttribute("userid)"));
+				
+			}
 
-	@Override
-	public Paging getCurPage(HttpServletRequest req) {
-		// 전달파라미터 curPage 파싱
-		String param = req.getParameter("curPage");
-		int curPage = 0;
-		if (param != null && !"".equals(param)) {
-			curPage = Integer.parseInt(param);
+			boardDao.noticeinsert(board);
 		}
 
-		// 전체 게시글 수
-		int totalCount = boardDao.selectCntAll();
-
-		// 페이징 객체 생성
-		Paging paging = new Paging(totalCount, curPage);
-//				System.out.println(paging); //TEST
-
-		return paging;
-	}
-
-	@Override
-	public List getList() {
-		return boardDao.selectAll();
+		if (boardFile != null) {
+			boardFile.setBoardno(boardno);
+			boardDao.insertFile(boardFile);
+		}
 	}
 	
 	@Override
-	public List getnoticeList() {
-		return boardDao.selectnoticeAll();
-	}
-
-	@Override
-	public List getbulletinList() {
-		return boardDao.selectbulletinAll();
-	}
-
-	@Override
-	public List getreportList() {
-		return boardDao.selectreportAll();
-	}
-	
-	
-	@Override
-	public void write(HttpServletRequest req) {
+	public void ReportWrite(HttpServletRequest req) {
 
 		Board board = null;
+		BoardFile boardFile = null;
 
 		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
 
@@ -204,26 +420,25 @@ public class BoardServiceImpl implements BoardService {
 						e.printStackTrace();
 					}
 
-					String param = req.getParameter("userNum");
-					int userNum = 0;
-					if (param != null && !"".equals(param)) {
-						userNum = Integer.parseInt(param);
-					}
+					board.setUserid((String) req.getSession().getAttribute("userid"));
 
-					// 작성자id 처리
-					board.setUsernum(userNum);
 
 				} else {
 					UUID uuid = UUID.randomUUID();
-//					System.out.println(uuid);
+//						System.out.println(uuid);
 
 					String u = uuid.toString().split("-")[4];
-//					System.out.println(u);
+//						System.out.println(u);
 					// -----------------
 
 					// 로컬 저장소 파일
 					String stored = item.getName() + "_" + u;
 					File up = new File(req.getServletContext().getRealPath("upload"), stored);
+
+					boardFile = new BoardFile();
+					boardFile.setOriginName(item.getName());
+					boardFile.setStoredName(stored);
+					boardFile.setFilesize(item.getSize());
 
 					try {
 						// 실제 업로드
@@ -247,18 +462,182 @@ public class BoardServiceImpl implements BoardService {
 			if (board.getTitle() == null || "".equals(board.getTitle())) {
 				board.setTitle("(제목없음)");
 
-				String param = req.getParameter("userNum");
-				int userNum = 0;
-				if (param != null && !"".equals(param)) {
-					userNum = Integer.parseInt(param);
-				}
-
-				// 작성자id 처리
-				board.setUsernum(userNum);
+				board.setUserid((String) req.getSession().getAttribute("userid)"));
 			}
 
-			boardDao.insert(board);
+			boardDao.reportinsert(board);
 		}
+
+		if (boardFile != null) {
+			boardFile.setBoardno(boardno);
+			boardDao.insertFile(boardFile);
+		}
+	}
+	
+	@Override
+	public BoardFile viewFile(Board board) {
+		return boardDao.selectFile(board);
+	}
+
+	@Override
+	public boolean checkWriter(HttpServletRequest req) {
+
+		// 로그인한 세션 ID 얻기
+		String loginId = (String) req.getSession().getAttribute("userid");
+
+		// 작성한 게시글 번호 얻기
+		Board board = getBoardno(req);
+
+		// 게시글 얻어오기
+		board = boardDao.selectBoardByBoardno(board);
+
+		// 게시글의 작성자와 로그인 아이디 비교
+		if (!loginId.equals(board.getUserid())) {
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public void update(HttpServletRequest req) {
+		Board board = null;
+		BoardFile boardFile = null;
+
+		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
+
+		if (!isMultipart) {
+			// 파일 첨부가 없을 경우
+			board = new Board();
+
+			String param = req.getParameter("usernum");
+			int userNum = 0;
+			if (param != null && !"".equals(param)) {
+				userNum = Integer.parseInt(param);
+			}
+
+			
+			board.setTitle(req.getParameter("title"));
+			board.setUsernum(userNum);
+			board.setContent(req.getParameter("content"));
+
+		} else {
+			// 파일업로드를 사용하고 있을 경우
+			board = new Board();
+
+			// 디스크팩토리
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+
+			// 메모리처리 사이즈
+			factory.setSizeThreshold(1 * 1024 * 1024); // 1MB
+
+			// 임시 저장소
+			File repository = new File(req.getServletContext().getRealPath("tmp"));
+			factory.setRepository(repository);
+
+			// 업로드 객체 생성
+			ServletFileUpload upload = new ServletFileUpload(factory);
+
+			// 용량 제한 설정 : 10MB
+			upload.setFileSizeMax(10 * 1024 * 1024);
+
+			// form-data 추출
+			List<FileItem> items = null;
+			try {
+				items = upload.parseRequest(req);
+
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+			}
+
+			// 파싱된 데이터 처리 반복자
+			Iterator<FileItem> iter = items.iterator();
+
+			// 요청정보 처리
+			while (iter.hasNext()) {
+				FileItem item = iter.next();
+
+				// 빈 파일 처리
+				if (item.getSize() <= 0)
+					continue;
+
+				// 빈 파일이 아닐 경우
+				if (item.isFormField()) {
+					try {
+						if ("boardno".equals(item.getFieldName())) {
+							board.setBoardno(Integer.parseInt(item.getString()));
+						}
+
+						if ("title".equals(item.getFieldName())) {
+							board.setTitle(item.getString("utf-8"));
+						}
+						if ("content".equals(item.getFieldName())) {
+							board.setContent(item.getString("utf-8"));
+						}
+
+						String param = req.getParameter("usernum");
+						int userNum = 0;
+						if (param != null && !"".equals(param)) {
+							userNum = Integer.parseInt(param);
+						}
+						
+						board.setUsernum(userNum);
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				} else {
+					UUID uuid = UUID.randomUUID();
+//					System.out.println(uuid);
+
+					String u = uuid.toString().split("-")[4];
+//					System.out.println(u);
+					// -----------------
+
+					// 로컬 저장소 파일
+					String stored = item.getName() + "_" + u;
+					File up = new File(req.getServletContext().getRealPath("upload"), stored);
+
+					boardFile = new BoardFile();
+					boardFile.setOriginName(item.getName());
+					boardFile.setStoredName(stored);
+					boardFile.setFilesize(item.getSize());
+
+					try {
+						// 실제 업로드
+						item.write(up);
+
+						// 임시 파일 삭제
+						item.delete();
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // try end
+				} // if end
+			} // while end
+		} // if(!isMultipart) end
+
+//		System.out.println(board);
+//		System.out.println(boardFile);
+
+		board.setTitle(req.getParameter("title"));
+		board.setContent(req.getParameter("content"));
+
+//		System.out.println(board);
+//		System.out.println(boardFile);
+
+		if (board != null) {
+			boardDao.update(board);
+			boardDao.insertFile(boardFile);
+		}
+	}
+
+	public void delete(Board board) {
+		
+		boardDao.deleteFile(board);
+		
+		boardDao.delete(board);
 
 	}
 
@@ -266,7 +645,6 @@ public class BoardServiceImpl implements BoardService {
 	public void boardListDelete(String names) {
 		boardDao.deleteBoardFileList(names);
 		boardDao.deleteBoardList(names);
-		
-	}
 
+	}
 }

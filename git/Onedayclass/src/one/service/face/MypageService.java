@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import one.dto.Board;
 import one.dto.Member;
 
 
@@ -19,5 +20,15 @@ public interface MypageService {
 	public void updateInfo(HttpServletRequest req);
 	
 	public List<Map<String, Object>> getWishList();
+	
+	public List<Map<String, Object>> getReview();
+	
+	public List<Map<String, Object>> getQuestion();
+	
+	public Member getCntuserid(HttpServletRequest req);
+	
+//	public 
+	
+	public List getUserid(String userid);
 	
 }
