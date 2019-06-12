@@ -8,39 +8,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import one.dto.Bulletin_Comment;
 import one.service.face.BoardService;
 import one.service.impl.BoardServiceImpl;
 
-@WebServlet("/board/bulletin/write")
-public class BoardBulletinWriteController extends HttpServlet {
+@WebServlet("/board/bulletin/comment/delete")
+public class BoardBulletinCommentDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	// BoardService 객체
+   
 	private BoardService boardService = new BoardServiceImpl();
 
+
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		// 로그인 되어있지 않으면 리다이렉트
-		if (req.getSession().getAttribute("login") == null) {
-			resp.sendRedirect("/main");
-			return;
-		}
-
-		// VIEW 지정
-		req.getRequestDispatcher("/WEB-INF/views/board/bulletin/write.jsp").forward(req, resp);
-
+		   doPost(req, resp);
 	}
+
+	   
+
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		// 작성글 삽입
-		boardService.BulletinWrite(req);
-
-		// 목록으로 리다이렉션
-		resp.sendRedirect("/board/bulletin/list");
-
+	   
+		Bulletin_Comment comment = new Bulletin_Comment();
+       
+       String commentno = (String)req.getParameter("commentno");
+             
+       comment.setCommentno(Integer.parseInt(commentno));
+ 
+       boolean success = boardService.deleteComment(comment);
+       
+       resp.getWriter().append("{\"success\":"+success+"}");
 	}
+       
+   
+   
+   
 }
-

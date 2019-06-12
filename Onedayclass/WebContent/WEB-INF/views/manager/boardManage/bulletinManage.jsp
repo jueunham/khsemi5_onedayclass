@@ -3,15 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <c:import url="/WEB-INF/views/layout/header.jsp" />
-<!-- Bootstrap 3 -->
-<link rel="stylesheet"
 
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-   
 <script type="text/javascript">
 $(document).ready(function() {
 	// 공지사항 버튼 동작
@@ -28,7 +20,7 @@ $(document).ready(function() {
 	});
 	//검색 버튼 동작
 	$("#btnSearch").click(function() {
-		location.href="/admin/board/bulletin/list?search="+$("#search").val();
+		location.href="/admin/board/notice/list?search="+$("#search").val();
 	});
 	//글쓰기 버튼 누르면 이동
 	$("#btnWrite").click(function() {
@@ -101,6 +93,7 @@ function checkAll() {
 	}
 	
 }
+	 
 </style>
 
 <div align="center">
@@ -146,11 +139,7 @@ function checkAll() {
 	</c:forEach>	
 	</tbody>
 </table>
-<br>
-<div id="pagingBox">
-<c:import url="/WEB-INF/views/manager/paging/bulletinPaging.jsp" />
-</div>
-
+<br><br>
 <div id="btnBox" class="float-right">
 	<button id="btnDelete" class="btn btn-primary">삭제</button>
 </div>

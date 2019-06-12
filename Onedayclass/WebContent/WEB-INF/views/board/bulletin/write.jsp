@@ -6,6 +6,15 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<!-- Bootstrap 3 -->
+<link rel="stylesheet"
+
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   
 <!-- 스마트 에디터 라이브러리 추가 -->
 <script type="text/javascript"
  src="/resources/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
@@ -13,16 +22,21 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	
-		//작성버튼 동작
-		$("#btnWrite").click(function() {
+	//작성버튼 동작
+	$("#btnWrite").click(function() {
 		
 		//스마트에디터의 내용으로 <textarea>에 적용시키기
 		submitContents($("#btnWrite"));
 		
 		//form submit 수행
 		$("form").submit();
+		
+		$("#btnWrite").click(function() {
+			location.href="/board/bulletin/list";
+		});
+
 	});
-	
+		
 	//취소버튼 동작
 	$("#btnCancel").click(function() {
 		history.go(-1);
@@ -38,25 +52,30 @@ $(document).ready(function() {
 
 <div class="container">
 
-<h3>게시글 쓰기</h3>
+<div><h1>자유게시판</h1></div>
+<button type="button" id="btnnotice" class="btn btn-secondary" onclick = "location = '/board/notice/list'">공지사항</button>
+<button type="button" id="btnbulletin" class="btn btn-secondary" onclick = "location = '/board/bulletin/list'">자유게시판</button>
+<button type="button" id="btnreport" class="btn btn-secondary" onclick = "location = '/board/report/list'">신고게시판</button><br>
+<div style="text-align : right; margin-right: 50px;"><strong>홈 > 게시판 > 자유게시판</strong></div>
 <hr>
 
 <div>
-<form action="/board/write" method="post" enctype="multipart/form-data">
+<form action="/board/bulletin/write" method="post" enctype="multipart/form-data">
 <table class="table table-bordered">
-<tr><td class="info">제목</td><td><input type="text" name="title" style="width:100%"/></td></tr>
+<tr><td class="info">제목</td><td><input type="text" name="title" style="width:98%"/></td></tr>
 <tr><td class="info">작성자</td><td>${userid }</td></tr>
 <tr><td class="info">글내용</td><td>
 	<textarea id="content" name="content" rows="10" cols="100"></textarea>
 </td></tr>
 </table>
 
+<label>첨부파일<input type="file" name="file" /></label>
 </form>
 </div>
 
-<div class="text-center">	
-	<button type="button" id="btnWrite" class="btn btn-info">작성</button>
-	<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+<div style="text-align: right">	
+	<button type="button" id="btnWrite" class="btn btn-info">등록</button>
+	<button type="button" id="btnCancel" class="btn btn-danger">취소</button><br><br><br>
 </div>
 </div>
 
@@ -88,3 +107,4 @@ function submitContents(elClickedObj) {
 	} catch (e) { }
 }
 </script>
+

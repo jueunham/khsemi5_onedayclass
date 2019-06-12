@@ -64,4 +64,5 @@ public class BoardFile {
 		this.writeDate = writeDate;
 	}
 	
+	
 }

@@ -43,3 +43,4 @@ public class BoardReportWriteController extends HttpServlet {
 
 	}
 }
+

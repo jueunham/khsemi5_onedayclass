@@ -3,40 +3,23 @@ package one.dao.face;
 import java.util.List;
 
 import one.dto.Board;
-import one.dto.BoardFile;
 import one.util.Paging;
+import one.dto.BoardFile;
+import one.dto.Bulletin_Comment;
+import one.dto.Member;
 
 public interface BoardDao {
+
 	/**
-	 * Board테이블 전체 조회
+	 * 테이블 전체 조회
 	 * 
 	 * @param paging - 조회대상 페이징 객체
 	 * @return 테이블 전체 조회 결과
 	 */
-	public List selectAll(Paging paging);
-	
-	/**
-	 * Board테이블 공지사항 튜플 조회
-	 * 
-	 * @param paging - 조회대상 페이징 객체
-	 * @return 테이블  조회 결과
-	 */
-	public List selectnoticeAll(Paging paging);
-	
-	/**
-	 * Board테이블 자유게시판 튜플 조회
-	 * 
-	 * @param paging - 조회대상 페이징 객체
-	 * @return 테이블  조회 결과
-	 */
 	public List selectbulletinAll(Paging paging);
 	
-	/**
-	 * Board테이블 신고게시판 튜플 조회
-	 * 
-	 * @param paging - 조회대상 페이징 객체
-	 * @return 테이블  조회 결과
-	 */
+	public List selectnoticeAll(Paging paging);
+	
 	public List selectreportAll(Paging paging);
 	
 	/**
@@ -52,7 +35,6 @@ public interface BoardDao {
 	 * @param viewBoard - 조회 대상
 	 */
 	public void updateHit(Board viewBoard);
-	
 
 	/**
 	 * 상세보기 게시글 조회
@@ -70,21 +52,21 @@ public interface BoardDao {
 	public int selectBoardno();
 
 	/**
-	 * 자유게시판 게시글 입력
+	 * 게시글 입력
 	 * 
 	 * @param board - 삽입될 게시글 내용
 	 */
 	public void bulletininsert(Board board);
 	
 	/**
-	 * 공지사항 게시글 입력
+	 * 게시글 입력
 	 * 
 	 * @param board - 삽입될 게시글 내용
 	 */
 	public void noticeinsert(Board board);
 	
 	/**
-	 * 신고게시판 게시글 입력
+	 * 게시글 입력
 	 * 
 	 * @param board - 삽입될 게시글 내용
 	 */
@@ -96,7 +78,6 @@ public interface BoardDao {
 	 * @param boardFile - 업로드 된 첨부파일 내용
 	 */
 	public void insertFile(BoardFile boardFile);
-	
 	
 	/**
 	 * 첨부파일 조회
@@ -113,7 +94,7 @@ public interface BoardDao {
 	 * @return BoardFile - 조회된 첨부파일
 	 */
 	public BoardFile selectByFileno(int fileno);
-	
+
 	/**
 	 * 게시글 수정
 	 * 
@@ -149,6 +130,5 @@ public interface BoardDao {
 	 */
 	public void deleteBoardList(String names);
 
-
-
 }
+

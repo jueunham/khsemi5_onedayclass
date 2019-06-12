@@ -5,6 +5,7 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		
@@ -94,9 +95,8 @@
 	</div>
 
 	<div class="form-group">
-		<div style="text-align: center; margin-left: 95px;">
+		<div style="text-align: center">
 			<input type="text" id="username" name="username" placeholder=" Name" />
-			<button type="button" id="btnLogin" class="btn btn-secondary">실명인증</button>
 		</div>
 		
 	</div>

@@ -6,6 +6,15 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<!-- Bootstrap 3 -->
+<link rel="stylesheet"
+
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	
@@ -59,7 +68,7 @@ table, th {
 	<tr>
 		<td>${i.boardno }</td>
 		<td><a href="/board/report/view?boardno=${i.boardno }">${i.title }</a></td>
-		<td>${i.usernum }</td>
+		<td>${i.userid }</td>
 		<td>${i.hit }</td>
 	</tr>
 </c:forEach>
