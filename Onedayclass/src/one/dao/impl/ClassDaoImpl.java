@@ -147,7 +147,7 @@ public class ClassDaoImpl implements ClassDao {
 			//다음 게시글 번호 조회 쿼리
 			String sql = "";
 			sql += "INSERT INTO dayclass(classnum,classname,classcontent,classday,classtime, classplace, classprice, classrunningtime, usernum) ";
-			sql += " VALUES (?, ?, ?, ?, ?, ?, ? , ?, 2 )";
+			sql += " VALUES (?, ?, ?, ?, ?, ?, ? , ?, ? )";
 			
 			try {
 				//DB작업
@@ -160,7 +160,7 @@ public class ClassDaoImpl implements ClassDao {
 				ps.setString(6, dayClass.getClassplace());
 				ps.setInt(7, dayClass.getClassprice());
 				ps.setInt(8, dayClass.getClassrunningtime());
-//				ps.setInt(9, dayClass.getUsernum());
+				ps.setInt(9, dayClass.getUsernum());
 				
 				ps.executeUpdate();
 				
@@ -277,7 +277,6 @@ public class ClassDaoImpl implements ClassDao {
 					e.printStackTrace();
 				}
 			}
-			
 			return viewDayclass;
 		}
 
@@ -295,6 +294,8 @@ public class ClassDaoImpl implements ClassDao {
 			sql += " 	classprice = ?";
 
 			sql += " WHERE classnum = ?";
+			
+			PreparedStatement ps = null; 
 			
 			try {
 				//DB작업
@@ -403,6 +404,71 @@ public class ClassDaoImpl implements ClassDao {
 		      }
 		            
 		      return hostClassList;
+		}
+
+
+		@Override
+		public void deleteFile(DayClass dayClass) {
+			String sql = "";
+			sql += "DELETE classfile";
+			sql += " WHERE classnum = ?";
+			
+			//DB 객체
+			PreparedStatement ps = null; 
+			
+			try {
+				//DB작업
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, dayClass.getClassnum());
+
+				ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					//DB객체 닫기
+					if(ps!=null)	ps.close();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+
+
+		@Override
+		public void delete(DayClass dayClass) {
+			
+			String sql = "";
+			sql += "DELETE dayclass";
+			sql += " WHERE classnum = ?";
+			
+			//DB 객체
+			PreparedStatement ps = null; 
+			
+			try {
+				//DB작업
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, dayClass.getClassnum());
+
+				ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					//DB객체 닫기
+					if(ps!=null)	ps.close();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
 		}
 
 				

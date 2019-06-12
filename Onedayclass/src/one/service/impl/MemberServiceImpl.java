@@ -49,15 +49,6 @@ public class MemberServiceImpl implements MemberService {
          String userphone = ph1+ph2+ph3;
          member.setUserphone(userphone);
 
-         
-         
-         // 전달파라미터 boardno 파싱
-//         param = req.getParameter("userPhone");
-//         int userPhone = 0;
-//         if( param!=null && !"".equals(param) ) {
-//            userPhone = Integer.parseInt(param);
-//         }
-      
       member.setUsernum(userNum);
       member.setUsername(req.getParameter("username"));
       member.setUserid(req.getParameter("userid"));
