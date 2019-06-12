@@ -100,7 +100,10 @@ $(document).ready(function() {
 <!-- 클래스 사진 등록 처리해야 함 -->
 <td style="positon: absolute; padding-left: 50px;">클래스사진 </td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><i class="fas fa-child"></i></td>
+<td>
+<label>기존 첨부파일 : </label> ${classFile.originName } <br>
+<label>사진 첨부 : <input type="file" name="file" /></label>
+</td>
 </tr>
 
 <tr>

@@ -2,7 +2,10 @@ package one.dao.face;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import one.dto.Member;
+import one.dto.MemberFile;
 
 public interface MemberDao {
 
@@ -30,5 +33,11 @@ public interface MemberDao {
 	public void insert(Member member);
 	
 	public List selectAll();
+
+	public void updateinfo(Member member);
+
+	public void insertFile(MemberFile memberFile);
+
+	public MemberFile selectFile(Member meminfo);
 
 }

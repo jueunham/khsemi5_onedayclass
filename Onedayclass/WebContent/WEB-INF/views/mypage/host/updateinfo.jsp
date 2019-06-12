@@ -9,12 +9,24 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btnUpdate").click(function() {
+		//수정 정보 전송 처리
+		$("form").submit();
+	});
+	
+	$("#btnCancel").click(function() {
+		history.go(-1);
+	});
+});
+</script>
+
+
 <div class="container">
 
 <div class="row">
 <c:import url="/WEB-INF/views/mypage/host/menu.jsp" />
-
-
 
 <style type="text/css">
 
@@ -69,25 +81,33 @@ i {
 </div>
 <br>
 <div class="container" style="border: solid 1px; padding: 10px; text-align:center;">
+<form action="/mypage/host/upinfo" method="post" enctype="multipart/form-data">
+<input type="hidden" name="userid" value="${meminfo.userid }" />
 <table>
 <tr>
-<td style="positon: absolute; padding-left: 50px;">프로필사진 </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><i class="fas fa-child"></i></td>
+<td style="positon: absolute; padding-left: 50px;">프로필사진 </td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<label>기존 첨부파일 : </label> ${memberFile.originName } <br>
+<label>사진 첨부 : <input type="file" name="file" /></label>
+</td>
 </tr>
 <tr>
-
 <td style="positon: absolute; padding-left: 50px;">휴대폰번호</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" name="userphone" value="${userphone }" /></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><input id="userphone" name="userphone" type="text" class="form-control" value="${meminfo.userphone }" /></td>
 
 </tr>
 <tr>
 <td style="positon: absolute; padding-left: 50px;">호스트 소개글</td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><input type="text" style="width:500px; height:100px;" value="${hostContent }" /></td>
+<td><input type="text" style="width:500px; height:100px;" class="form-control" value="${userid }" /></td>
 
 </tr>
 </table>
+
 <br>
-<table >
+<table>
 <tr>
 <td style="positon: absolute; padding: 50px;">전문분야</td>
 <td>
@@ -164,9 +184,12 @@ i {
 </td>
 </tr>
 </table>
+</form>
 <br>
-<button type="button" id="btnUpdate" class="btn btn-dark">수정</button>
+<div>
+<button type="submit" id="btnUpdate" class="btn btn-dark">수정</button>
 <button type="button" id="btnCancel" class="btn btn-dark">취소</button>
+</div>
 <br>
 </div>
 </div>

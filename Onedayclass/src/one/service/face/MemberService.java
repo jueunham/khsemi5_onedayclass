@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import one.dto.Member;
+import one.dto.MemberFile;
 
 public interface MemberService {
 
@@ -48,5 +49,9 @@ public interface MemberService {
 	 * @param member - 회원가입 정보 객체
 	 */
 	public void join(Member member);
+
+	public void updateinfo(HttpServletRequest req);
+
+	public MemberFile viewFile(Member member);
 
 }

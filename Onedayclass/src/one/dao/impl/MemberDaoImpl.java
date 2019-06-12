@@ -7,9 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import one.dao.face.MemberDao;
 import one.dbutil.DBConn;
+import one.dto.ClassFile;
 import one.dto.Member;
+import one.dto.MemberFile;
 
 public class MemberDaoImpl implements MemberDao {
 
@@ -94,6 +98,7 @@ public class MemberDaoImpl implements MemberDao {
 				member.setUserpw( rs.getString("userpw") );
 				member.setUsernum( rs.getInt("usernum") );
 				member.setUsername( rs.getString("username") );
+				member.setUserphone( rs.getString("userphone") );
 				member.setUserlevel( rs.getString("userlevel") );
 			}
 			
@@ -178,6 +183,104 @@ public class MemberDaoImpl implements MemberDao {
               
         return list;
         
+	}
+
+	@Override
+	public void updateinfo(Member member) {
+		
+			//쿼리작성
+			String sql = "";
+			sql += "UPDATE member";
+			sql += " SET userPhone = ? ";
+			sql += " WHERE userid = ?";
+			
+			try {
+				//DB작업
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, member.getUserphone());
+				ps.setString(2, member.getUserid());
+				ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				} finally {
+					try {
+						//DB객체 닫기
+						if(ps!=null)	ps.close();	
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+	}
+
+	@Override
+	public void insertFile(MemberFile memberFile) {
+		String sql = "";
+		sql += "INSERT INTO memberfile(fileno,userid,originname,storedname,filesize) ";
+		sql += " VALUES (memfile_seq.nextval, ?, ?, ?, ?)";
+		
+		try {
+			//DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, memberFile.getUserid());
+			ps.setString(2, memberFile.getOriginName());
+			ps.setString(3, memberFile.getStoredName());
+			ps.setLong(4, memberFile.getFilesize());
+
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//DB객체 닫기
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public MemberFile selectFile(Member meminfo) {
+		String sql = "";
+		sql += "SELECT * FROM memberFile";
+		sql += " WHERE userid = ?";
+		
+		MemberFile memberFile = new MemberFile();
+		
+		try {
+			//DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, meminfo.getUserid());
+
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+			
+				memberFile.setFileno( rs.getInt("fileno") );
+				memberFile.setUserid( rs.getString("userid") );
+				memberFile.setOriginName( rs.getString("originname") );
+				memberFile.setStoredName( rs.getString("storedname") );
+				memberFile.setFilesize( rs.getLong("filesize") );
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//DB객체 닫기
+				if(ps!=null)	ps.close();
+				if(rs!=null)	rs.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return memberFile;
 	}
 
 
