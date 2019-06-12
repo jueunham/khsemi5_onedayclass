@@ -45,7 +45,7 @@ public class CommentDaoImpl implements CommentDao {
 		try {
 			ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, commentList.getClassnum() );
+			ps.setInt(1, commentList.getClassNum() );
 
 			// ResultSet 반환
 			rs = ps.executeQuery();

@@ -74,7 +74,7 @@ public class ReviewServiceImpl implements ReviewService{
 				
 	
 		DayClass dayclass = new DayClass();
-		dayclass.setClassnum(classNum);
+		dayclass.setClassNum(classNum);
 				
 		return dayclass;
 	}

@@ -45,7 +45,7 @@ public class QuestionDaoImpl implements QuestionDao {
 		try {
 			ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, questionList.getClassnum());
+			ps.setInt(1, questionList.getClassNum());
 
 			// ResultSet 반환
 			rs = ps.executeQuery();

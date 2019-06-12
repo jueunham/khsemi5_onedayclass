@@ -175,7 +175,10 @@ $("#btnWrite").click(function() {
 		<tr>
 			<td><pre>${i.content }</pre></td>
 		</tr>
-		
+			
+		<tr>
+			<td>${i.reviewDate }</td>
+		</tr>
 		
 		
 		</tbody>

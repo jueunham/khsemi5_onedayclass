@@ -4,80 +4,79 @@ import java.sql.Date;
 
 public class DayClass {
 
-	private int classnum;
-	private String classname;
-	private String classcontent;
-	private Date classday;
-	private String classtime;
-	private String classplace;
-	private int classprice;
-	private int classrunningtime;
-	private int usernum;
-
+	private int classNum;
+	private String className;
+	private String classContent;
+	private Date classDay;
+	private Date classTime;
+	private String classPlace;
+	private int classPrice;
+	private int classRunningTime;
+	
+	
 	
 	
 	@Override
 	public String toString() {
-		return "DayClass [classnum=" + classnum + ", classname=" + classname + ", classcontent=" + classcontent
-				+ ", classday=" + classday + ", classtime=" + classtime + ", classplace=" + classplace + ", classprice="
-				+ classprice + ", classrunningtime=" + classrunningtime + ", usernum=" + usernum + "]";
+		return "DayClass [classNum=" + classNum + ", className=" + className + ", classContent=" + classContent
+				+ ", classDay=" + classDay + ", classTime=" + classTime + ", classPlace=" + classPlace + ", classPrice="
+				+ classPrice + ", classRunningTime=" + classRunningTime + "]";
 	}
 	
-	public int getClassnum() {
-		return classnum;
+	public int getClassNum() {
+		return classNum;
 	}
-	public void setClassnum(int classnum) {
-		this.classnum = classnum;
+	public void setClassNum(int classNum) {
+		this.classNum = classNum;
 	}
-	public String getClassname() {
-		return classname;
+	public String getClassName() {
+		return className;
 	}
-	public void setClassname(String classname) {
-		this.classname = classname;
+	public void setClassName(String className) {
+		this.className = className;
 	}
-	public String getClasscontent() {
-		return classcontent;
+	public String getClassContent() {
+		return classContent;
 	}
-	public void setClasscontent(String classcontent) {
-		this.classcontent = classcontent;
+	public void setClassContent(String classContent) {
+		this.classContent = classContent;
 	}
-	public Date getClassday() {
-		return classday;
+	public Date getClassDay() {
+		return classDay;
 	}
-	public void setClassday(Date classday) {
-		this.classday = classday;
+	public void setClassDay(Date classDay) {
+		this.classDay = classDay;
 	}
-	public String getClasstime() {
-		return classtime;
+	public Date getClassTime() {
+		return classTime;
 	}
-	public void setClasstime(String classtime) {
-		this.classtime = classtime;
+	public void setClassTime(Date classTime) {
+		this.classTime = classTime;
 	}
-	public String getClassplace() {
-		return classplace;
+	public String getClassPlace() {
+		return classPlace;
 	}
-	public void setClassplace(String classplace) {
-		this.classplace = classplace;
+	public void setClassPlace(String classPlace) {
+		this.classPlace = classPlace;
 	}
+	public int getClassPrice() {
+		return classPrice;
+	}
+	public void setClassPrice(int classPrice) {
+		this.classPrice = classPrice;
+	}
+	public int getClassRunningTime() {
+		return classRunningTime;
+	}
+	public void setClassRunningTime(int classRunningTime) {
+		this.classRunningTime = classRunningTime;
+	}
+	
 
-	public int getClassprice() {
-		return classprice;
-	}
-	public void setClassprice(int classprice) {
-		this.classprice = classprice;
-	}
-	public int getClassrunningtime() {
-		return classrunningtime;
-	}
-	public void setClassrunningtime(int classrunningtime) {
-		this.classrunningtime = classrunningtime;
-	}
-	public int getUsernum() {
-		return usernum;
-	}
-	public void setUsernum(int usernum) {
-		this.usernum = usernum;
-	}
+	
+	
+	
+	
 	
 	
 

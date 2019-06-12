@@ -74,62 +74,41 @@ $("#qbtnWrite").click(function() {
 <hr>
 <br>
 
-
+<c:forEach  items="${questionList}" var="q">
 <div id="person1" style="margin-left: 500px;">
 	<img id="q1" src="/picture/profile.png" style="float: left;"> 
 	
 	<div style="float: left; margin-left: 100px; width: 100px;">
-	<label>아이디</label><br><label>${userid }</label><br>
+	<label>아이디</label><br><label>${q.userNum }</label><br>
 	</div>
 	
 	<div style="float: left; margin-left: 100px;">
-	질문내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
-	${content }
-	
-	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
-</div>
-
-
-<div id="person2" style="margin-left: 500px;">
-	<img id="q1" src="/picture/profile.png" style="float: left;"> 
-	
-	<div style="float: left; margin-left: 100px; width: 100px;">
-	<label>아이디</label><br><label>${userid }</label><br>
-	</div>
-	
-	<div style="float: left; margin-left: 100px;">
-	질문내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
-	${content }
+	<table>
+		<tbody>
+		<tr>
+			<td> 질문번호 :${q.quesNum }</td>
+		</tr>
+		
+		<tr>
+			<td><pre>${q.content }</pre></td>
+		</tr>
+			
+		<tr>
+			<td>${q.quesDate }</td>
+		</tr>
+		
+		
+		</tbody>
+    		
+	</table>
 	
 	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
 </div>
+</c:forEach>
 
-
-<div id="person3" style="margin-left: 500px;">
-	<img id="q1" src="/picture/profile.png" style="float: left;"> 
-
-	<div style="float: left; margin-left: 100px; width: 100px;">
-	<label>아이디</label><br><label>${userid }</label><br>
-	</div>
-	
-	<div style="float: left; margin-left: 100px;">
-	질문내용:ㄴㄴㄴㄴㄴ<br>
-	ssa sdf<br>
-	dsfsdfsdfsdfsdf
-	
-	${content }
-	
-	</div><div style="clear: both;"></div><hr width="700px;" style="float: left; margin-left: 200px; "><br><br>
-</div>
 
 <div id="pasing" style="margin-left: 910px;">
-<c:import url="/WEB-INF/views/layout/ReviewPaging.jsp" />
+<c:import url="/WEB-INF/views/layout/QuestionPaging.jsp" />
 </div>
 
 <br><br><br><br><br><br><br>

@@ -36,7 +36,7 @@ public class ReviewInsertController extends HttpServlet {
 		
 		reviewService.insertReview(review);
 		
-		resp.sendRedirect("/classlist?reviewNum="+review.getClassNum());
+		resp.sendRedirect("/class/detail?classNum="+review.getClassNum());
 		
 	}
 	

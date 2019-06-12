@@ -1,6 +1,8 @@
 package one.controller.dayclass;
 
 import java.io.IOException;
+
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,10 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import one.dto.DayClass;
 import one.dto.Question;
 import one.dto.Review;
+import one.service.face.ClassService;
 import one.service.face.QuestionService;
 import one.service.face.ReviewService;
+import one.service.impl.ClassServiceImpl;
 import one.service.impl.QuestionServiceImpl;
 import one.service.impl.ReviewServiceImpl;
+
 
 
 
@@ -26,12 +31,20 @@ public class ClassDetailController extends HttpServlet {
 	
 	private ReviewService reviewService = new ReviewServiceImpl();
 	private QuestionService questionService = new QuestionServiceImpl();
+	private ClassService classService = new ClassServiceImpl();
 	
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		DayClass viewdayclass = reviewService.getdayClassNum(req);
-
+		//게시글 번호 파싱
+		DayClass viewdayclass = classService.getClassNum(req);
+		
+		//게시글 조회 및 MODEL로 게시글 전달
+		viewdayclass = classService.view(viewdayclass);
+		System.out.println(viewdayclass);
+		req.setAttribute("viewdayClass", viewdayclass);
+		
+		
 		//리뷰 리스트 전달
 		Review review = new Review();
 		List<Review> reviewList = reviewService.getReviewList(viewdayclass);

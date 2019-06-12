@@ -44,7 +44,7 @@ public class ReviewDaoImpl implements ReviewDao{
 		try {
 			ps = conn.prepareStatement(sql);
 
-			ps.setInt(1, reviewList.getClassnum());
+			ps.setInt(1, reviewList.getClassNum());
 
 			// ResultSet 반환
 			rs = ps.executeQuery();

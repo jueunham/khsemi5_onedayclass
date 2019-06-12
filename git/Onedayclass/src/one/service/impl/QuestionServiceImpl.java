@@ -61,6 +61,21 @@ public class QuestionServiceImpl implements QuestionService{
 		}
 	}
 
+	@Override
+	public DayClass getdayClassNum(HttpServletRequest req) {
+		String param = req.getParameter("classNum");
+		int classNum = 0;
+		if( param!=null && !"".equals(param) ) {
+			classNum = Integer.parseInt(param);
+		}
+				
+	
+		DayClass dayclass = new DayClass();
+		dayclass.setClassNum(classNum);
+				
+		return dayclass;
+	}
+
 
 	
 }

@@ -16,8 +16,8 @@ public interface ReviewService {
 	/**
 	 * 상세보기 리뷰 조회
 	 * 
-	 * @param viewBoard - 상세보기할 boardno를 가진 객체
-	 * @return Board - 상세보기할 게시글 조회 결과
+	 * @param viewclass - 상세보기할 classNum을 가진 객체
+	 * @return class - 상세보기할 게시글 조회 결과
 	 */
 	
 	public Review getReview(HttpServletRequest req);
