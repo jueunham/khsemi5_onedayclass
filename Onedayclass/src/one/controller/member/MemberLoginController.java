@@ -16,13 +16,13 @@ import one.service.impl.MemberServiceImpl;
 public class MemberLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//MemberService 객체
+	//MemberService 媛앹껜
 	private MemberService memberService = new MemberServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//VIEW 지정
+		//VIEW 吏��젙
 		req.getRequestDispatcher("/WEB-INF/views/member/login.jsp").forward(req, resp);		
 
 	}
@@ -30,25 +30,27 @@ public class MemberLoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//로그인 정보 얻어오기
+		//濡쒓렇�씤 �젙蹂� �뼸�뼱�삤湲�
 		Member member = memberService.getLoginMember(req);
 		System.out.println(member);
-		//로그인 인증
+		//濡쒓렇�씤 �씤利�
 		boolean login = memberService.login(member);
 		System.out.println(login);
 		if(login) {
-
-			//로그인 사용자 정보 얻어오기
-			member = memberService.getMemberByUserid(member);
 			
-			//세션정보 저장
+			Member loginMem = new Member();
+			//濡쒓렇�씤 �궗�슜�옄 �젙蹂� �뼸�뼱�삤湲�
+			loginMem = memberService.getMemberByUserid(member);
+			
+			//�꽭�뀡�젙蹂� ���옣
 			req.getSession().setAttribute("login", login);
-			req.getSession().setAttribute("userid", member.getUserid());
-			req.getSession().setAttribute("usernum", member.getUsernum());
+			req.getSession().setAttribute("userid", loginMem.getUserid());
+			req.getSession().setAttribute("usernum", loginMem.getUsernum());
+			System.out.println(loginMem.getUsernum());
 		}
 		
 		resp.sendRedirect("/main");
-				
+		
 	}
 	
 }
